@@ -113,6 +113,4 @@ public class Producto {
     public void setId_proveedor(int id_provedor) {
         this.id_proveedor = id_proveedor;
     }
-
-    
 }

@@ -202,34 +202,53 @@ public class ProductoDAO {
         }
         return producto;
     }
-    public List crear(){
-        List<Producto> producto = new ArrayList();
+    public void crear(Producto pr){
+        
         try{
             Conexcion  = new Conectar();
             Connection con = Conexcion.crearconexion();
             if(con != null){
                 System.out.println("se ha establecido la conexion con la base de datos");
             }
-            pstm = con.prepareStatement("insert into producto(nombre,Foto)");
-            rs = pstm.executeQuery();
-            while(rs.next()){
-                Producto p = new Producto();
-                p.setId(rs.getInt(1));
-                p.setNombre(rs.getString(2));
-                p.setFoto(rs.getString(3));
-                p.setDescripcion(rs.getString(4));
-                p.setFecha_vencimiento(rs.getInt(5));
-                p.setPrecio(rs.getInt(6));
-                p.setStock(rs.getInt(7));
-                p.setCategoria(rs.getInt(8));
-                p.setId_proveedor(rs.getInt(9));
-                producto.add(p);
-            }
+            pstm = con.prepareStatement("insert into producto(Nombre,Foto,Descripcion,Fecha_vencimiento,Precio,Stock,Id_proveedor) value(?,?,?,?,?,?,?)");            
+            pstm.setString(1, pr.getNombre());
+            pstm.setString(2, pr.getFoto());
+            pstm.setString(3, pr.getDescripcion());
+            pstm.setInt(4, pr.getFecha_vencimiento());
+            pstm.setInt(4, pr.getPrecio());
+            pstm.setInt(6, pr.getStock());
+            pstm.setInt(5, pr.getCategoria());
+            
+            pstm.executeUpdate();
             
 
         }catch(Exception e){
             System.out.println("Error al listar los prouctos" + e);
         }
-        return producto;
     }
+    public void editar(Producto pr){
+        
+        try{
+            Conexcion  = new Conectar();
+            Connection con = Conexcion.crearconexion();
+            if(con != null){
+                System.out.println("se ha establecido la conexion con la base de datos");
+            }
+            pstm = con.prepareStatement("update table producto(Nombre = ?,Foto = ?,Descripcion = ?,Fecha_vencimiento = ?,Precio = ?,Stock = ?,Id_proveedor = ?)");            
+            pstm.setString(1, pr.getNombre());
+            pstm.setString(2, pr.getFoto());
+            pstm.setString(3, pr.getDescripcion());
+            pstm.setInt(4, pr.getFecha_vencimiento());
+            pstm.setInt(4, pr.getPrecio());
+            pstm.setInt(6, pr.getStock());
+            pstm.setInt(5, pr.getCategoria());
+            
+            pstm.executeUpdate();
+            
+
+        }catch(Exception e){
+            System.out.println("Error al listar los prouctos" + e);
+        }
+    }
+    
 }
