@@ -7,26 +7,33 @@ package Modelo;
 
 /**
  *
- * @author HPLAPTOP01
+ * @author SENA
  */
-public class Usuario {
+public class Usuarios {
     String id;
     String nombre;
     String apellido;
+    String fecha_nacimiento;
+    String identificacion;
     String direccion;
     String telefono;
     String correo;
     String usuario;
     String contrasena;
     String tipo;
-    
-    public Usuario() {
-    }
 
-    public Usuario(String id, String nombre, String apellido, String direccion, String telefono, String correo, String usuario, String contrasena, String tipo) {
+   
+
+
+    public Usuarios() {
+    }
+    
+    public Usuarios(String id, String nombre, String apellido, String fecha_nacimiento, String identificacion, String direccion, String telefono, String correo, String usuario, String contrasena, String tipo) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
+        this.fecha_nacimiento = fecha_nacimiento;
+        this.identificacion = identificacion;
         this.direccion = direccion;
         this.telefono = telefono;
         this.correo = correo;
@@ -34,16 +41,8 @@ public class Usuario {
         this.contrasena = contrasena;
         this.tipo = tipo;
     }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
-    public String getId() {
+    
+     public String getId() {
         return id;
     }
 
@@ -67,6 +66,22 @@ public class Usuario {
         this.apellido = apellido;
     }
 
+    public String getFecha_nacimiento() {
+        return fecha_nacimiento;
+    }
+
+    public void setFecha_nacimiento(String fecha_nacimiento) {
+        this.fecha_nacimiento = fecha_nacimiento;
+    }
+
+    public String getIdentificacion() {
+        return identificacion;
+    }
+
+    public void setIdentificacion(String identificacion) {
+        this.identificacion = identificacion;
+    }
+
     public String getDireccion() {
         return direccion;
     }
@@ -81,6 +96,14 @@ public class Usuario {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
     public String getUsuario() {
@@ -106,6 +129,5 @@ public class Usuario {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-      
-      
+    
 }

@@ -78,14 +78,28 @@
 
     </style>
 </head>
+<%String Mensaje = "";
+    if (request.getParameter("ingreso")!= null){
+        int i = Integer.parseInt(request.getParameter("ingreso"));
+        if (i == 0){
+            Mensaje = "Error: Datos Incorectos";
+        }
+    }
+    %>
 <body>
-    <div class="login-container">
-        
+    
+    <div class="login-container" >
+
         <img src="https://i.pinimg.com/236x/8d/59/9e/8d599e77e07f1d4a7f48a42926893e06.jpg" >
-           <h2>BIENVENIDO</h2>
-        <form>
-            <input class="usuario" type="text" placeholder="Usuario" required> 
-            <input class="usuario" type="password" placeholder="Contraseña" required>
-            <button type="submit">Iniciar Sesión</button>
+        <h2>BIENVENIDO</h2>
+        <form class="form-sing" action="/Estanco_web/Cvalidar" method="post">
+            <input class="usuario" type="text" name="txtuser" class="form-control" placeholder="Usuario" required> 
+            <input class="usuario" type="password" name="txtpass" class="form-control" placeholder="Contraseña" required>
+           <center>
+                <input type="submit" name="accion" value="Ingresar" class="btn btn-primary btn-block">
+                <p style="Color: red;"><%=Mensaje%></p>
+           </center>
             <a href="#">Registrarse</a>
         </form>
+    </div>
+</body>
