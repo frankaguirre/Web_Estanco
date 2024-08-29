@@ -255,7 +255,7 @@ public class ProductoDAO {
                 System.out.println("Se ha establecido una conexcion con la base de datos");
 
             }
-            pstm = con.prepareStatement("update producto set Nombre=?, Descripcion=?, Foto=?, Precio=?, Categoria=?, Stock=? where id = ?");
+            pstm = con.prepareStatement("update producto set Nombre = ?, Descripcion = ?, Foto = ?, Precio = ?, Categoria = ?, Stock = ? where id = ?");
             pstm.setString(1, pro.getNombre());
             pstm.setString(2, pro.getDescripcion());
             pstm.setString(3, pro.getFoto());
