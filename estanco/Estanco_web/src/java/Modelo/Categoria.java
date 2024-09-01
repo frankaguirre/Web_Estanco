@@ -7,10 +7,10 @@ package Modelo;
 
 /**
  *
- * @author HPLAPTOP01
+ * @author ALEANDRES RODRIGUEZ
  */
 public class Categoria {
-    private int id;
+     private int id;
     private String nombre;
     private String descripcion;
 
@@ -46,6 +46,4 @@ public class Categoria {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    
-    
 }

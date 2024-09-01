@@ -10,17 +10,20 @@ import Modelo.UsuarioDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
- * @author HPLAPTOP01
+ * @author ALEANDRES RODRIGUEZ
  */
+@WebServlet(name = "CtrValidar_1", urlPatterns = {"/CtrValidar_1"})
 public class CtrValidar extends HttpServlet {
+    UsuarioDAO usudao = new UsuarioDAO();
+    Usuario us = new Usuario();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,10 +34,6 @@ public class CtrValidar extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
-    UsuarioDAO usudao = new UsuarioDAO();
-    Usuario us = new Usuario();
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -75,40 +74,35 @@ public class CtrValidar extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    public static boolean verificarcontrasena (String password, String contrasenaencriptada){
-        return BCrypt.checkpw(password, contrasenaencriptada);
-    }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String accion = request.getParameter("accion");
+         String accion = request.getParameter("accion");
         if (accion.equalsIgnoreCase("Ingresar")) {
             HttpSession sesion = request.getSession();
             String usu = request.getParameter("txtuser");
             String pas = request.getParameter("txtpass");
+
             us = usudao.validar(usu, pas);
             if (us.getUsuario() != null) {
-                System.out.println("usuario: "+us.getContrasena());
-                System.out.println("contraseña: "+pas);
-                boolean verificarpassword = verificarcontrasena(pas, us.getContrasena());
-                if (verificarpassword) {
+                if (us.getContrasena().equals(pas)) {
                     sesion.setAttribute("log", '1');
                     sesion.setAttribute("User", us.getUsuario());
                     sesion.setAttribute("tipo", us.getTipo());
                     sesion.setAttribute("id", us.getId());
                     sesion.setAttribute("correo", us.getCorreo());
-                    System.out.println("correo: "+us.getCorreo());
                     sesion.setAttribute("usuario", us);
-                    if (us.getTipo().equals("Administrador")) {
-                        response.sendRedirect("/AppWeb/Vistas/VentasAdmin.jsp");
-                    }
-                    if (us.getTipo().equals("Cliente")) {
-                        response.sendRedirect("/AppWeb/Vistas/VentasCliente.jsp");
-                    }
-                }
 
+                    if (us.getTipo().equals("administrador")) {
+                        response.sendRedirect("/Estanco_web/vista/VentasAdmin.jsp");
+                    } else if (us.getTipo().equals("cliente")) {
+                        response.sendRedirect("/Estanco_web/vista/VentasCliente.jsp");
+                    }
+                } else {
+                    response.sendRedirect("/Estanco_web/vista/Login.jsp?ingreso=0");
+                }
             } else {
-                response.sendRedirect("/AppWeb/Vistas/Loggin.jsp?ingreso=0");
+                response.sendRedirect("/Estanco_web/vista/Login.jsp?ingreso=0");
             }
         }
     }

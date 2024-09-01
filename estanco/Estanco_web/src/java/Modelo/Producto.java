@@ -7,85 +7,104 @@ package Modelo;
 
 /**
  *
- * @author HPLAPTOP01
+ * @author ALEANDRES RODRIGUEZ
  */
 public class Producto {
-    private int id;
-    private String nombre;
-    private String foto;
-    private String descripcion;
-    private int precio;
-    private int stok;
-    private int categoria;
+    private int Id;
+    private String Nombre;
+    private String Foto;
+    private String Descripcion;
+    private String Fecha_vencimiento;
+    private int Precio;
+    private int Stock;
+    private int Categoria;
+    private int Id_proveedor;
 
     public Producto() {
     }
 
-    public Producto(int id, String nombre, String foto, String descripcion, int precio, int stok, int categoria) {
-        this.id = id;
-        this.nombre = nombre;
-        this.foto = foto;
-        this.descripcion = descripcion;
-        this.precio = precio;
-        this.stok = stok;
-        this.categoria = categoria;
-    }
-
-    public int getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(int categoria) {
-        this.categoria = categoria;
+    public Producto(int Id, String Nombre, String Foto, String Descripcion, String Fecha_vencimiento, int Precio, int Stock, int Categoria, int Id_proveedor) {
+        this.Id = Id;
+        this.Nombre = Nombre;
+        this.Foto = Foto;
+        this.Descripcion = Descripcion;
+        this.Fecha_vencimiento = Fecha_vencimiento;
+        this.Precio = Precio;
+        this.Stock = Stock;
+        this.Categoria = Categoria;
+        this.Id_proveedor = Id_proveedor;
     }
 
     public int getId() {
-        return id;
+        return Id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int Id) {
+        this.Id = Id;
     }
 
     public String getNombre() {
-        return nombre;
+        return Nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombre(String Nombre) {
+        this.Nombre = Nombre;
     }
 
     public String getFoto() {
-        return foto;
+        return Foto;
     }
 
-    public void setFoto(String foto) {
-        this.foto = foto;
+    public void setFoto(String Foto) {
+        this.Foto = Foto;
     }
 
     public String getDescripcion() {
-        return descripcion;
+        return Descripcion;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescripcion(String Descripcion) {
+        this.Descripcion = Descripcion;
+    }
+
+    public String getFecha_vencimiento() {
+        return Fecha_vencimiento;
+    }
+
+    public void setFecha_vencimiento(String Fecha_vencimiento) {
+        this.Fecha_vencimiento = Fecha_vencimiento;
     }
 
     public int getPrecio() {
-        return precio;
+        return Precio;
     }
 
-    public void setPrecio(int precio) {
-        this.precio = precio;
+    public void setPrecio(int Precio) {
+        this.Precio = Precio;
     }
 
-    public int getStok() {
-        return stok;
+    public int getStock() {
+        return Stock;
     }
 
-    public void setStok(int stok) {
-        this.stok = stok;
+    public void setStock(int Stock) {
+        this.Stock = Stock;
     }
-    
+
+    public int getCategoria() {
+        return Categoria;
+    }
+
+    public void setCategoria(int Categoria) {
+        this.Categoria = Categoria;
+    }
+
+    public int getId_proveedor() {
+        return Id_proveedor;
+    }
+
+    public void setId_proveedor(int Id_proveedor) {
+        this.Id_proveedor = Id_proveedor;
+    }
     
 }

@@ -5,17 +5,16 @@
  */
 package Configuracion;
 
-import  java.sql.DriverManager;
 import java.sql.Connection;
+import java.sql.DriverManager;
 
 /**
  *
- * @author HPLAPTOP01
+ * @author ALEANDRES RODRIGUEZ
  */
 public class Conectar {
-    
     private String driver ="com.mysql.jdbc.Driver";
-    private String CadenaConeccion = "jdbc:mysql://localhost/software";
+    private String CadenaConeccion = "jdbc:mysql://localhost/estancoweb";
     private String usuario = "root";
     private String contrasena="";
     public Connection con;

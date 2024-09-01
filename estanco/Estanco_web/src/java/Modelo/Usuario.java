@@ -7,105 +7,115 @@ package Modelo;
 
 /**
  *
- * @author HPLAPTOP01
+ * @author ALEANDRES RODRIGUEZ
  */
 public class Usuario {
-    String id;
-    String nombre;
-    String apellido;
-    String direccion;
-    String telefono;
-    String correo;
-    String usuario;
-    String contrasena;
-    String tipo;
-    
+    int Id;
+    String Nombre;
+    String Apellido;
+    String Fecha_nacimiento;
+    String Direccion;
+    String Telefono;
+    String Correo;
+    String Usuario;
+    String Contrasena;
+    String Tipo;
+
     public Usuario() {
     }
 
-    public Usuario(String id, String nombre, String apellido, String direccion, String telefono, String correo, String usuario, String contrasena, String tipo) {
-        this.id = id;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.direccion = direccion;
-        this.telefono = telefono;
-        this.correo = correo;
-        this.usuario = usuario;
-        this.contrasena = contrasena;
-        this.tipo = tipo;
+    public Usuario(int Id, String Nombre, String Apellido, String Fecha_nacimiento, String Direccion, String Telefono, String Correo, String Usuario, String Contrasena, String Tipo) {
+        this.Id = Id;
+        this.Nombre = Nombre;
+        this.Apellido = Apellido;
+        this.Fecha_nacimiento = Fecha_nacimiento;
+        this.Direccion = Direccion;
+        this.Telefono = Telefono;
+        this.Correo = Correo;
+        this.Usuario = Usuario;
+        this.Contrasena = Contrasena;
+        this.Tipo = Tipo;
     }
 
-    public String getCorreo() {
-        return correo;
+    public int getId() {
+        return Id;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+    public void setId(int Id) {
+        this.Id = Id;
     }
 
     public String getNombre() {
-        return nombre;
+        return Nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombre(String Nombre) {
+        this.Nombre = Nombre;
     }
 
     public String getApellido() {
-        return apellido;
+        return Apellido;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setApellido(String Apellido) {
+        this.Apellido = Apellido;
+    }
+    
+
+    public String getFecha_nacimiento() {
+        return Fecha_nacimiento;
+    }
+
+    public void setFecha_nacimiento(String Fecha_nacimiento) {
+        this.Fecha_nacimiento = Fecha_nacimiento;
     }
 
     public String getDireccion() {
-        return direccion;
+        return Direccion;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setDireccion(String Direccion) {
+        this.Direccion = Direccion;
     }
 
     public String getTelefono() {
-        return telefono;
+        return Telefono;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setTelefono(String Telefono) {
+        this.Telefono = Telefono;
+    }
+
+    public String getCorreo() {
+        return Correo;
+    }
+
+    public void setCorreo(String Correo) {
+        this.Correo = Correo;
     }
 
     public String getUsuario() {
-        return usuario;
+        return Usuario;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setUsuario(String Usuario) {
+        this.Usuario = Usuario;
     }
 
     public String getContrasena() {
-        return contrasena;
+        return Contrasena;
     }
 
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
+    public void setContrasena(String Contrasena) {
+        this.Contrasena = Contrasena;
     }
 
     public String getTipo() {
-        return tipo;
+        return Tipo;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setTipo(String Tipo) {
+        this.Tipo = Tipo;
     }
-      
-      
+    
 }

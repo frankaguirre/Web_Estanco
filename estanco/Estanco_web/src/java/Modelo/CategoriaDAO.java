@@ -14,22 +14,21 @@ import java.util.List;
 
 /**
  *
- * @author HPLAPTOP01
+ * @author ALEANDRES RODRIGUEZ
  */
 public class CategoriaDAO {
-    
     Connection con;
     PreparedStatement pstm;
-    Conectar Conexcion;
+    Conectar Conexion;
     ResultSet rs;
     
-    public List listar(){
+    public List Listar(){
         List<Categoria> categoria = new ArrayList();
         try {
-            Conexcion = new Conectar();
-            Connection con = Conexcion.crearconexion();
+            Conexion = new Conectar();
+            Connection con = Conexion.crearconexion();
             if (con != null) {
-                System.out.println("Se ha establecido una conexcion con la base de datos");
+                System.out.println("Se ha establecido una conexion con la base de datos");
 
             }
             pstm = con.prepareStatement("select * from categoria");
@@ -43,7 +42,7 @@ public class CategoriaDAO {
             }
 
         } catch (Exception e) {
-            System.out.println("Error al listar las categoriasos " + e);
+            System.out.println("Error al listar las categorias " + e);
         }
         return categoria;
     }
