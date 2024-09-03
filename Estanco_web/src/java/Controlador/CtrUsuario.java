@@ -5,8 +5,11 @@
  */
 package Controlador;
 
+import Modelo.Usuario;
+import Modelo.UsuarioDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,6 +22,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "CtrUsuario_1", urlPatterns = {"/CtrUsuario_1"})
 public class CtrUsuario extends HttpServlet {
+    UsuarioDAO dao = new UsuarioDAO();
+    Usuario us = new Usuario();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -58,7 +63,13 @@ public class CtrUsuario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        List<Usuario> list = dao.listar();
+        String id, nomb, ape, dir, tel, cor, usu, pas, tip;
+        String accion = request.getParameter("accion");
+        System.out.println("accion: "+accion);
+        switch (accion){
+            
+        }
     }
 
     /**

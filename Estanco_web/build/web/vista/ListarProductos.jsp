@@ -123,6 +123,11 @@
                             <i class="bi bi-question-circle"></i> Ayuda
                         </a>
                     </li>
+                    <li>
+                        <a href="/Estanco_web/CtrProducto?accion=salir">
+                            <i class="bi bi-box-arrow-left"></i> Salir
+                        </a>
+                    </li>
                 </ul>
                 <div class="user-account">
                     <div class="user-profile">

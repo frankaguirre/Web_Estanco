@@ -19,7 +19,7 @@
         <!-- Header -->
         <header>
             <nav class="navbar navbar-dark bg-dark justify-content-between px-3">
-                <a href="/Estanco_web/CtrProducto?accion=inicio" class="navbar-brand">Inicio</a>
+                <a href="#" class="navbar-brand">Inicio</a>
                 <div class="d-flex align-items-center">
                     <a href="/Estanco_web/vista/CarritoInicio.jsp" class="nav-link"><i class="bi bi-cart3"></i> Carrito</a>
                     <a href="#" class="nav-link">Ofertas</a>
