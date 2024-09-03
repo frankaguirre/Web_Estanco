@@ -9,6 +9,8 @@ import Configuracion.Conectar;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -52,5 +54,62 @@ public class UsuarioDAO {
            System.out.println("Error al conectarse con la base de datos: "+e);
        }
        return usua;
+    }
+    public List listar(){
+        ArrayList<Usuario> list = new ArrayList<>();
+        try{
+            Conexion = new Conectar();
+           Connection con = Conexion.crearconexion();
+           if (con != null){
+               System.out.println("Se ha establecido una conexcion con la base de datos");
+           }
+           pstm = con.prepareStatement("select * from usuarios");
+           rs = pstm.executeQuery();
+           while(rs.next()){
+               Usuario usu = new Usuario();
+               usu.setId(rs.getInt(1));
+               usu.setNombre(rs.getString(2));
+               usu.setApellido(rs.getString(3));
+               usu.setFecha_nacimiento(rs.getString(4));
+               usu.setDireccion(rs.getString(5));
+               usu.setTelefono(rs.getString(6));
+               usu.setCorreo(rs.getString(7));
+               usu.setUsuario(rs.getString(8));
+               usu.setTipo(rs.getString(9));
+               list.add(usu);
+           }
+        }catch(Exception e){
+            System.out.println("Error al listar los usuarios");
+        }
+        return list;
+    }
+    public List listar(String nombre){
+        ArrayList<Usuario> list = new ArrayList<>();
+        nombre = "%"+nombre+"%";
+        try{
+            Conexion = new Conectar();
+           Connection con = Conexion.crearconexion();
+           if (con != null){
+               System.out.println("Se ha establecido una conexcion con la base de datos");
+           }
+           pstm = con.prepareStatement("select * from usuarios where nombre like ?");
+           pstm.setString(1, nombre);
+           rs = pstm.executeQuery();
+           while(rs.next()){
+               Usuario usu = new Usuario();
+               usu.setId(rs.getInt(1));
+               usu.setNombre(rs.getString(2));
+               usu.setApellido(rs.getString(3));
+               usu.setDireccion(rs.getString(4));
+               usu.setTelefono(rs.getString(5));
+               usu.setCorreo(rs.getString(6));
+               usu.setUsuario(rs.getString(7));
+               usu.setTipo(rs.getString(9));
+               list.add(usu);
+           }
+        }catch(Exception e){
+            System.out.println("Error al listar los usuarios por nombre");
+        }
+        return list;
     }
 }

@@ -10,6 +10,11 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <link href="../css/admin.css" rel="stylesheet" type="text/css"/>
     </head>
+    <%
+        if (session.getAttribute("log") == null || session.getAttribute("log").equals('0')){
+            response.sendRedirect("../vista/Login.jsp");
+        }
+    %>
     <body>
         <div class="wrapper">
             <aside class="sidebar">
@@ -20,7 +25,7 @@
                 <ul class="sidebar-links">
                     <div class="menu-separator"></div>
                     <li>
-                        <a href="/Estanco_web/CtrProducto?accion=inicio">
+                        <a href="#=inicio">
                             <i class="bi bi-house-door"></i> Inicio
                         </a>
                     </li>

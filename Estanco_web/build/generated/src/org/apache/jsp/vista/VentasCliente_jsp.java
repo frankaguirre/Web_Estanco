@@ -100,10 +100,6 @@ public final class VentasCliente_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("                <div class=\"content\">\r\n");
       out.write("                    <div class=\"title\">TODO TIPO</div>\r\n");
       out.write("                    <div class=\"topic\">DE CERVEZAS</div>\r\n");
-      out.write("                    <div class=\"des\">\r\n");
-      out.write("                        Descubre nuestra amplia variedad de cervezas para satisfacer tus gustos y preferencias.\r\n");
-      out.write("                        <br> Tenemos una selección de las mejores marcas y estilos de cervezas para disfrutar en cualquier momento.\r\n");
-      out.write("                    </div>\r\n");
       out.write("                </div>\r\n");
       out.write("            </div>\r\n");
       out.write("            <div class=\"item\">\r\n");
@@ -111,10 +107,6 @@ public final class VentasCliente_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("                <div class=\"content\">\r\n");
       out.write("                    <div class=\"title\">Licores</div>\r\n");
       out.write("                    <div class=\"topic\">Y RON</div>\r\n");
-      out.write("                    <div class=\"des\">Descubre nuestra amplia variedad de licores para crear tus cócteles favoritos o disfrutar en su pureza. Tenemos una selección de las mejores marcas y tipos de licores para satisfacer tus gustos.\r\n");
-      out.write("                        <br>Aguardiente: El clásico licor colombiano, perfecto para acompañar tus momentos con amigos.\r\n");
-      out.write("                        <br>Ron Medellín: Un ron suave y afrutado, ideal para disfrutar solo o con tus cócteles favoritos.\r\n");
-      out.write("                    </div>\r\n");
       out.write("                </div>\r\n");
       out.write("            </div>\r\n");
       out.write("            <div class=\"item\">\r\n");
@@ -122,9 +114,6 @@ public final class VentasCliente_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("                <div class=\"content\">\r\n");
       out.write("                    <div class=\"title\">MECATOS</div>\r\n");
       out.write("                    <div class=\"topic\">Y MÁS...</div>\r\n");
-      out.write("                    <div class=\"des\">\r\n");
-      out.write("                        Disfruta de la mejor selección de mecatos para acompañar tus momentos especiales. <br>Encontrarás una variedad de marcas y sabores para satisfacer tus antojos. <br>Desde los clásicos mecatos hasta las opciones más exóticas, tenemos los mecatos perfectos para ti!!\r\n");
-      out.write("                    </div>\r\n");
       out.write("                </div>\r\n");
       out.write("            </div>\r\n");
       out.write("            <div class=\"item\">\r\n");
@@ -132,8 +121,6 @@ public final class VentasCliente_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("                <div class=\"content\">\r\n");
       out.write("                    <div class=\"title\">GASEOSAS</div>\r\n");
       out.write("                    <div class=\"topic\">Y ENERGIZANTES</div>\r\n");
-      out.write("                    <div class=\"des\">Refresca y revitaliza con nuestra variedad de gaseosas y bebidas energizantes. <br>Encontrarás las mejores marcas y sabores para satisfacer tus antojos y necesidades.\r\n");
-      out.write("                    </div>\r\n");
       out.write("                </div>\r\n");
       out.write("            </div>\r\n");
       out.write("        </div>\r\n");
