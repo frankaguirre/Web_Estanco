@@ -5,10 +5,22 @@
         <group>
             <file>file:/C:/Users/ALEANDRES%20RODRIGUEZ/OneDrive/Desktop/aa/Web_Estanco/estanco/Estanco_web/src/java/Controlador/CtrProducto.java</file>
             <file>file:/C:/Users/ALEANDRES%20RODRIGUEZ/OneDrive/Desktop/aa/Web_Estanco/estanco/Estanco_web/src/java/Modelo/UsuarioDAO.java</file>
+            <file>file:/C:/Users/ALEANDRES%20RODRIGUEZ/OneDrive/Desktop/aa/Web_Estanco/estanco/Estanco_web/web/css/admin.css</file>
+            <file>file:/C:/Users/ALEANDRES%20RODRIGUEZ/OneDrive/Desktop/aa/Web_Estanco/estanco/Estanco_web/web/vista/PedidosAdmin.jsp</file>
             <file>file:/C:/Users/ALEANDRES%20RODRIGUEZ/OneDrive/Desktop/aa/Web_Estanco/estanco/Estanco_web/src/java/Controlador/CtrValidar.java</file>
             <file>file:/C:/Users/ALEANDRES%20RODRIGUEZ/OneDrive/Desktop/aa/Web_Estanco/estanco/Estanco_web/web/vista/Inicio.jsp</file>
-            <file>file:/C:/Users/ALEANDRES%20RODRIGUEZ/OneDrive/Desktop/aa/Web_Estanco/estanco/Estanco_web/src/java/Modelo/ProductoDAO.java</file>
             <file>file:/C:/Users/ALEANDRES%20RODRIGUEZ/OneDrive/Desktop/aa/Web_Estanco/estanco/Estanco_web/web/vista/Login.jsp</file>
+            <file>file:/C:/Users/ALEANDRES%20RODRIGUEZ/OneDrive/Desktop/aa/Web_Estanco/estanco/Estanco_web/web/vista/VentasCliente.jsp</file>
+            <file>file:/C:/Users/ALEANDRES%20RODRIGUEZ/OneDrive/Desktop/aa/Web_Estanco/estanco/Estanco_web/src/java/Modelo/Usuario.java</file>
+            <file>file:/C:/Users/ALEANDRES%20RODRIGUEZ/OneDrive/Desktop/aa/Web_Estanco/estanco/Estanco_web/src/java/Controlador/CtrUsuario.java</file>
+            <file>file:/C:/Users/ALEANDRES%20RODRIGUEZ/OneDrive/Desktop/aa/Web_Estanco/estanco/Estanco_web/web/vista/ListarUsuario.jsp</file>
+            <file>file:/C:/Users/ALEANDRES%20RODRIGUEZ/OneDrive/Desktop/aa/Web_Estanco/estanco/Estanco_web/src/java/Modelo/Producto.java</file>
+            <file>file:/C:/Users/ALEANDRES%20RODRIGUEZ/OneDrive/Desktop/aa/Web_Estanco/estanco/Estanco_web/web/vista/VentasAdmin.jsp</file>
+            <file>file:/C:/Users/ALEANDRES%20RODRIGUEZ/OneDrive/Desktop/aa/Web_Estanco/estanco/Estanco_web/web/vista/CarritoInicio.jsp</file>
+            <file>file:/C:/Users/ALEANDRES%20RODRIGUEZ/OneDrive/Desktop/aa/Web_Estanco/estanco/Estanco_web/src/java/Modelo/ProductoDAO.java</file>
+            <file>file:/C:/Users/ALEANDRES%20RODRIGUEZ/OneDrive/Desktop/aa/Web_Estanco/estanco/Estanco_web/web/css/inicio.css</file>
+            <file>file:/C:/Users/ALEANDRES%20RODRIGUEZ/OneDrive/Desktop/aa/Web_Estanco/estanco/Estanco_web/web/vista/ListarProveedor.jsp</file>
+            <file>file:/C:/Users/ALEANDRES%20RODRIGUEZ/OneDrive/Desktop/aa/Web_Estanco/estanco/Estanco_web/web/vista/ListarProductos.jsp</file>
         </group>
     </open-files>
 </project-private>
