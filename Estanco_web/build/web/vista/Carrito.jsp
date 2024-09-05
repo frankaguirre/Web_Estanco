@@ -36,7 +36,7 @@
             font-size: 1.1rem;
         }
         .cart-summary div {
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
         .cart-total {
             font-size: 1.25rem;
@@ -47,7 +47,7 @@
             width: 48%; 
         }
         .product-list table {
-            width: 100%;
+            width: 98%;
         }
         .product-list th, .product-list td {
             padding: 10px;
