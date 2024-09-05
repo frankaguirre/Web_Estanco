@@ -22,7 +22,7 @@
             align-items: flex-start; 
         }
         .cart-image {
-            width: 60; 
+            width: 80; 
         }
         .cart-image img {
             max-width: 120%;
@@ -32,7 +32,7 @@
             width: 70%; 
         }
         .cart-summary {
-            margin-top: 20px;
+            margin-top: 30px;
             font-size: 1.1rem;
         }
         .cart-summary div {
