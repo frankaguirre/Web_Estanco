@@ -45,7 +45,7 @@
             font-size: 1.1rem;
         }
         .cart-summary div {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
         .cart-total {
             font-size: 1.25rem;
