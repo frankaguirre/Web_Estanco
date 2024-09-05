@@ -22,7 +22,7 @@
         .cart-container {
             max-width: 1200px;
             margin: 20px auto;
-            background-color:#E9ECEF; 
+            background-color:#ffffff; 
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
@@ -34,7 +34,7 @@
             width: 60%; /* Ajusta el ancho de la imagen según tus necesidades */
         }
         .cart-image img {
-            max-width: 160%;
+            max-width: 300%;
             border-radius: 8px;
         }
         .product-list, .cart-summary {

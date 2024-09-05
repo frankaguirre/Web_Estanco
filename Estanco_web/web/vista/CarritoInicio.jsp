@@ -45,7 +45,7 @@
 
             .container {
                 background: #ffffff;
-                padding: 40px;
+                padding: 20px;
                 border-radius: 10px;
                 box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
                 margin-top: 30px;
@@ -55,11 +55,11 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                height: 400px;
+                height: 350px;
             }
 
             .empty-cart img {
-                max-width: 300px;
+                max-width: 350px;
                 margin-right: 50px;
             }
 
