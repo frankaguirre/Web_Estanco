@@ -59,7 +59,7 @@
             width: 100%;
         }
         .product-list th, .product-list td {
-            padding: 10px;
+            padding: 15px;
             text-align: left;
         }
         .product-list th {
