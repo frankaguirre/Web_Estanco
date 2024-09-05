@@ -22,7 +22,7 @@
         .cart-container {
             max-width: 1200px;
             margin: 20px auto;
-            background-color:#E9ECEF; 
+            background-color:#ffffff; 
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 

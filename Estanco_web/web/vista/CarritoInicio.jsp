@@ -17,9 +17,12 @@
         <title>Inicia Sesíon para realizar tus compras</title>
         <style>
             body {
-                background: linear-gradient(120deg, #f0f4f8, #d9e2ec);
-                font-family: 'Roboto', sans-serif;
-                color: #343a40;
+               height: 100%;
+            margin: 0;
+            background-image: url('../imagenes/imagencarrito.jpg');
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
             }
 
             header {
@@ -42,7 +45,7 @@
 
             .container {
                 background: #ffffff;
-                padding: 40px;
+                padding: 20px;
                 border-radius: 10px;
                 box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
                 margin-top: 30px;
@@ -52,11 +55,11 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                height: 400px;
+                height: 350px;
             }
 
             .empty-cart img {
-                max-width: 300px;
+                max-width: 350px;
                 margin-right: 50px;
             }
 
@@ -111,7 +114,7 @@
 
         <div class="container mt-4">
             <div class="empty-cart">
-                <img src="../imagenes/carrito.jpg" alt=""/>
+                <img src="../imagenes/carrito.jpeg" alt=""/>
                 <div>
                     <h2>Inicia sesión para realizar tus compras</h2>
                     <a href="URL_DE_INICIO_SESION">Inicia sesión aquí</a> o <a href="URL_DE_CREAR_CUENTA">crea una cuenta</a>.
