@@ -57,6 +57,7 @@
         }
         .product-list table {
             width: 100%;
+             background-color: #e9ecef;
         }
         .product-list th, .product-list td {
             padding: 15px;
