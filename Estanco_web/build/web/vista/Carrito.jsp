@@ -19,17 +19,17 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
             display: flex; 
             gap: 20px; 
-            align-items: flex-start; /* Alinea los elementos al principio del contenedor */
+            align-items: flex-start; 
         }
         .cart-image {
-            width: 30%; /* Ajusta el ancho de la imagen según tus necesidades */
+            width: 60; 
         }
         .cart-image img {
             max-width: 100%;
             border-radius: 8px;
         }
         .product-list, .cart-summary {
-            width: 70%; /* Ajusta el ancho del contenido del carrito */
+            width: 70%; 
         }
         .cart-summary {
             margin-top: 20px;
