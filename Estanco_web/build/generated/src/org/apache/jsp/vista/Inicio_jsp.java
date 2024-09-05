@@ -58,7 +58,7 @@ public final class Inicio_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <!-- Header -->\r\n");
       out.write("        <header>\r\n");
       out.write("            <nav class=\"navbar navbar-dark bg-dark justify-content-between px-3\">\r\n");
-      out.write("                <a href=\"/Estanco_web/CtrProducto?accion=inicio\" class=\"navbar-brand\">Inicio</a>\r\n");
+      out.write("                <a href=\"#\" class=\"navbar-brand\">Inicio</a>\r\n");
       out.write("                <div class=\"d-flex align-items-center\">\r\n");
       out.write("                    <a href=\"/Estanco_web/vista/CarritoInicio.jsp\" class=\"nav-link\"><i class=\"bi bi-cart3\"></i> Carrito</a>\r\n");
       out.write("                    <a href=\"#\" class=\"nav-link\">Ofertas</a>\r\n");

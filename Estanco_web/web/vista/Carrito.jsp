@@ -1,9 +1,3 @@
-<%-- 
-    Document   : CarCliente
-    Created on : 16/08/2024, 01:20:26 AM
-    Author     : Omar
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,9 +19,17 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
             display: flex; 
             gap: 20px; 
+            align-items: flex-start; /* Alinea los elementos al principio del contenedor */
         }
-        .cart-summary, .product-list {
-            width: 50%; 
+        .cart-image {
+            width: 30%; /* Ajusta el ancho de la imagen según tus necesidades */
+        }
+        .cart-image img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        .product-list, .cart-summary {
+            width: 70%; /* Ajusta el ancho del contenido del carrito */
         }
         .cart-summary {
             margin-top: 20px;
@@ -57,90 +59,93 @@
     </style>
 </head>
 <body>
-    
- <header>
-            <nav class="navbar navbar-dark bg-dark justify-content-between px-3">
-                <a href="/Estanco_web/vista/VentasCliente.jsp" class="navbar-brand">Inicio</a>
-                <div class="d-flex align-items-center">
-                    <a href="/Estanco_web/vista/CarritoInicio.jsp" class="nav-link"><i class="bi bi-cart3"></i> Carrito</a>
-                    <a href="#" class="nav-link">Ofertas</a>
-                    <div class="dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="categoriasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Categorías
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="categoriasDropdown">
-                            <li><a class="dropdown-item" href="#">Cervezas</a></li>
-                            <li><a class="dropdown-item" href="#">Licores</a></li>
-                            <li><a class="dropdown-item" href="#">Mecatos</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#"> Otras</a></li>
-                        </ul>
-                    </div>
-                    <a href="#" class="nav-link">Ayuda</a>
-                    <form class="d-flex ms-3" style="width: 340px;">
-                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
-                        <button class="btn btn-outline-light" type="submit"><i class="bi bi-search"></i></button>
-                    </form>
-                    <div class="dropdown ms-3">
-                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi bi-person"></i>
-                        </a>
-                    </div>
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-dark bg-dark justify-content-between px-3">
+            <a href="/Estanco_web/vista/VentasCliente.jsp" class="navbar-brand">Inicio</a>
+            <div class="d-flex align-items-center">
+                <a href="/Estanco_web/vista/CarritoInicio.jsp" class="nav-link"><i class="bi bi-cart3"></i> Carrito</a>
+                <a href="#" class="nav-link">Ofertas</a>
+                <div class="dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="categoriasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Categorías
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="categoriasDropdown">
+                        <li><a class="dropdown-item" href="#">Cervezas</a></li>
+                        <li><a class="dropdown-item" href="#">Licores</a></li>
+                        <li><a class="dropdown-item" href="#">Mecatos</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Otras</a></li>
+                    </ul>
                 </div>
-            </nav>
-        </header>
+                <a href="#" class="nav-link">Ayuda</a>
+                <form class="d-flex ms-3" style="width: 340px;">
+                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                    <button class="btn btn-outline-light" type="submit"><i class="bi bi-search"></i></button>
+                </form>
+                <div class="dropdown ms-3">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-person"></i>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
     
-<div class="cart-container">
-    <div class="product-list">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Productos</th>
-                    <th>Precio Unitario</th>
-                    <th>Cantidad</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Cerveza Aguila Negra</td>
-                    <td>$4,000</td>
-                    <td>3</td>
-                </tr>
-                 <tr>
-                    <td>Barrilito</td>
-                    <td>$2,500</td>
-                    <td>5</td>
-                </tr>   
-            </tbody>
-        </table>
+    <!-- Cart Container -->
+    <div class="cart-container">
+        <div class="cart-image">
+            <img src="../imagenes/carrito.jpg" alt="Carrito Image" class="img-fluid">
+        </div>
+        <div class="product-list">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Productos</th>
+                        <th>Precio Unitario</th>
+                        <th>Cantidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cerveza Aguila Negra</td>
+                        <td>$4,000</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>Barrilito</td>
+                        <td>$2,500</td>
+                        <td>5</td>
+                    </tr>   
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="cart-summary">
+            <center><h2>Carrito</h2></center>
+            <div>
+                <label for="subtotal">Subtotal:</label>
+                <input type="text" id="subtotal" class="form-control" value="$24,500" readonly>
+            </div>
+            <div>
+                <label for="descuento">Descuento:</label>
+                <input type="text" id="descuento" class="form-control" value="20%" readonly>
+            </div>
+            <div>
+                <label for="total">Total:</label>
+                <input type="text" id="total" class="form-control cart-total" value="$19,600" readonly>
+            </div>
+         
+            <div class="d-flex justify-content-between mt-3">
+                <button class="btn btn-primary btn-checkout">Método de pago</button>
+                <button class="btn btn-danger btn-checkout">Generar pedido</button>
+            </div>
+        </div>
     </div>
-    
-    <div class="cart-summary">
-        <center><h2>Carrito</h2></center>
-        <div>
-            <label for="subtotal">Subtotal:</label>
-            <input type="text" id="subtotal" class="form-control" value="$24,500" readonly>
-        </div>
-        <div>
-            <label for="descuento">Descuento:</label>
-            <input type="text" id="descuento" class="form-control" value="20%" readonly>
-        </div>
-        <div>
-            <label for="total">Total:</label>
-            <input type="text" id="total" class="form-control cart-total" value="$19,600" readonly>
-        </div>
-     
-        <div class="d-flex justify-content-between mt-3">
-            <button class="btn btn-primary btn-checkout">Método de pago</button>
-            <button class="btn btn-danger btn-checkout">Generar pedido</button>
-        </div>
-    </div>
-</div>
 
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
