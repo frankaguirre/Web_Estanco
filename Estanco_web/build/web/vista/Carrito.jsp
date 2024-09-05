@@ -22,7 +22,7 @@
         .cart-container {
             max-width: 1200px;
             margin: 20px auto;
-            background-color: #f8f9fa; 
+            background-color:#E9ECEF; 
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
@@ -31,10 +31,10 @@
             align-items: flex-start; /* Alinea los elementos al principio del contenedor */
         }
         .cart-image {
-            width: 80%; /* Ajusta el ancho de la imagen según tus necesidades */
+            width: 60%; /* Ajusta el ancho de la imagen según tus necesidades */
         }
         .cart-image img {
-            max-width: 100%;
+            max-width: 160%;
             border-radius: 8px;
         }
         .product-list, .cart-summary {
@@ -104,7 +104,7 @@
     <!-- Cart Container -->
     <div class="cart-container">
         <div class="cart-image">
-            <img src="../imagenes/carrito.jpg" alt="Carrito Image" class="img-fluid">
+            <img src="../imagenes/carrito.jpeg" alt="Carrito Image" class="img-fluid">
         </div>
         <div class="product-list">
             <table class="table">
