@@ -25,7 +25,7 @@
             width: 60; 
         }
         .cart-image img {
-            max-width: 100%;
+            max-width: 150%;
             border-radius: 15px;
         }
         .product-list, .cart-summary {
