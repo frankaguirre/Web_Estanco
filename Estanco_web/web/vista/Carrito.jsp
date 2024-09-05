@@ -1,4 +1,3 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +9,17 @@
     <link href="../css/inicio.css" rel="stylesheet" type="text/css"/>
     <title>Estanco Currambero</title>
     <style>
-       .cart-container {
+        body {
+           
+            height: 100%;
+            margin: 0;
+            background-image: url('../imagenes/imagencarrito.jpg');
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+        }
+
+        .cart-container {
             max-width: 1200px;
             margin: 20px auto;
             background-color: #f8f9fa; 
@@ -19,24 +28,24 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
             display: flex; 
             gap: 20px; 
-            align-items: flex-start; 
+            align-items: flex-start; /* Alinea los elementos al principio del contenedor */
         }
         .cart-image {
-            width: 80; 
+            width: 30%; /* Ajusta el ancho de la imagen según tus necesidades */
         }
         .cart-image img {
-            max-width: 130%;
-            border-radius: 15px;
+            max-width: 100%;
+            border-radius: 8px;
         }
         .product-list, .cart-summary {
-            width: 70%; 
+            width: 70%; /* Ajusta el ancho del contenido del carrito */
         }
         .cart-summary {
-            margin-top: 30px;
+            margin-top: 20px;
             font-size: 1.1rem;
         }
         .cart-summary div {
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
         .cart-total {
             font-size: 1.25rem;
@@ -47,10 +56,10 @@
             width: 48%; 
         }
         .product-list table {
-            width: 98%;
+            width: 100%;
         }
         .product-list th, .product-list td {
-            padding: 15px;
+            padding: 10px;
             text-align: left;
         }
         .product-list th {
@@ -68,7 +77,7 @@
                 <a href="#" class="nav-link">Ofertas</a>
                 <div class="dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="categoriasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        CategorÃ­as
+                        Categorías
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="categoriasDropdown">
                         <li><a class="dropdown-item" href="#">Cervezas</a></li>
@@ -137,7 +146,7 @@
             </div>
          
             <div class="d-flex justify-content-between mt-3">
-                <button class="btn btn-primary btn-checkout">MÃ©todo de pago</button>
+                <button class="btn btn-primary btn-checkout">Método de pago</button>
                 <button class="btn btn-danger btn-checkout">Generar pedido</button>
             </div>
         </div>
