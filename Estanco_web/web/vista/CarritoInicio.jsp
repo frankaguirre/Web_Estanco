@@ -111,7 +111,7 @@
 
         <div class="container mt-4">
             <div class="empty-cart">
-                <img src="../imagenes/carrito.jpg" alt=""/>
+                <img src="../imagenes/carrito.jpeg" alt=""/>
                 <div>
                     <h2>Inicia sesión para realizar tus compras</h2>
                     <a href="URL_DE_INICIO_SESION">Inicia sesión aquí</a> o <a href="URL_DE_CREAR_CUENTA">crea una cuenta</a>.
