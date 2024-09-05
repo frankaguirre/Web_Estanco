@@ -34,7 +34,7 @@
             width: 60%; /* Ajusta el ancho de la imagen según tus necesidades */
         }
         .cart-image img {
-            max-width: 300%;
+            max-width: 160%;
             border-radius: 8px;
         }
         .product-list, .cart-summary {

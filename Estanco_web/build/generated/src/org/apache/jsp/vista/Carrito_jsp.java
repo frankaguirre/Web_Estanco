@@ -65,7 +65,7 @@ public final class Carrito_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        .cart-container {\r\n");
       out.write("            max-width: 1200px;\r\n");
       out.write("            margin: 20px auto;\r\n");
-      out.write("            background-color:#E9ECEF; \r\n");
+      out.write("            background-color:#ffffff; \r\n");
       out.write("            padding: 20px;\r\n");
       out.write("            border-radius: 8px;\r\n");
       out.write("            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); \r\n");
