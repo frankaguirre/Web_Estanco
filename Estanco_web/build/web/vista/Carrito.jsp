@@ -31,7 +31,7 @@
             align-items: flex-start; /* Alinea los elementos al principio del contenedor */
         }
         .cart-image {
-            width: 30%; /* Ajusta el ancho de la imagen según tus necesidades */
+            width: 80%; /* Ajusta el ancho de la imagen según tus necesidades */
         }
         .cart-image img {
             max-width: 100%;
