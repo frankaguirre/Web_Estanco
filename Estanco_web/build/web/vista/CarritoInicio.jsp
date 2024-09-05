@@ -17,9 +17,12 @@
         <title>Inicia Sesíon para realizar tus compras</title>
         <style>
             body {
-                background: linear-gradient(120deg, #f0f4f8, #d9e2ec);
-                font-family: 'Roboto', sans-serif;
-                color: #343a40;
+               height: 100%;
+            margin: 0;
+            background-image: url('../imagenes/imagencarrito.jpg');
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
             }
 
             header {
