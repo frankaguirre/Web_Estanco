@@ -5,3 +5,14 @@
  */
 
 
+// Mostrar el formulario de login
+function showLogin() {
+    document.getElementById('login-form').classList.add('active');
+    document.getElementById('signup-form').classList.remove('active');
+}
+
+// Mostrar el formulario de sign up
+function showSignUp() {
+    document.getElementById('signup-form').classList.add('active');
+    document.getElementById('login-form').classList.remove('active');
+}
