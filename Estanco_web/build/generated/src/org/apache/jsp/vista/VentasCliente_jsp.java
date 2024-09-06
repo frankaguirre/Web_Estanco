@@ -3,6 +3,12 @@ package org.apache.jsp.vista;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import java.sql.*;
+import javax.sql.*;
+import java.util.*;
+import java.sql.*;
+import javax.sql.*;
+import java.io.FileInputStream;
 
 public final class VentasCliente_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -41,6 +47,8 @@ public final class VentasCliente_jsp extends org.apache.jasper.runtime.HttpJspBa
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("<!DOCTYPE html>\r\n");
@@ -90,7 +98,7 @@ public final class VentasCliente_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("                            <i class=\"bi bi-person\"></i>\r\n");
       out.write("                        </a>\r\n");
       out.write("                        <ul class=\"dropdown-menu dropdown-menu-end\" aria-labelledby=\"userDropdown\">\r\n");
-      out.write("                            <li><a class=\"dropdown-item\" href=\"#\">Ciente</a></li>\r\n");
+      out.write("                            <li><a class=\"dropdown-item\" href=\"#\">Cliente</a></li>\r\n");
       out.write("                            <li><a class=\"dropdown-item\" href=\"#\">hola</a></li>\r\n");
       out.write("                        </ul>\r\n");
       out.write("                    </div>\r\n");
@@ -175,19 +183,81 @@ public final class VentasCliente_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("        </div>\r\n");
       out.write("\r\n");
       out.write("        <!-- Product Cards -->\r\n");
-      out.write("        <div class=\"product-card\">\r\n");
-      out.write("            <img src=\"https://via.placeholder.com/250\" alt=\"Product Image\">\r\n");
-      out.write("            <h2>Morning Set</h2>\r\n");
-      out.write("            <p>Set of coffee and chocolate cookies as a top tier among our customers and a perfect way to start your day.</p>\r\n");
-      out.write("            <div class=\"price\">$16</div>\r\n");
-      out.write("            <a href=\"#\" class=\"order-btn\"><i class=\"bi bi-cart3\"></i></a>\r\n");
+      out.write("        <div class=\"container mt-5\">\r\n");
+      out.write("            <div class=\"row\">\r\n");
+      out.write("                ");
+
+                    // Cargar el archivo de configuración de la base de datos
+                    Properties props = new Properties();
+                    props.load(new FileInputStream(application.getRealPath("/WEB-INF/dbconfig.properties")));
+
+                    String url = props.getProperty("jdbc.url");
+                    String user = props.getProperty("jdbc.user");
+                    String password = props.getProperty("jdbc.password");
+
+                    // Conectar a la base de datos
+                    Connection conn = DriverManager.getConnection(url, user, password);
+                    Statement stmt = conn.createStatement();
+                    ResultSet rs = stmt.executeQuery("SELECT p.*, c.Nombre AS CategoriaNombre, pr.Nombre AS ProveedorNombre FROM producto p JOIN categoria c ON p.Categoria = c.Id JOIN proveedor pr ON p.Id_proveedor = pr.Id_proveedor");
+
+                    while (rs.next()) {
+                        int id = rs.getInt("Id");
+                        String nombre = rs.getString("Nombre");
+                        String foto = rs.getString("Foto");
+                        String descripcion = rs.getString("Descripcion");
+                        Date fechaVencimiento = rs.getDate("Fecha_vencimiento");
+                        int precio = rs.getInt("Precio");
+                        int stock = rs.getInt("Stock");
+                        String categoriaNombre = rs.getString("CategoriaNombre");
+                        String proveedorNombre = rs.getString("ProveedorNombre");
+                
+      out.write("\r\n");
+      out.write("                <div class=\"col-md-4 mb-4\">\r\n");
+      out.write("                    <div class=\"card\" style=\"width: 18rem;\">\r\n");
+      out.write("                        <img src=\"");
+      out.print( foto );
+      out.write("\" class=\"card-img-top\" alt=\"");
+      out.print( nombre );
+      out.write("\">\r\n");
+      out.write("                        <div class=\"card-body\">\r\n");
+      out.write("                            <h5 class=\"card-title\">");
+      out.print( nombre );
+      out.write("</h5>\r\n");
+      out.write("                            <p class=\"card-text\">");
+      out.print( descripcion );
+      out.write("</p>\r\n");
+      out.write("                            <p class=\"card-text\">Precio: $");
+      out.print( precio );
+      out.write("</p>\r\n");
+      out.write("                            <p class=\"card-text\">Stock: ");
+      out.print( stock );
+      out.write("</p>\r\n");
+      out.write("                            <p class=\"card-text\">Categoría: ");
+      out.print( categoriaNombre );
+      out.write("</p>\r\n");
+      out.write("                            <p class=\"card-text\">Proveedor: ");
+      out.print( proveedorNombre );
+      out.write("</p>\r\n");
+      out.write("                            <a href=\"#\" class=\"btn btn-primary\"><i class=\"bi bi-cart3\"></i> Comprar</a>\r\n");
+      out.write("                        </div>\r\n");
+      out.write("                    </div>\r\n");
+      out.write("                </div>\r\n");
+      out.write("                ");
+
+                    }
+                    rs.close();
+                    stmt.close();
+                    conn.close();
+                
+      out.write("\r\n");
+      out.write("            </div>\r\n");
       out.write("        </div>\r\n");
+      out.write("\r\n");
       out.write("        <footer>\r\n");
       out.write("        <div class=\"container-fluid\" style=\"background-color: black; color: white; padding: 20px;\">\r\n");
       out.write("            <div class=\"row\">\r\n");
       out.write("                <div class=\"col-md-4\">\r\n");
       out.write("                    <h5>Sobre Nosotros</h5>\r\n");
-      out.write("\r\n");
       out.write("                    <p>Estanco Currambero ofrece una amplia selección de cervezas, licores, mecatos y más. ¡Descubre nuestros productos y disfruta de una experiencia única!</p>\r\n");
       out.write("                    <a href=\"https://facebook.com\" target=\"_blank\" style=\"color: white; margin-right: 10px;\">\r\n");
       out.write("                        <i class=\"bi bi-facebook\"></i>\r\n");
@@ -201,7 +271,6 @@ public final class VentasCliente_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("                    <a href=\"https://linkedin.com\" target=\"_blank\" style=\"color: white;\">\r\n");
       out.write("                        <i class=\"bi bi-linkedin\"></i>\r\n");
       out.write("                    </a>\r\n");
-      out.write("\r\n");
       out.write("                </div>\r\n");
       out.write("                <div class=\"col-md-4\">\r\n");
       out.write("                    <h5>Enlaces Rápidos</h5>\r\n");
@@ -226,7 +295,6 @@ public final class VentasCliente_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("        <script src=\"../JS/carrusel.js\" type=\"text/javascript\"></script>\r\n");
       out.write("    </body>\r\n");
       out.write("</html>\r\n");
-      out.write("\r\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;

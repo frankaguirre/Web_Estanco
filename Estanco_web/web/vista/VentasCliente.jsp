@@ -1,5 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*, javax.sql.*, java.util.*" %>
+<%@page import="java.sql.*, javax.sql.*, java.io.FileInputStream" %>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -151,7 +153,7 @@
                         String nombre = rs.getString("Nombre");
                         String foto = rs.getString("Foto");
                         String descripcion = rs.getString("Descripcion");
-                        Date fechaVencimiento = rs.getDate("Fecha_vencimiento");
+                         java.sql.Date fechaVencimiento = rs.getDate("Fecha_vencimiento");
                         int precio = rs.getInt("Precio");
                         int stock = rs.getInt("Stock");
                         String categoriaNombre = rs.getString("CategoriaNombre");
