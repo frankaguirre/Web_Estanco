@@ -115,11 +115,11 @@
        <div class="product-container">
             <c:forEach var="p" items="${producto}">
                 <div class="product-card">
-                    <img src="${p.foto}" alt="${p.nombre}">
+                    <img src="${p.foto} "alt="${p.nombre}">
                     <h2><c:out value="${p.nombre}"/></h2>
                     <p><c:out value="${p.descripcion}"/></p>
                     <div class="price">$<c:out value="${p.precio}"/></div>
-                    <a href="#" class="order-btn"><i class="bi bi-cart3"></i></a>
+                    <a href="/Estanco_web/CtrProducto?accion=AgregarCarrito&id=${p.getId()}"class="order-btn"><i class="bi bi-cart3"></i></a>
                 </div>
                </c:forEach>
         <footer>
