@@ -114,17 +114,13 @@
 
         <!-- Product Cards -->
         <div class="product-card">
-               <img src="${p.getFoto()}" width="200" height="180">
-                <div class="card-header">
-                    <h2><label>${p.getNombre()}</label></h2>
-                        </div>
-             <div class="card-footer text-center">
-             <label>${p.getDescripcion()}</label> <div>
-         <div class="card-footer text-center">
-          <label>${p.getFoto()}</label> <div>
-             <a href="/Estanco_web/CtrProducto?accion=AgregarCarrito&id=${p.getId()}" class="order-btn"><i class="bi bi-cart3"></i></a>
-            
+            <img src="https://via.placeholder.com/250" alt="Product Image">
+            <h2>Morning Set</h2>
+            <p>Set of coffee and chocolate cookies as a top tier among our customers and a perfect way to start your day.</p>
+            <div class="price">$16</div>
+            <a href="#" class="order-btn"><i class="bi bi-cart3"></i></a>
         </div>
+        
         <footer>
             <div class="container-fluid" style="background-color: black; color: white; padding: 20px;">
                 <div class="row">
