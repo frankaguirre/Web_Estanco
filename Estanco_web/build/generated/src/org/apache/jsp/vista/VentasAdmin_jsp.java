@@ -70,7 +70,7 @@ public final class VentasAdmin_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <ul class=\"sidebar-links\">\r\n");
       out.write("                    <div class=\"menu-separator\"></div>\r\n");
       out.write("                    <li>\r\n");
-      out.write("                        <a href=\"/Estanco_web/CtrProducto?accion=inicio\">\r\n");
+      out.write("                        <a href=\"#=inicio\">\r\n");
       out.write("                            <i class=\"bi bi-house-door\"></i> Inicio\r\n");
       out.write("                        </a>\r\n");
       out.write("                    </li>\r\n");
