@@ -1,7 +1,6 @@
 <%-- 
     Document   : Login
     Created on : 31/08/2024, 07:53:40 PM
-    Author     : ALEANDRES RODRIGUEZ
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

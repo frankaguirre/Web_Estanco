@@ -10,7 +10,6 @@ import java.sql.DriverManager;
 
 /**
  *
- * @author ALEANDRES RODRIGUEZ
  */
 public class Conectar {
     private String driver ="com.mysql.jdbc.Driver";

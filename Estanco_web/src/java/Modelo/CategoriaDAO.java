@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+
 import Configuracion.Conectar;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,7 +15,6 @@ import java.util.List;
 
 /**
  *
- * @author ALEANDRES RODRIGUEZ
  */
 public class CategoriaDAO {
     Connection con;

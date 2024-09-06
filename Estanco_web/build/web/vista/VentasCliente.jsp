@@ -1,7 +1,7 @@
 <%-- 
     Document   : VentasCliente
     Created on : 12/08/2024, 07:59:56 PM
-    Author     : ALEANDRES RODRIGUEZ
+
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

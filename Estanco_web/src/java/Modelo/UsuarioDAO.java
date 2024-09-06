@@ -14,7 +14,6 @@ import java.util.List;
 
 /**
  *
- * @author ALEANDRES RODRIGUEZ
  */
 public class UsuarioDAO {
     Connection con;

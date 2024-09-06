@@ -3,7 +3,6 @@
 <%-- 
     Document   : PedAdmin
     Created on : 15/08/2024, 11:28:44 PM
-    Author     : Omar
 --%>
 <html lang="es">
     <head>

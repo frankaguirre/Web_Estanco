@@ -16,10 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author ALEANDRES RODRIGUEZ
- */
+
 @WebServlet(name = "CtrUsuario_1", urlPatterns = {"/CtrUsuario_1"})
 public class CtrUsuario extends HttpServlet {
     UsuarioDAO dao = new UsuarioDAO();

@@ -1,7 +1,7 @@
 <%-- 
     Document   : newjs
     Created on : 12/08/2024, 07:03:31 PM
-    Author     : ALEANDRES RODRIGUEZ
+
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

@@ -7,7 +7,6 @@ package Modelo;
 
 /**
  *
- * @author ALEANDRES RODRIGUEZ
  */
 public class Categoria {
      private int id;

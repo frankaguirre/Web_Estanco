@@ -1,7 +1,7 @@
 <%-- 
     Document   : ProductoDes
     Created on : 15/08/2024, 10:29:21 AM
-    Author     : ALEANDRES RODRIGUEZ
+    Author     : ALEANDRES RODRIGUE
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
