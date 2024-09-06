@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
@@ -74,38 +75,44 @@ public class CtrValidar extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-         String accion = request.getParameter("accion");
-        if (accion.equalsIgnoreCase("Ingresar")) {
-            HttpSession sesion = request.getSession();
-            String usu = request.getParameter("txtuser");
-            String pas = request.getParameter("txtpass");
+   @Override
+protected void doPost(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+    String accion = request.getParameter("accion");
 
-            us = usudao.validar(usu, pas);
-            if (us.getUsuario() != null) {
-                if (us.getContrasena().equals(pas)) {
-                    sesion.setAttribute("log", '1');
-                    sesion.setAttribute("User", us.getUsuario());
-                    sesion.setAttribute("tipo", us.getTipo());
-                    sesion.setAttribute("id", us.getId());
-                    sesion.setAttribute("correo", us.getCorreo());
-                    sesion.setAttribute("usuario", us);
+    if ("Ingresar".equalsIgnoreCase(accion)) {
+        HttpSession sesion = request.getSession();
+        String usu = request.getParameter("txtuser");
+        String pas = request.getParameter("txtpass");
 
-                    if (us.getTipo().equals("administrador")) {
-                        response.sendRedirect("/Estanco_web/vista/VentasAdmin.jsp");
-                    } else if (us.getTipo().equals("cliente")) {
-                        response.sendRedirect("/Estanco_web/vista/VentasCliente.jsp");
-                    }
-                } else {
-                    response.sendRedirect("/Estanco_web/vista/Login.jsp?ingreso=0");
+        Usuario us = usudao.validar(usu, pas);
+        
+        if (us != null && us.getUsuario() != null) {
+            if (verificarContrasena(pas, us.getContrasena())) {
+                sesion.setAttribute("log", '1');
+                sesion.setAttribute("User", us.getUsuario());
+                sesion.setAttribute("tipo", us.getTipo());
+                sesion.setAttribute("id", us.getId());
+                sesion.setAttribute("correo", us.getCorreo());
+                sesion.setAttribute("usuario", us);
+
+                if ("administrador".equalsIgnoreCase(us.getTipo())) {
+                    response.sendRedirect("/Estanco_web/vista/VentasAdmin.jsp");
+                } else if ("cliente".equalsIgnoreCase(us.getTipo())) {
+                    response.sendRedirect("/Estanco_web/vista/VentasCliente.jsp");
                 }
             } else {
                 response.sendRedirect("/Estanco_web/vista/Login.jsp?ingreso=0");
             }
+        } else {
+            response.sendRedirect("/Estanco_web/vista/Login.jsp?ingreso=0");
         }
     }
+}
+
+public static boolean verificarContrasena(String password, String contrasenaEncriptada) {
+    return BCrypt.checkpw(password, contrasenaEncriptada);
+}
 
     /**
      * Returns a short description of the servlet.

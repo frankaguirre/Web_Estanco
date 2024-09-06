@@ -166,6 +166,11 @@ public final class ListarUsuario_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("                            <i class=\"bi bi-question-circle\"></i> Ayuda\r\n");
       out.write("                        </a>\r\n");
       out.write("                    </li>\r\n");
+      out.write("                    <li>\r\n");
+      out.write("                        <a href=\"/Estanco_web/CtrProducto?accion=salir\">\r\n");
+      out.write("                            <i class=\"bi bi-box-arrow-left\"></i> Salir\r\n");
+      out.write("                        </a>\r\n");
+      out.write("                    </li>\r\n");
       out.write("                </ul>\r\n");
       out.write("                <div class=\"user-account\">\r\n");
       out.write("                    <div class=\"user-profile\">\r\n");

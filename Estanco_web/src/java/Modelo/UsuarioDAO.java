@@ -19,97 +19,195 @@ import java.util.List;
 public class UsuarioDAO {
     Connection con;
     PreparedStatement pstm;
-    Conectar Conexion;
+    Conectar conexion;
     ResultSet rs;
-    Usuario us = new Usuario();
-    Usuario usua;
-    
-    
-    public Usuario validar(String usu, String pass){
-       usua = new Usuario();
-       try{
-           Conexion = new Conectar();
-           Connection con = Conexion.crearconexion();
-           if (con != null){
-               System.out.println("Se ha establecido una conexion con la base de datos");
-               pstm = con.prepareStatement("select * from usuario where Usuario = ? ");
-               pstm.setString(1, usu);
-               rs = pstm.executeQuery();
-               while (rs.next()){
-                   if (!rs.getString("Usuario").equals("")){
-                       usua.setId(rs.getInt("Id"));
-                       usua.setNombre(rs.getString("Nombre"));
-                       usua.setApellido(rs.getString("Apellido"));
-                       usua.setFecha_nacimiento(rs.getString("Fecha_nacimiento"));
-                       usua.setDireccion(rs.getString("Direccion"));
-                       usua.setTelefono(rs.getString("Telefono"));
-                       usua.setUsuario(rs.getString("Usuario"));
-                       usua.setCorreo(rs.getString("Correo"));
-                       usua.setContrasena(rs.getString("Contrasena"));
-                       usua.setTipo(rs.getString("Tipo"));
-                   }
-               }
-           }
-       }catch(Exception e){
-           System.out.println("Error al conectarse con la base de datos: "+e);
-       }
-       return usua;
+
+    public Usuario validar(String usuario, String contrasena) {
+        Usuario us = null;
+        try {
+            conexion = new Conectar();
+            con = conexion.crearconexion();
+            if (con != null) {
+                System.out.println("Se ha establecido una conexión con la base de datos");
+                pstm = con.prepareStatement("SELECT * FROM usuario WHERE Usuario = ?");
+                pstm.setString(1, usuario);
+                rs = pstm.executeQuery();
+                if (rs.next()) {
+                    us = new Usuario();
+                    us.setId(rs.getString("Id"));
+                    us.setNombre(rs.getString("Nombre"));
+                    us.setApellido(rs.getString("Apellido"));
+                    us.setFecha_nacimiento(rs.getString("Fecha_nacimiento"));
+                    us.setDireccion(rs.getString("Direccion"));
+                    us.setTelefono(rs.getString("Telefono"));
+                    us.setCorreo(rs.getString("Correo"));
+                    us.setUsuario(rs.getString("Usuario"));
+                    us.setContrasena(rs.getString("Contrasena"));
+                    us.setTipo(rs.getString("Tipo"));
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error al conectarse con la base de datos: " + e);
+        }
+        return us;
     }
-    public List listar(){
-        ArrayList<Usuario> list = new ArrayList<>();
-        try{
-            Conexion = new Conectar();
-           Connection con = Conexion.crearconexion();
-           if (con != null){
-               System.out.println("Se ha establecido una conexcion con la base de datos");
-           }
-           pstm = con.prepareStatement("select * from usuarios");
-           rs = pstm.executeQuery();
-           while(rs.next()){
-               Usuario usu = new Usuario();
-               usu.setId(rs.getInt(1));
-               usu.setNombre(rs.getString(2));
-               usu.setApellido(rs.getString(3));
-               usu.setFecha_nacimiento(rs.getString(4));
-               usu.setDireccion(rs.getString(5));
-               usu.setTelefono(rs.getString(6));
-               usu.setCorreo(rs.getString(7));
-               usu.setUsuario(rs.getString(8));
-               usu.setTipo(rs.getString(9));
-               list.add(usu);
-           }
-        }catch(Exception e){
-            System.out.println("Error al listar los usuarios");
+
+    public List<Usuario> listar() {
+        List<Usuario> list = new ArrayList<>();
+        try {
+            conexion = new Conectar();
+            con = conexion.crearconexion();
+            if (con != null) {
+                System.out.println("Se ha establecido una conexión con la base de datos");
+                pstm = con.prepareStatement("SELECT * FROM usuario");
+                rs = pstm.executeQuery();
+                while (rs.next()) {
+                    Usuario us = new Usuario();
+                    us.setId(rs.getString("Id"));
+                    us.setNombre(rs.getString("Nombre"));
+                    us.setApellido(rs.getString("Apellido"));
+                    us.setFecha_nacimiento(rs.getString("Fecha_nacimiento"));
+                    us.setDireccion(rs.getString("Direccion"));
+                    us.setTelefono(rs.getString("Telefono"));
+                    us.setCorreo(rs.getString("Correo"));
+                    us.setUsuario(rs.getString("Usuario"));
+                    us.setTipo(rs.getString("Tipo"));
+                    list.add(us);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error al listar los usuarios: " + e);
         }
         return list;
     }
-    public List listar(String nombre){
-        ArrayList<Usuario> list = new ArrayList<>();
-        nombre = "%"+nombre+"%";
-        try{
-            Conexion = new Conectar();
-           Connection con = Conexion.crearconexion();
-           if (con != null){
-               System.out.println("Se ha establecido una conexcion con la base de datos");
-           }
-           pstm = con.prepareStatement("select * from usuarios where nombre like ?");
-           pstm.setString(1, nombre);
-           rs = pstm.executeQuery();
-           while(rs.next()){
-               Usuario usu = new Usuario();
-               usu.setId(rs.getInt(1));
-               usu.setNombre(rs.getString(2));
-               usu.setApellido(rs.getString(3));
-               usu.setDireccion(rs.getString(4));
-               usu.setTelefono(rs.getString(5));
-               usu.setCorreo(rs.getString(6));
-               usu.setUsuario(rs.getString(7));
-               usu.setTipo(rs.getString(9));
-               list.add(usu);
-           }
-        }catch(Exception e){
-            System.out.println("Error al listar los usuarios por nombre");
+
+    public List<Usuario> listar(String nombre) {
+        List<Usuario> list = new ArrayList<>();
+        nombre = "%" + nombre + "%";
+        try {
+            conexion = new Conectar();
+            con = conexion.crearconexion();
+            if (con != null) {
+                System.out.println("Se ha establecido una conexión con la base de datos");
+                pstm = con.prepareStatement("SELECT * FROM usuario WHERE Nombre LIKE ?");
+                pstm.setString(1, nombre);
+                rs = pstm.executeQuery();
+                while (rs.next()) {
+                    Usuario us = new Usuario();
+                    us.setId(rs.getString("Id"));
+                    us.setNombre(rs.getString("Nombre"));
+                    us.setApellido(rs.getString("Apellido"));
+                    us.setFecha_nacimiento(rs.getString("Fecha_nacimiento"));
+                    us.setDireccion(rs.getString("Direccion"));
+                    us.setTelefono(rs.getString("Telefono"));
+                    us.setCorreo(rs.getString("Correo"));
+                    us.setUsuario(rs.getString("Usuario"));
+                    us.setTipo(rs.getString("Tipo"));
+                    list.add(us);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error al listar los usuarios por nombre: " + e);
         }
         return list;
+    }
+
+    public boolean crear(Usuario us) {
+        try {
+            conexion = new Conectar();
+            con = conexion.crearconexion();
+            if (con != null) {
+                System.out.println("Se ha establecido una conexión con la base de datos");
+                pstm = con.prepareStatement("INSERT INTO usuario (Id, Nombre, Apellido, Fecha_nacimiento, Direccion, Telefono, Correo, Usuario, Contrasena, Tipo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                pstm.setString(1, us.getId());
+                pstm.setString(2, us.getNombre());
+                pstm.setString(3, us.getApellido());
+                pstm.setString(4, us.getFecha_nacimiento());
+                pstm.setString(5, us.getDireccion());
+                pstm.setString(6, us.getTelefono());
+                pstm.setString(7, us.getCorreo());
+                pstm.setString(8, us.getUsuario());
+                pstm.setString(9, us.getContrasena());
+                pstm.setString(10, us.getTipo());
+                pstm.executeUpdate();
+            }
+        } catch (Exception e) {
+            System.out.println("Error al insertar el usuario: " + e);
+            return false;
+        }
+        return true;
+    }
+
+    public Usuario list(String id) {
+        Usuario us = null;
+        try {
+            conexion = new Conectar();
+            con = conexion.crearconexion();
+            if (con != null) {
+                System.out.println("Se ha establecido una conexión con la base de datos");
+                pstm = con.prepareStatement("SELECT * FROM usuario WHERE Id = ?");
+                pstm.setInt(1, Integer.parseInt(id));
+                rs = pstm.executeQuery();
+                if (rs.next()) {
+                    us = new Usuario();
+                    us.setId(rs.getString("Id"));
+                    us.setNombre(rs.getString("Nombre"));
+                    us.setApellido(rs.getString("Apellido"));
+                    us.setFecha_nacimiento(rs.getString("Fecha_nacimiento"));
+                    us.setDireccion(rs.getString("Direccion"));
+                    us.setTelefono(rs.getString("Telefono"));
+                    us.setCorreo(rs.getString("Correo"));
+                    us.setUsuario(rs.getString("Usuario"));
+                    us.setContrasena(rs.getString("Contrasena"));
+                    us.setTipo(rs.getString("Tipo"));
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error al listar el usuario por identificación: " + e);
+        }
+        return us;
+    }
+
+    public boolean editar(Usuario us) {
+        try {
+            conexion = new Conectar();
+            con = conexion.crearconexion();
+            if (con != null) {
+                System.out.println("Se ha establecido una conexión con la base de datos");
+                pstm = con.prepareStatement("UPDATE usuario SET Nombre = ?, Apellido = ?, Fecha_nacimiento = ?, Direccion = ?, Telefono = ?, Correo = ?, Usuario = ?, Contrasena = ?, Tipo = ? WHERE Id = ?");
+                pstm.setString(1, us.getNombre());
+                pstm.setString(2, us.getApellido());
+                pstm.setString(3, us.getFecha_nacimiento());
+                pstm.setString(4, us.getDireccion());
+                pstm.setString(5, us.getTelefono());
+                pstm.setString(6, us.getCorreo());
+                pstm.setString(7, us.getUsuario());
+                pstm.setString(8, us.getContrasena());
+                pstm.setString(9, us.getTipo());
+                pstm.setString(10, us.getId());
+                pstm.executeUpdate();
+            }
+        } catch (Exception e) {
+            System.out.println("Error al editar el usuario: " + e);
+            return false;
+        }
+        return true;
+    }
+
+    public boolean eliminar(String id) {
+        try {
+            conexion = new Conectar();
+            con = conexion.crearconexion();
+            if (con != null) {
+                System.out.println("Se ha establecido una conexión con la base de datos");
+                pstm = con.prepareStatement("DELETE FROM usuario WHERE Id = ?");
+                pstm.setInt(1, Integer.parseInt(id));
+                pstm.executeUpdate();
+            }
+        } catch (Exception e) {
+            System.out.println("Error al eliminar el usuario: " + e);
+            return false;
+        }
+        return true;
     }
 }

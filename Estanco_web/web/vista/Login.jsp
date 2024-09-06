@@ -3,102 +3,120 @@
     Created on : 31/08/2024, 07:53:40 PM
     Author     : ALEANDRES RODRIGUEZ
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Login</title>
-        <style>
-            body {
-
-                background-image: url('https://cdn-3.expansion.mx/dims4/default/5b31df7/2147483647/strip/true/crop/1000x697+0+0/resize/1800x1255!/format/webp/quality/80/?url=https%3A%2F%2Fcdn-3.expansion.mx%2F34%2F3c%2Fca9a313849ddb6060b87cb6d5b85%2F2017-01-27t120000z-1783701375-rc1a6ec49670-rtrmadp-3-usa-trump-mexico-corona.JPG');
-                background-size: cover;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                margin: 0;
-                font-family: Arial, sans-serif;
-            }
-            .login-container {
-
-                background: rgba(355, 355, 355, 0.0);
-                padding: 20px;
-                border-radius: 8px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.0);
-                width: 300px;
-                text-align: center;
-            }
-            .login-container h2 {
-                margin-bottom: 20px;
-                color: #ffffff;
-                border-radius: 1px;
-            }
-            .login-container input {
-                background: rgba(355, 355, 355, 0.8);
-                border-radius: 4px; 
-                width: 100%;
-                padding: 10px;
-                margin-bottom: 20px;
-                border: 1px solid #ccc;
-
-            }
-            .login-container button {
-
-                width: 100%;
-                padding: 10px;
-                border: none;
-                border-radius: 4px;
-                background-color:darkorange;
-                color: white;
-                font-size: 16px;
-                width: 200px;
-            }
-            .login-container a {
-                padding-top: 9px;
-                display: block;
-                margin-top: 10px;
-                color: #007bff; 
-                text-decoration: none;
-
-            }
-
-            .usuario{
-
-                color:black;
-            }
-
-            img{
-                height: 50px;
-                width: 60px 
-
-            }
-
-        </style>
+        <title>Login/Sign Up</title>
+        <!-- Vincula a Font Awesome para usar íconos -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+        <link href="../css/login.css" rel="stylesheet" type="text/css"/>
     </head>
     <%String Mensaje = "";
-    if (request.getParameter("ingreso")!= null){
-        int i = Integer.parseInt(request.getParameter("ingreso"));
-        if (i == 0){
-            Mensaje = "Error: Datos Incorectos";
+        if (request.getParameter("ingreso") != null) {
+            int i = Integer.parseInt(request.getParameter("ingreso"));
+            if (i == 0) {
+                Mensaje = "Usuario o Contraseña Incorrectos";
+            }
         }
-    }
     %>
     <body>
-        <div class="login-container">
+        <div class="container">
+            <div class="left-side">
+                <img src="../imagenes/logoestancoo.jpg" alt="" class="shoe-image"/>
+                <div class="buttons">
+                    <button class="login-btn" onclick="showLogin()">Iniciar Sesion</button>
+                    <button class="signup-btn" onclick="showSignUp()">Crear Cuenta</button>
+                </div>
+            </div>
+            <div class="right-side">
+                <div id="form-container">
+                    <form id="login-form" class="form active" action="/Estanco_web/CtrValidar" method="post">
+                        <div class="input-group">
+                            <i class="fas fa-user icon"></i>
+                            <input type="text" name="txtuser" id="usuario" placeholder="Usuario">
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-lock icon"></i>
+                            <input type="password"  name="txtpass" id="password" placeholder="Contraseña">
+                        </div>
+                        <a href="#" class="forgot-password">¿Se te olvidó la contraseña?</a>
+                        <button type="submit" name="accion" value="Ingresar" class="login-btn-form">Iniciar Sesión</button>
+                        <p style="Color: red;"><%=Mensaje%></p>
+                    </form>
 
-            <img src="https://i.pinimg.com/236x/8d/59/9e/8d599e77e07f1d4a7f48a42926893e06.jpg" >
-            <h2>BIENVENIDO</h2>
-            <form action="/Estanco_web/CtrValidar" method="post">
-                <input class="usuario" name="txtuser"type="text" placeholder="Usuario" required> 
-                <input class="usuario" name="txtpass" type="password" placeholder="Contraseña" required>
-                <button type="submit" name="accion" value="Ingresar">Iniciar Sesión</button>
-                <p style="Color: red;"><%=Mensaje %></p>
-                <a href="#">Registrarse</a>
-            </form>
+                    <form id="signup-form" class="form">
+                        <div class="input-group-row">
+                            <div class="input-group">
+                                <i class="fas fa-user icon"></i>
+                                <input type="text" id="new-nombre" placeholder="Nombre">
+                            </div>
+                            <div class="input-group">
+                                <i class="fas fa-user icon"></i>
+                                <input type="text" id="new-apellido" placeholder="Apellido">
+                            </div>
+                        </div>
+                        <div class="input-group-row">
+                            <div class="input-group">
+                                <i class="fas fa-map-marker-alt icon"></i>
+                                <input type="text" id="new-direccion" placeholder="Dirección">
+                            </div>
+                            <div class="input-group">
+                                <i class="fas fa-phone icon"></i>
+                                <input type="text" id="new-telefono" placeholder="Teléfono">
+                            </div>
+                        </div>
+                        <div class="input-group-row">
+                            <div class="input-group">
+                                <input type="text" id="new-id" placeholder="Identificación">
+                            </div>
+                            <div class="input-group">
+                                <i class="fas fa-envelope icon"></i>
+                                <input type="email" id="new-email" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="input-group-row">
+                            <div class="input-group">
+                                <i class="fas fa-user icon"></i>
+                                <input type="text" id="new-username" placeholder="Usuario">
+                            </div>
+                            <div class="input-group">
+                                <i class="fas fa-lock icon"></i>
+                                <input type="password" id="new-password" placeholder="Contraseña">
+                            </div>
+                        </div>
+                        <div class="input-group-row">
+                            <div class="input-group">
+                                <i class="fas fa-lock icon"></i>
+                                <input type="password" id="new-password2" placeholder="Repetir Contraseña">
+                            </div>
+                            <div class="input-group">
+                                <label for="new-terminos">
+                                    <input type="checkbox" id="new-terminos">
+                                    Acepto términos y condiciones
+                                </label>
+                            </div>
+                        </div>
+                        <div class="input-group-row">
+                            <div class="input-group">
+                                <select id="new-tipo">
+                                    <option value="Cliente">Cliente</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col mt-2 mb-2 text-center formulario_grupo formulario_grupo-btn-enviar">
+                                <button type="submit" class="btn btn-primary formulario_btn" name="accion" value="nuevo">Guardar <i class="bi bi-floppy"></i></button>
+                                <a class="btn btn-danger formulario_btn" href="/Estanco_Web/CtrUsuario?accion=Listar" name="regresar"> <i class="bi bi-arrow-return-left"></i></a>
+                             
+                        </div>
+                    </form>
+
+                </div>
+            </div>
         </div>
+
+        <script src="../JS/login.js" type="text/javascript"></script>
     </body>
 </html>
