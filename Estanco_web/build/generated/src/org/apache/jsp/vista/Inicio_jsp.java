@@ -164,8 +164,13 @@ public final class Inicio_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <h2>Morning Set</h2>\r\n");
       out.write("            <p>Set of coffee and chocolate cookies as a top tier among our customers and a perfect way to start your day.</p>\r\n");
       out.write("            <div class=\"price\">$16</div>\r\n");
-      out.write("            <a href=\"#\" class=\"order-btn\"><i class=\"bi bi-cart3\"></i></a>\r\n");
+      out.write("             <a href=\"/Estanco_web/CtrProducto?accion=AgregarCarrito&id=");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${p.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" class=\"btn btn-outline-info\"><i class=\"bi bi-cart3\"></i> Agregar Carrito</a>\r\n");
+      out.write("             \r\n");
+      out.write("            \r\n");
       out.write("        </div>\r\n");
+      out.write("                \r\n");
       out.write("        <footer>\r\n");
       out.write("            <div class=\"container-fluid\" style=\"background-color: black; color: white; padding: 20px;\">\r\n");
       out.write("                <div class=\"row\">\r\n");
