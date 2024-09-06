@@ -1,7 +1,7 @@
 <%-- 
     Document   : ListarProveedor
     Created on : 19/08/2024, 08:55:30 PM
-    Author     : ALEANDRES RODRIGUEZ
+
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

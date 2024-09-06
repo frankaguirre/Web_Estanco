@@ -16,10 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author ALEANDRES RODRIGUEZ
- */
+
 @WebServlet(name = "CtrValidar_1", urlPatterns = {"/CtrValidar_1"})
 public class CtrValidar extends HttpServlet {
     UsuarioDAO usudao = new UsuarioDAO();

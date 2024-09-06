@@ -1,7 +1,6 @@
 <%-- 
     Document   : CarritoInicio
     Created on : 19/08/2024, 09:40:45 PM
-    Author     : ALEANDRES RODRIGUEZ
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

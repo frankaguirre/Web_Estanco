@@ -20,10 +20,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author ALEANDRES RODRIGUEZ
- */
 @WebServlet(name = "CtrProducto_1", urlPatterns = {"/CtrProducto_1"})
 public class CtrProducto extends HttpServlet {
 
