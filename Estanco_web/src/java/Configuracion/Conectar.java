@@ -1,45 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package Configuracion;
+package configuracion;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
-/**
- *
- * @author ALEANDRES RODRIGUEZ
- */
 public class Conectar {
-    private String driver ="com.mysql.jdbc.Driver";
-    private String CadenaConeccion = "jdbc:mysql://localhost/estancoweb";
-    private String usuario = "root";
-    private String contrasena="";
-    public Connection con;
-    
-    
-    public Conectar(){
-        try{
-            Class.forName(driver);
-            con = DriverManager.getConnection(CadenaConeccion, usuario, contrasena);
-            if (con != null){
-                System.out.println("Se conecto a la base de datos");
-            }
-        }catch(Exception e){
-            System.out.println("Error alconectarse a la base de datos "+ e);
-        }
-    }
-    
-    public Connection crearconexion(){
-        return con;
-    }
-    
-    public void desconectar(){
-        con = null;
-        if (con == null){
-            System.out.println("Se ha desconectado de la base de datos");
-        }
+    private static final String URL = "jdbc:mysql://localhost:3306/estancoweb";
+    private static final String USER = "root";
+    private static final String PASSWORD = "";
+
+    public static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 }
