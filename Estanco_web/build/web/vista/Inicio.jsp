@@ -112,15 +112,16 @@
             <div class="time"></div>
         </div>
 
-        <!-- Product Cards -->
-        <div class="product-card">
-            <img src="https://via.placeholder.com/250" alt="Product Image">
-            <h2>Morning Set</h2>
-            <p>Set of coffee and chocolate cookies as a top tier among our customers and a perfect way to start your day.</p>
-            <div class="price">$16</div>
-            <a href="#" class="order-btn"><i class="bi bi-cart3"></i></a>
-        </div>
-        
+       <div class="product-container">
+            <c:forEach var="p" items="${producto}">
+                <div class="product-card">
+                    <img src="${p.foto}" alt="${p.nombre}">
+                    <h2><c:out value="${p.nombre}"/></h2>
+                    <p><c:out value="${p.descripcion}"/></p>
+                    <div class="price">$<c:out value="${p.precio}"/></div>
+                    <a href="#" class="order-btn"><i class="bi bi-cart3"></i></a>
+                </div>
+               </c:forEach>
         <footer>
             <div class="container-fluid" style="background-color: black; color: white; padding: 20px;">
                 <div class="row">
