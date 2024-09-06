@@ -1,7 +1,9 @@
+<%-- 
+    Document   : VentasCliente
+    Created on : 12/08/2024, 07:59:56 PM
+    Author     : ALEANDRES RODRIGUEZ
+--%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="java.sql.*, javax.sql.*, java.util.*" %>
-<%@page import="java.sql.*, javax.sql.*, java.io.FileInputStream" %>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -47,7 +49,7 @@
                             <i class="bi bi-person"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                            <li><a class="dropdown-item" href="#">Cliente</a></li>
+                            <li><a class="dropdown-item" href="#">Ciente</a></li>
                             <li><a class="dropdown-item" href="#">hola</a></li>
                         </ul>
                     </div>
@@ -132,61 +134,19 @@
         </div>
 
         <!-- Product Cards -->
-        <div class="container mt-5">
-            <div class="row">
-                <%
-                    // Cargar el archivo de configuración de la base de datos
-                    Properties props = new Properties();
-                    props.load(new FileInputStream(application.getRealPath("/WEB-INF/dbconfig.properties")));
-
-                    String url = props.getProperty("jdbc.url");
-                    String user = props.getProperty("jdbc.user");
-                    String password = props.getProperty("jdbc.password");
-
-                    // Conectar a la base de datos
-                    Connection conn = DriverManager.getConnection(url, user, password);
-                    Statement stmt = conn.createStatement();
-                    ResultSet rs = stmt.executeQuery("SELECT p.*, c.Nombre AS CategoriaNombre, pr.Nombre AS ProveedorNombre FROM producto p JOIN categoria c ON p.Categoria = c.Id JOIN proveedor pr ON p.Id_proveedor = pr.Id_proveedor");
-
-                    while (rs.next()) {
-                        int id = rs.getInt("Id");
-                        String nombre = rs.getString("Nombre");
-                        String foto = rs.getString("Foto");
-                        String descripcion = rs.getString("Descripcion");
-                         java.sql.Date fechaVencimiento = rs.getDate("Fecha_vencimiento");
-                        int precio = rs.getInt("Precio");
-                        int stock = rs.getInt("Stock");
-                        String categoriaNombre = rs.getString("CategoriaNombre");
-                        String proveedorNombre = rs.getString("ProveedorNombre");
-                %>
-                <div class="col-md-4 mb-4">
-                    <div class="card" style="width: 18rem;">
-                        <img src="<%= foto %>" class="card-img-top" alt="<%= nombre %>">
-                        <div class="card-body">
-                            <h5 class="card-title"><%= nombre %></h5>
-                            <p class="card-text"><%= descripcion %></p>
-                            <p class="card-text">Precio: $<%= precio %></p>
-                            <p class="card-text">Stock: <%= stock %></p>
-                            <p class="card-text">Categoría: <%= categoriaNombre %></p>
-                            <p class="card-text">Proveedor: <%= proveedorNombre %></p>
-                            <a href="#" class="btn btn-primary"><i class="bi bi-cart3"></i> Comprar</a>
-                        </div>
-                    </div>
-                </div>
-                <%
-                    }
-                    rs.close();
-                    stmt.close();
-                    conn.close();
-                %>
-            </div>
+        <div class="product-card">
+            <img src="https://via.placeholder.com/250" alt="Product Image">
+            <h2>Morning Set</h2>
+            <p>Set of coffee and chocolate cookies as a top tier among our customers and a perfect way to start your day.</p>
+            <div class="price">$16</div>
+            <a href="#" class="order-btn"><i class="bi bi-cart3"></i></a>
         </div>
-
         <footer>
         <div class="container-fluid" style="background-color: black; color: white; padding: 20px;">
             <div class="row">
                 <div class="col-md-4">
                     <h5>Sobre Nosotros</h5>
+
                     <p>Estanco Currambero ofrece una amplia selección de cervezas, licores, mecatos y más. ¡Descubre nuestros productos y disfruta de una experiencia única!</p>
                     <a href="https://facebook.com" target="_blank" style="color: white; margin-right: 10px;">
                         <i class="bi bi-facebook"></i>
@@ -200,6 +160,7 @@
                     <a href="https://linkedin.com" target="_blank" style="color: white;">
                         <i class="bi bi-linkedin"></i>
                     </a>
+
                 </div>
                 <div class="col-md-4">
                     <h5>Enlaces Rápidos</h5>
@@ -224,3 +185,4 @@
         <script src="../JS/carrusel.js" type="text/javascript"></script>
     </body>
 </html>
+
