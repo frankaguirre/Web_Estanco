@@ -118,8 +118,32 @@
             <h2>Morning Set</h2>
             <p>Set of coffee and chocolate cookies as a top tier among our customers and a perfect way to start your day.</p>
             <div class="price">$16</div>
-            <a href="#" class="order-btn"><i class="bi bi-cart3"></i></a>
+             <a href="/Estanco_web/CtrProducto?accion=AgregarCarrito&id=${p.getId()}" class="btn btn-outline-info"><i class="bi bi-cart3"></i> Agregar Carrito</a>
+             
+            
         </div>
+                <div class="container mt-2">
+            <div class="row">
+                <c:forEach var="p" items="${productos}">
+                    <div class="col-sm-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <label>${p.getNombre()}</label>
+                        </div>
+                        <div class="card-body text-center">
+                            <img src="${p.getFoto()}" width="200" height="180"><br>
+                            <i>$.${p.getPrecio()}</i>
+                        </div>
+                        <div class="card-footer text-center">
+                             <label>${p.getDescripcion()}</label>   
+                        
+                        <div>
+                            <a href="/AppWeb/CtrProducto?accion=AgregarCarrito&id=${p.getId()}" class="btn btn-outline-info"><i class="bi bi-cart4"></i> Agregar Carrito</a>
+                            <a href="/AppWeb/CtrProducto?accion=Comprar&id=${p.getId()}" class="btn btn-danger">Comprar</a>
+                        </div>
+                        </div>
+                    </div>
+                </div>
         <footer>
             <div class="container-fluid" style="background-color: black; color: white; padding: 20px;">
                 <div class="row">
