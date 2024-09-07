@@ -8,70 +8,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Categorías</title>
     <link href="../css/admin.css" rel="stylesheet" type="text/css" />
-    <link href="../css/style.css" rel="stylesheet" type="text/css" />
-    <style>
-        .contentmain h1 {
-            border-bottom: 4px solid orange;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-        .table {
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        .table thead {
-            background-color: #343a40;
-            color: white;
-        }
-        .table tbody tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-        .table tbody tr:hover {
-            background-color: #e9ecef;
-        }
-        .table th, .table td {
-            vertical-align: middle;
-        }
-        .btn-warning, .btn-danger {
-            margin-right: 5px;
-        }
-        .modal-content {
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        .modal-header {
-            border-bottom: 2px solid #dee2e6;
-            background-color: #f8f9fa;
-        }
-        .modal-title {
-            font-size: 1.25rem;
-            font-weight: 500;
-        }
-        .btn-close {
-            display: none;
-        }
-        .btn-cancel {
-            background-color: #6c757d;
-            border-color: #6c757d;
-        }
-        .btn-cancel:hover {
-            background-color: #5a6268;
-            border-color: #545b62;
-        }
-        .modal-body {
-            padding: 2rem;
-        }
-        .modal-footer {
-            border-top: 2px solid #dee2e6;
-            padding: 1rem;
-            display: flex;
-            justify-content: flex-end;
-        }
-        .modal-footer .btn {
-            margin-left: 0.5rem;
-        }
-    </style>
 </head>
 
 <body>
@@ -83,15 +19,50 @@
             </div>
             <ul class="sidebar-links">
                 <div class="menu-separator"></div>
-                <li><a href="/Estanco_web/vista/VentasAdmin.jsp"><i class="bi bi-house-door"></i> Inicio</a></li>
-                <li><a href="/Estanco_web/vista/ListarProductos.jsp"><i class="bi bi-grid"></i> Productos</a></li>
-                <li><a href="/Estanco_web/vista/ListarUsuario.jsp"><i class="bi bi-people"></i> Usuarios</a></li>
-                <li><a href="/Estanco_web/vista/PedidosAdmin.jsp"><i class="bi bi-box-seam"></i> Pedidos</a></li>
-                <li><a href="/Estanco_web/vista/ListarProveedor.jsp"><i class="bi bi-folder"></i> Proveedores</a></li>
-                <li><a href="/Estanco_web/vista/Categorias.jsp"><i class="bi bi-tags"></i> Categorías</a></li>
-                <li><a href="#"><i class="bi bi-bar-chart"></i> Reportes</a></li>
-                <li><a href="#"><i class="bi bi-question-circle"></i> Ayuda</a></li>
-                <li><a href="/Estanco_web/CtrProducto?accion=salir"><i class="bi bi-box-arrow-left"></i> Salir</a></li>
+                <li>
+                    <a href="/Estanco_web/vista/VentasAdmin.jsp">
+                        <i class="bi bi-house-door"></i> Inicio
+                    </a>
+                </li>
+                <li>
+                    <a href="/Estanco_web/vista/ListarProductos.jsp">
+                        <i class="bi bi-grid"></i> Productos
+                    </a>
+                </li>
+                <li>
+                    <a href="/Estanco_web/vista/ListarUsuario.jsp">
+                        <i class="bi bi-people"></i> Usuarios
+                    </a>
+                </li>
+                <li>
+                    <a href="/Estanco_web/vista/PedidosAdmin.jsp">
+                        <i class="bi bi-box-seam"></i> Pedidos
+                    </a>
+                </li>
+                <li>
+                    <a href="/Estanco_web/vista/ListarProveedor.jsp">
+                        <i class="bi bi-folder"></i> Proveedores
+                    </a>
+                </li>
+                <li>
+                    <a href="/Estanco_web/vista/Categorias.jsp">
+                        <i class="bi bi-tags"></i> Categorías</a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="bi bi-bar-chart"></i> Reportes
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="bi bi-question-circle"></i> Ayuda
+                    </a>
+                </li>
+                <li>
+                    <a href="/Estanco_web/CtrProducto?accion=salir">
+                        <i class="bi bi-box-arrow-left"></i> Salir
+                    </a>
+                </li>
             </ul>
             <div class="user-account">
                 <div class="user-profile">
@@ -105,47 +76,46 @@
         </aside>
         <main class="contentmain">
             <div class="container mt-5">
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h1>Categorías</h1>
-                    <form class="form-inline mt-4 mb-4" action="#">
-                        <div class="input-group">
-                            <input type="text" class="form-control form-control-sm" name="txtbuscar" placeholder="Buscar categoría">
-                            <button type="submit" class="btn btn-success" name="accion" value="buscar">
-                                <i class="bi bi-search"></i> Buscar
-                            </button>
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h1>Usuarios</h1>
+                        <form class="form-inline mt-4 mb-4" action="#">
+                            <div class="input-group">
+                                <input type="text" class="form-control form-control-sm" name="txtbuscar" placeholder="Digite nombre">
+                                <button type="submit" class="btn btn-success" name="accion" value="buscar">
+                                    <i class="bi bi-search"></i> Buscar
+                                </button>
+                            </div>
+                        </form>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarCategoriaModal">
+                            <i class="bi bi-plus-square"></i>
+                        </button>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-sm">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Id</th>
+                                        <th class="text-center">Nombre</th>
+                                        <th class="text-center">Descripción</th>
+                                        <th class="text-center">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center">1</td>
+                                        <td class="text-center">Mecatos</td>
+                                        <td class="text-center">Mecatos</td>
+                                        <td class="text-center">
+                                            <a class="btn btn-warning" href="#" data-bs-toggle="modal" data-bs-target="#editarCategoriaModal"><i class="bi bi-pencil-fill"></i></a>
+                                            <a class="btn btn-danger" href="#"><i class="bi bi-trash-fill"></i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-                    </form>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarCategoriaModal">
-                        <i class="bi bi-plus-square"></i>
-                    </button>
+                    </div>
                 </div>
-
-                <table class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th class="text-center">ID</th>
-                            <th class="text-center">Nombre</th>
-                            <th class="text-center">Descripción</th>
-                            <th class="text-center">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="text-center">1</td>
-                            <td class="text-center">Cerveza Águila</td>
-                            <td class="text-center">Refrescante en todo momento</td>
-                            <td class="text-center">
-                                <a class="btn btn-warning" href="#" data-bs-toggle="modal" data-bs-target="#editarCategoriaModal">
-                                    <i class="bi bi-pencil-fill"></i> Editar
-                                </a>
-                                <a class="btn btn-danger" href="#" onclick="return confirm('¿Estás seguro de que deseas eliminar esta categoría?');">
-                                    <i class="bi bi-trash-fill"></i> Eliminar
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
         </main>
     </div>
 

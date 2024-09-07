@@ -9,7 +9,6 @@
         <title>Productos</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <link href="../css/admin.css" rel="stylesheet" type="text/css"/>
-        <link href="../css/style.css" rel="stylesheet" type="text/css"/>
         <style>
             .contentmain h1 {
                 border-bottom: 4px solid orange;
@@ -22,8 +21,8 @@
                 overflow: hidden;
             }
             .table thead {
-                background-color: #343a40;
-                color: white;
+                background-color: #ffffff;
+                color: #000000; 
             }
             .table tbody tr:nth-child(even) {
                 background-color: #f2f2f2;
@@ -74,6 +73,11 @@
             }
         </style>
     </head>
+    <%
+        if (session.getAttribute("log") == null || session.getAttribute("log").equals('0')){
+            response.sendRedirect("../vista/Login.jsp");
+        }
+    %>
     <body>
         <div class="wrapper">
             <aside class="sidebar">
@@ -155,36 +159,43 @@
                             <i class="bi bi-plus-square"></i>
                         </button>
                     </div>
-
-                    <table class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th class="text-center">Id</th>
-                                <th class="text-center">Nombre</th>
-                                <th class="text-center">Foto</th>
-                                <th class="text-center">Descripcion</th>
-                                <th class="text-center">Precio</th>
-                                <th class="text-center">Stock</th>
-                                <th class="text-center">Categoria</th>
-                                <th class="text-center">Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="text-center">1</td>
-                                <td class="text-center">Producto 1</td>
-                                <td class="text-center">Foto Producto</td>
-                                <td class="text-center">Prducto 1</td>
-                                <td class="text-center">1000</td>
-                                <td class="text-center">10</td>
-                                <td class="text-center">1</td>
-                                <td class="text-center">
-                                    <a class="btn btn-warning" href="#" data-bs-toggle="modal" data-bs-target="#editProductModal"><i class="bi bi-pencil-fill"></i></a>
-                                    <a class="btn btn-danger" href="#"><i class="bi bi-trash-fill"></i></a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="row mt-3">
+                        <div class="col-sm">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Id</th>
+                                        <th class="text-center">Nombre</th>
+                                        <th class="text-center">Foto</th>
+                                        <th class="text-center">Descripción</th>
+                                        <th class="text-center">Fecha de Vencimiento</th>
+                                        <th class="text-center">Precio</th>
+                                        <th class="text-center">Stock</th>
+                                        <th class="text-center">Categoria</th>
+                                        <th class="text-center">Id Proveedor</th>
+                                        <th class="text-center">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center">1</td>
+                                        <td class="text-center">Producto</td>
+                                        <td class="text-center">Producto</td>
+                                        <td class="text-center">Producto</td>
+                                        <td class="text-center">Producto</td>
+                                        <td class="text-center">Producto</td>
+                                        <td class="text-center">Producto</td>
+                                        <td class="text-center">Producto</td>
+                                        <td class="text-center">Producto</td>
+                                        <td class="text-center">
+                                            <a class="btn btn-warning" href="#" data-bs-toggle="modal" data-bs-target="#editProductModal"><i class="bi bi-pencil-fill"></i></a>
+                                            <a class="btn btn-danger" href="#"><i class="bi bi-trash-fill"></i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Modal para agregar producto -->

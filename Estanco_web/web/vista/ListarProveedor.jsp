@@ -14,71 +14,12 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <title>Proveedor</title>
         <link href="../css/admin.css" rel="stylesheet" type="text/css"/>
-        <link href="../css/style.css" rel="stylesheet" type="text/css"/>
-        <style>
-            .contentmain h1 {
-                border-bottom: 4px solid orange;
-                padding-bottom: 10px;
-                margin-bottom: 20px;
-            }
-            .table {
-                background-color: #f8f9fa;
-                border-radius: 8px;
-                overflow: hidden;
-            }
-            .table thead {
-                background-color: #343a40;
-                color: white;
-            }
-            .table tbody tr:nth-child(even) {
-                background-color: #f2f2f2;
-            }
-            .table tbody tr:hover {
-                background-color: #e9ecef;
-            }
-            .table th, .table td {
-                vertical-align: middle;
-            }
-            .btn-warning, .btn-danger {
-                margin-right: 5px;
-            }
-            .modal-content {
-                border-radius: 8px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            }
-            .modal-header {
-                border-bottom: 2px solid #dee2e6;
-                background-color: #f8f9fa;
-            }
-            .modal-title {
-                font-size: 1.25rem;
-                font-weight: 500;
-            }
-            .btn-close {
-                display: none;
-            }
-            .btn-cancel {
-                background-color: #6c757d;
-                border-color: #6c757d;
-            }
-            .btn-cancel:hover {
-                background-color: #5a6268;
-                border-color: #545b62;
-            }
-            .modal-body {
-                padding: 2rem;
-            }
-            .modal-footer {
-                border-top: 2px solid #dee2e6;
-                padding: 1rem;
-                display: flex;
-                justify-content: flex-end;
-            }
-            .modal-footer .btn {
-                margin-left: 0.5rem;
-            }
-        </style>
     </head>
+    <%
+        if (session.getAttribute("log") == null || session.getAttribute("log").equals('0')) {
+            response.sendRedirect("../vista/Login.jsp");
+        }
+    %>
     <body>
         <div class="wrapper">
             <aside class="sidebar">
@@ -156,48 +97,129 @@
                                 </button>
                             </div>
                         </form>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarUsuarioModal">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">
                             <i class="bi bi-plus-square"></i>
                         </button>
                     </div>
-
-                    <table class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th class="text-center">Id</th>
-                                <th class="text-center">Ciudad</th>
-                                <th class="text-center">Correo</th>
-                                <th class="text-center">Nombre</th>
-                                <th class="text-center">Tipo</th>
-                                <th class="text-center">Telefono</th>
-                                <th class="text-center">Nombre_Contacto</th>
-                                <th class="text-center">Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="text-center">1</td>
-                                <td class="text-center">Juan</td>
-                                <td class="text-center">Pérez</td>
-                                <td class="text-center">Calle Falsa 123</td>
-                                <td class="text-center">555-1234</td>
-                                <td class="text-center">01/01/1990</td>
-                                <td class="text-center">juan@gmail.com</td>
-                                <td class="text-center">juanp</td>
-                                <td class="text-center">Admin</td>
-                                <td class="text-center">
-                                    <a class="btn btn-warning" href="#"><i class="bi bi-pencil-fill"></i></a>
-                                    <a class="btn btn-danger" href="#"><i class="bi bi-trash-fill"></i></a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="row mt-3">
+                        <div class="col-sm">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Id</th>
+                                        <th class="text-center">Ciudad</th>
+                                        <th class="text-center">Correo</th>
+                                        <th class="text-center">Nombre</th>
+                                        <th class="text-center">Telefono</th>
+                                        <th class="text-center">Nombre de Contacto</th>
+                                        <th class="text-center">Acción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center">1</td>
+                                        <td class="text-center">Barranquilla</td>
+                                        <td class="text-center">bavaria@gmail.com</td>
+                                        <td class="text-center">bavaria</td>
+                                        <td class="text-center">308472912</td>
+                                        <td class="text-center">Fernando Palomo</td>
+                                        <td class="text-center">
+                                            <a class="btn btn-warning" href="#" data-bs-toggle="modal" data-bs-target="#editProductModal"><i class="bi bi-pencil-fill"></i></a>
+                                            <a class="btn btn-danger" href="#"><i class="bi bi-trash-fill"></i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
-
                 
             </main>
+            <!-- Modal para agregar proveedor -->
+                <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="addProductModalLabel">Agregar Proveedor</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="#" method="POST">
+                                    <div class="mb-3">
+                                        <label for="ciudad" class="form-label">Ciudad</label>
+                                        <input type="text" class="form-control" id="ciudad" name="ciudad" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="correo" class="form-label">Correo</label>
+                                        <input type="email" class="form-control" id="correo" name="correo" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="nombre" class="form-label">Nombre</label>
+                                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="telefono" class="form-label">Teléfono</label>
+                                        <input type="text" class="form-control" id="telefono" name="telefono" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="contacto" class="form-label">Nombre de Contacto</label>
+                                        <input type="text" class="form-control" id="contacto" name="contacto" required>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                        <button type="submit" class="btn btn-primary">Agregar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal para editar proveedor -->
+                <div class="modal fade" id="editProductModal" tabindex="-1" aria-labelledby="editProductModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="editProductModalLabel">Editar Proveedor</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="#" method="POST">
+                                    <div class="mb-3">
+                                        <label for="id" class="form-label">Id</label>
+                                        <input type="text" class="form-control" id="id" name="id" value="1" readonly>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="ciudad" class="form-label">Ciudad</label>
+                                        <input type="text" class="form-control" id="ciudad" name="ciudad" value="Barranquilla" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="correo" class="form-label">Correo</label>
+                                        <input type="email" class="form-control" id="correo" name="correo" value="bavaria@gmail.com" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="nombre" class="form-label">Nombre</label>
+                                        <input type="text" class="form-control" id="nombre" name="nombre" value="bavaria" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="telefono" class="form-label">Teléfono</label>
+                                        <input type="text" class="form-control" id="telefono" name="telefono" value="308472912" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="contacto" class="form-label">Nombre de Contacto</label>
+                                        <input type="text" class="form-control" id="contacto" name="contacto" value="Fernando Palomo" required>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-rbsA0bDhUn/TxU+0bD6I4BO15AVY8l+t9f/4coiTrTWGFj1PSJrAKFENIG+9j2N" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybVuC2B34KpZ9I6eg5a1FhH5A5cKtFNwKkMxWoDhPpQ0ZaK4i" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12B5L8sUwZH5qOOhcvr+rZeGsGA/UbmXp2vI2U2BWI5yIk05" crossorigin="anonymous"></script>
     </body>
 </html>
 

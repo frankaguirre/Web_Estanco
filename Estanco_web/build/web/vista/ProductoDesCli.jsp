@@ -13,6 +13,11 @@
         <title>Producto Descripcion</title>
         <link href="../css/inicio.css" rel="stylesheet" type="text/css"/>
     </head>
+    <%
+        if (session.getAttribute("log") == null || session.getAttribute("log").equals('0')){
+            response.sendRedirect("../vista/Login.jsp");
+        }
+    %>
     <style>
         body {
             background: linear-gradient(120deg, #f0f4f8, #d9e2ec);
