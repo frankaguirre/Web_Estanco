@@ -88,32 +88,32 @@
                 <ul class="sidebar-links">
                     <div class="menu-separator"></div>
                     <li>
-                        <a href="/EstancoCurrambero/vista/VentasAdmin.jsp">
+                        <a href="/Estanco_web/vista/VentasAdmin.jsp">
                             <i class="bi bi-house-door"></i> Inicio
                         </a>
                     </li>
                     <li>
-                        <a href="/EstancoCurrambero/vista/ListarProductos.jsp">
+                        <a href="/Estanco_web/vista/ListarProductos.jsp">
                             <i class="bi bi-grid"></i> Productos
                         </a>
                     </li>
                     <li>
-                        <a href="/EstancoCurrambero/vista/ListarUsuario.jsp">
+                        <a href="/Estanco_web/vista/ListarUsuario.jsp">
                             <i class="bi bi-people"></i> Usuarios
                         </a>
                     </li>
                     <li>
-                        <a href="/EstancoCurrambero/vista/PedidosAdmin.jsp">
+                        <a href="/Estanco_web/vista/PedidosAdmin.jsp">
                             <i class="bi bi-box-seam"></i> Pedidos
                         </a>
                     </li>
                     <li>
-                        <a href="/EstancoCurrambero/vista/ListarProveedor.jsp">
+                        <a href="/Estanco_web/vista/ListarProveedor.jsp">
                             <i class="bi bi-folder"></i> Proveedores
                         </a>
                     </li>
                     <li>
-                        <a href="/EstancoCurrambero/vista/Categorias.jsp">
+                        <a href="/Estanco_web/vista/Categorias.jsp">
                             <i class="bi bi-tags"></i> Categorias
                         </a>
                     </li>

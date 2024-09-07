@@ -39,7 +39,7 @@
         }
 
         .navbar-dark .nav-link i {
-            color: #ffffff; /* Asegura que los íconos también sean blancos */
+            color: #ffffff;
         }
 
 

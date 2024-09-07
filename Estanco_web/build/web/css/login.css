@@ -24,10 +24,10 @@ body {
 }
 h1 {
   text-align: center;
-  margin-bottom: 20px; /* Ajusta la separación respecto al input */
+  margin-bottom: 20px; 
 }
-h5 {
-  margin-bottom: 20px; /* Ajusta la separación respecto al input */
+h6 {
+  margin-bottom: 20px; 
 }
 
 .container {
@@ -36,7 +36,7 @@ h5 {
     max-width: 1200px;
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
+    border-radius: 20px;
 }
 
 .left-side {
@@ -66,7 +66,7 @@ h5 {
 }
 
 .login-btn, .signup-btn {
-    background-color: transparent; /* Fondo transparente */
+    background-color: transparent; /* Fondo transparente para ambos botones */
     color: white;
     font-size: 20px;
     cursor: pointer;
@@ -152,8 +152,8 @@ h5 {
 }
 
 .forgot-password {
-    text-align: right;
-    color: #4a42ad;
+    text-align: center;
+    color: orange;
     font-size: 14px;
     margin-bottom: 20px;
     text-decoration: none;

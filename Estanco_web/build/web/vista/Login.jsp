@@ -8,8 +8,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Login/Sign Up</title>
-        <!-- Vincula a Font Awesome para usar íconos -->
+        <title>Estanco Currambero</title>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
         <link href="../css/login.css" rel="stylesheet" type="text/css"/>
     </head>
@@ -24,7 +23,7 @@
     <body>
         <div class="container">
             <div class="left-side">
-                <img src="../imagenes/logoestancoo.jpg" alt="" class="shoe-image"/>
+                <img src="../imagenes/carrito.jpeg" alt="" class="shoe-image"/>
                 <div class="buttons">
                     <button class="login-btn" onclick="showLogin()">Iniciar Sesion</button>
                     <button class="signup-btn" onclick="showSignUp()">Crear Cuenta</button>
@@ -48,7 +47,7 @@
                     </form>
 
                     <form id="signup-form" class="form">
-                        <h5>Completa los datos para crear tu cuenta:</h5>
+                        <h6>Completa los datos para crear tu cuenta:</h6>
                         <div class="input-group-row">
                             <div class="input-group">
                                 <i class="fas fa-user icon"></i>
@@ -71,7 +70,7 @@
                         </div>
                         <div class="input-group-row">
                             <div class="input-group">
-                                <input type="date" id="new-fecha" placeholder="Fecha de Nacimiento"> <!-- Eliminado icono -->
+                                <input type="date" id="new-fecha" placeholder="Fecha de Nacimiento"> 
                             </div>
                             <div class="input-group">
                                 <i class="fas fa-envelope icon"></i>
