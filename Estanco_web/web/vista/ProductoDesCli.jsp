@@ -196,8 +196,8 @@
 
                     <!-- Botones organizados en columna -->
                     <div class="d-grid gap-2">
-                        <button class="btn btn-outline-danger btn-sm">Comprar Ahora</button>
-                        <button class="btn btn-outline-primary btn-sm">Agregar al Carrito</button>
+                        <button class="btn btn-primary btn-checkout">Método de pago</button>
+                        <button class="btn btn-danger btn-checkout">Generar pedido</button>
                     </div>
                 </div>
 
