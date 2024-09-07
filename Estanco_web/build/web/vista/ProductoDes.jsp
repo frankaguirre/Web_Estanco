@@ -172,7 +172,7 @@
         </header>
         
 
-    <div class="container mt-5">
+   <div class="container mt-5">
         <div class="row">
             <!-- Product Image -->
             <div class="col-md-6">

@@ -133,8 +133,9 @@
         </div>
         
       <div class="product-container">
-    <c:forEach var="p" items="${productos}">
-        <a href="/Estanco_web/vista/ProductoDes.jsp?id=${p.getId()}" class="product-card">
+     <div class="product-container">
+       <c:forEach var="p" items="${productos}">
+            <a href="/Estanco_web/vista/ProductoDes.jsp?id=${p.getId()}" class="product-card">
             <img src="${p.getFoto()}" alt="${p.getNombre()}">
             <h2 style="color: black;"><c:out value="${p.getNombre()}"/></h2>
             <div class="price-container">
