@@ -170,8 +170,8 @@
                                 <i class="bi bi-person"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                                <li><a class="dropdown-item" href="#">Ciente</a></li>
-                                <li><a class="dropdown-item" href="#">hola</a></li>
+                                <li><a class="dropdown-item" href="#">Uauario</a></li>
+                                <li><a class="dropdown-item" href="#">Menu</a></li>
                             </ul>
                         </div>
                     </div>
