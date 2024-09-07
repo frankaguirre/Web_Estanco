@@ -3,6 +3,8 @@ package org.apache.jsp.vista;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import Modelo.Producto;
+import Modelo.ProductoDAO;
 
 public final class ProductoDes_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -51,6 +53,8 @@ public final class ProductoDes_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
@@ -218,40 +222,73 @@ public final class ProductoDes_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                </div>\r\n");
       out.write("            </nav>\r\n");
       out.write("        </header>\r\n");
-      out.write("        <div class=\"container mt-5\">\r\n");
-      out.write("            <div class=\"row\">\r\n");
-      out.write("                <!-- Product Image -->\r\n");
-      out.write("                <div class=\"col-md-6\">\r\n");
-      out.write("                    <img src=\"ruta-de-imagen.jpg\" class=\"img-fluid\" alt=\"Nombre del Producto\">\r\n");
-      out.write("                </div>\r\n");
+      out.write("        ");
+
+        // Obtener el ID del producto desde la solicitud
+        String idStr = request.getParameter("id");
+        if (idStr != null) {
+            int productId = Integer.parseInt(idStr);
+            ProductoDAO productoDAO = new ProductoDAO();
+            Producto producto = productoDAO.getProductoById(productId);
+            if (producto == null) {
+                out.println("Producto no encontrado.");
+                return;
+            }
+    
       out.write("\r\n");
-      out.write("                <div class=\"col-md-6\">\r\n");
-      out.write("                    <h1 class=\"product-title\">Nombre del Producto</h1>\r\n");
-      out.write("                    <p class=\"product-price text-success\" style=\"font-size: 1.5rem;\">$ Precio</p>\r\n");
       out.write("\r\n");
-      out.write("                    <ul class=\"product-features list-unstyled\">\r\n");
-      out.write("                        <li><i class=\"bi bi-check-circle-fill text-success\"></i> Característica 1</li>\r\n");
-      out.write("                        <li><i class=\"bi bi-check-circle-fill text-success\"></i> Característica 2</li>\r\n");
-      out.write("                        <li><i class=\"bi bi-check-circle-fill text-success\"></i> Característica 3</li>\r\n");
-      out.write("                    </ul>\r\n");
-      out.write("\r\n");
-      out.write("                    <!-- Botones organizados en columna -->\r\n");
-      out.write("                    <div class=\"d-grid gap-2\">\r\n");
-      out.write("                        <button class=\"btn btn-outline-danger btn-sm\">Comprar Ahora</button>\r\n");
-      out.write("                        <button class=\"btn btn-outline-primary btn-sm\">Agregar al Carrito</button>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                </div>\r\n");
-      out.write("\r\n");
+      out.write("    <div class=\"container mt-5\">\r\n");
+      out.write("        <div class=\"row\">\r\n");
+      out.write("            <!-- Product Image -->\r\n");
+      out.write("            <div class=\"col-md-6\">\r\n");
+      out.write("                <img src=\"");
+      out.print( producto.getFoto() );
+      out.write("\" class=\"img-fluid\" alt=\"");
+      out.print( producto.getNombre() );
+      out.write("\">\r\n");
       out.write("            </div>\r\n");
       out.write("\r\n");
-      out.write("            <!-- Product Description -->\r\n");
-      out.write("            <div class=\"row mt-5\">\r\n");
-      out.write("                <div class=\"col-12\">\r\n");
-      out.write("                    <h4>Descripción del Producto</h4>\r\n");
-      out.write("                    <p>Este producto ofrece las siguientes ventajas...</p>\r\n");
+      out.write("            <div class=\"col-md-6\">\r\n");
+      out.write("                <h1 class=\"product-title\">");
+      out.print( producto.getNombre() );
+      out.write("</h1>\r\n");
+      out.write("                <p class=\"product-price text-success\" style=\"font-size: 1.5rem;\">$ ");
+      out.print( producto.getPrecio() );
+      out.write("</p>\r\n");
+      out.write("\r\n");
+      out.write("                <ul class=\"product-features list-unstyled\">\r\n");
+      out.write("                    <li><i class=\"bi bi-check-circle-fill text-success\"></i> Característica 1</li>\r\n");
+      out.write("                    <li><i class=\"bi bi-check-circle-fill text-success\"></i> Característica 2</li>\r\n");
+      out.write("                    <li><i class=\"bi bi-check-circle-fill text-success\"></i> Característica 3</li>\r\n");
+      out.write("                </ul>\r\n");
+      out.write("\r\n");
+      out.write("                <!-- Botones organizados en columna -->\r\n");
+      out.write("                <div class=\"d-grid gap-2\">\r\n");
+      out.write("                    <button class=\"btn btn-primary btn-checkout\">Método de pago</button>\r\n");
+      out.write("                    <button class=\"btn btn-danger btn-checkout\">Generar pedido</button>\r\n");
       out.write("                </div>\r\n");
+      out.write("            </div>\r\n");
+      out.write("\r\n");
+      out.write("        </div>\r\n");
+      out.write("\r\n");
+      out.write("        <!-- Product Description -->\r\n");
+      out.write("        <div class=\"row mt-5\">\r\n");
+      out.write("            <div class=\"col-12\">\r\n");
+      out.write("                <h4>Descripción del Producto</h4>\r\n");
+      out.write("                <p>");
+      out.print( producto.getDescripcion() );
+      out.write("</p>\r\n");
       out.write("            </div>\r\n");
       out.write("        </div>\r\n");
+      out.write("    </div>\r\n");
+      out.write("\r\n");
+      out.write("    ");
+
+        } else {
+            out.println("ID de producto no proporcionado.");
+        }
+    
+      out.write("\r\n");
       out.write("\r\n");
       out.write("        <!-- Modal de Iniciar Sesión -->\r\n");
       out.write("        <div class=\"modal fade\" id=\"IniciarSesion\" tabindex=\"-1\" aria-labelledby=\"loginModalLabel\" aria-hidden=\"true\">\r\n");

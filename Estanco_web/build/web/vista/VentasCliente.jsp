@@ -132,20 +132,19 @@
             <div class="time"></div>
         </div>
         
-        <div class="product-container">
-            <c:forEach var="p" items="${productos}">
-                <div class="product-card">
-                    <img src="${p.getFoto()}" alt="${p.getNombre()}">
-                    <h2><c:out value="${p.getNombre()}"/></h2>
-                    <div class="price-container">
-                        <div class="price">$<c:out value="${p.getPrecio()}"/></div>
-                        <a href="/Estanco_web/CtrProducto?accion=AgregarCarrito&id=${p.getId()}" class="order-btn">
-                            <i class="bi bi-cart3"></i>
-                        </a>
-                    </div>
-                </div>
-            </c:forEach>
-        </div>
+      <div class="product-container">
+    <c:forEach var="p" items="${productos}">
+        <a href="/Estanco_web/vista/ProductoDes.jsp?id=${p.getId()}" class="product-card">
+            <img src="${p.getFoto()}" alt="${p.getNombre()}">
+            <h2 style="color: black;"><c:out value="${p.getNombre()}"/></h2>
+            <div class="price-container">
+                <div class="price">$<c:out value="${p.getPrecio()}"/></div>
+                <i class="bi bi-cart3" style="color: black;"></i>
+            </div>
+        </a>
+    </c:forEach>
+</div>
+
         <footer>
         <div class="container-fluid" style="background-color: black; color: white; padding: 20px;">
             <div class="row">

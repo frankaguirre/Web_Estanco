@@ -5,6 +5,7 @@
 --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -169,40 +170,43 @@
                 </div>
             </nav>
         </header>
-        <div class="container mt-5">
-            <div class="row">
-                <!-- Product Image -->
-                <div class="col-md-6">
-                    <img src="ruta-de-imagen.jpg" class="img-fluid" alt="Nombre del Producto">
-                </div>
+        
 
-                <div class="col-md-6">
-                    <h1 class="product-title">Nombre del Producto</h1>
-                    <p class="product-price text-success" style="font-size: 1.5rem;">$ Precio</p>
-
-                    <ul class="product-features list-unstyled">
-                        <li><i class="bi bi-check-circle-fill text-success"></i> Característica 1</li>
-                        <li><i class="bi bi-check-circle-fill text-success"></i> Característica 2</li>
-                        <li><i class="bi bi-check-circle-fill text-success"></i> Característica 3</li>
-                    </ul>
-
-                    <!-- Botones organizados en columna -->
-                    <div class="d-grid gap-2">
-                        <button class="btn btn-primary btn-checkout">Método de pago</button>
-                        <button class="btn btn-danger btn-checkout">Generar pedido</button>
-                    </div>
-                </div>
-
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Product Image -->
+            <div class="col-md-6">
+                    <img src="${p.getFoto()}" alt="${p.getNombre()}">
             </div>
 
-            <!-- Product Description -->
-            <div class="row mt-5">
-                <div class="col-12">
-                    <h4>Descripción del Producto</h4>
-                    <p>Este producto ofrece las siguientes ventajas...</p>
+            <div class="col-md-6">
+                <h1><c:out value="${p.getNombre()}"/></h1>
+                 <div class="price">$<c:out value="${p.getPrecio()}"/></div>
+
+                <ul class="product-features list-unstyled">
+                    <li><i class="bi bi-check-circle-fill text-success"></i> Característica 1</li>
+                    <li><i class="bi bi-check-circle-fill text-success"></i> Característica 2</li>
+                    <li><i class="bi bi-check-circle-fill text-success"></i> Característica 3</li>
+                </ul>
+
+                <!-- Botones organizados en columna -->
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary btn-checkout">Método de pago</button>
+                    <button class="btn btn-danger btn-checkout">Generar pedido</button>
                 </div>
+            </div>
+
+        </div>
+
+        <!-- Product Description -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <h4>Descripción del Producto</h4>
+                <p> ${p.getDescripcion()}</p>
             </div>
         </div>
+    </div>
+
 
         <!-- Modal de Iniciar Sesión -->
         <div class="modal fade" id="IniciarSesion" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
