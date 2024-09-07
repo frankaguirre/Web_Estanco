@@ -33,6 +33,7 @@
             <div class="right-side">
                 <div id="form-container">
                     <form id="login-form" class="form active" action="/Estanco_web/CtrValidar" method="post">
+                        <h1> ¡Bienvenido! </h1>
                         <div class="input-group">
                             <i class="fas fa-user icon"></i>
                             <input type="text" name="txtuser" id="usuario" placeholder="Usuario">
@@ -47,6 +48,7 @@
                     </form>
 
                     <form id="signup-form" class="form">
+                        <h5>Completa los datos para crear tu cuenta:</h5>
                         <div class="input-group-row">
                             <div class="input-group">
                                 <i class="fas fa-user icon"></i>
