@@ -207,39 +207,46 @@
                                 <form>
                                     <div class="mb-3">
                                         <label for="userId" class="form-label">Id</label>
-                                        <input type="text" class="form-control" id="userId" required>
+                                        <input type="text" class="form-control" id="id" name="id" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="userName" class="form-label">Nombre</label>
-                                        <input type="text" class="form-control" id="userName" required>
+                                        <input type="text" class="form-control" id="nombre" name="nombre" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="userLastName" class="form-label">Apellido</label>
-                                        <input type="text" class="form-control" id="userLastName" required>
+                                        <input type="text" class="form-control" id="apellido" name="apellido" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="userAddress" class="form-label">Dirección</label>
-                                        <input type="text" class="form-control" id="userAddress" required>
+                                        <input type="text" class="form-control" id="direccion" name="direccion" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="userPhone" class="form-label">Teléfono</label>
-                                        <input type="text" class="form-control" id="userPhone" required>
+                                        <input type="text" class="form-control" id="telefono" name="telefono" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="userBirthDate" class="form-label">Fecha Nacimiento</label>
-                                        <input type="date" class="form-control" id="userBirthDate" required>
+                                        <input type="date" class="form-control" id="fechanaci" name="fechanaci" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="userEmail" class="form-label">Correo</label>
-                                        <input type="email" class="form-control" id="userEmail" required>
+                                        <input type="email" class="form-control" id="correo" name="correo" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="userUsername" class="form-label">Usuario</label>
-                                        <input type="text" class="form-control" id="userUsername" required>
+                                        <input type="text" class="form-control" id="usuario" name="usuario" required>
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="userType" class="form-label">Tipo</label>
-                                        <input type="text" class="form-control" id="userType" required>
+                                    <div class="mb-3" id="grupo_tipo">
+                                        <label for="id" class="formulario_label">Tipo</label> 
+                                        <div class="formulario_grupo-input">
+                                            <select class="form control formulario_input" name="tipo">
+                                                <option value="Administrador">Administrador</option> 
+                                                <option value="Usuario">Usuario</option> 
+                                                <option value="Invitado">Invitado</option> 
+                                                <option value="Cliente">Cliente</option> 
+                                            </select><br>
+                                        </div><br>
                                     </div>
                                 </form>
                             </div>

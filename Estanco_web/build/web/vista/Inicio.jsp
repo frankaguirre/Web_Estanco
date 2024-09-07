@@ -3,7 +3,7 @@
     Created on : 12/08/2024, 07:03:31 PM
 
 --%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
@@ -12,32 +12,34 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <link href="../css/inicio.css" rel="stylesheet" type="text/css"/>
+        <link href="/Estanco_web/css/inicio.css" rel="stylesheet" type="text/css"/>
         <title>Estanco Currambero</title>
     </head>
     <body>
         <!-- Header -->
         <header>
             <nav class="navbar navbar-dark bg-dark justify-content-between px-3">
-                <a href="#" class="navbar-brand">Inicio</a>
+                <a href="/Estanco_web/CtrProducto?accion=inicio" class="navbar-brand">Inicio</a>
                 <div class="d-flex align-items-center">
-                    <a href="/Estanco_web/vista/CarritoInicio.jsp" class="nav-link"><i class="bi bi-cart3"></i> Carrito</a>
+                    <a href="/Estanco_web/vista/Carrito.jsp" class="nav-link"><i class="bi bi-cart3"></i> Carrito</a>
                     <a href="#" class="nav-link">Ofertas</a>
                     <div class="dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="categoriasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="/Estanco_web/CtrProducto?accion=buscarcat&catid=${c.id}" id="categoriasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Categorías
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="categoriasDropdown">
                             <c:forEach var="c" items="${categorias}">
-                                <li><a class="dropdown-item" href="/Estanco_web/CtrProducto?accion=buscarcat&catid=${c.getId()}">${c.getNombre()}</a></li>
-                            </c:forEach>
+                                <li><a class="dropdown-item" href="/Estanco_web/CtrProducto?accion=buscarcat&catid=${c.id}">${c.nombre}</a></li>
+                                </c:forEach>
                         </ul>
                     </div>
+
                     <a href="#" class="nav-link">Ayuda</a>
-                    <form class="d-flex ms-3" style="width: 340px;">
-                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
-                        <button class="btn btn-outline-light" type="submit"><i class="bi bi-search"></i></button>
+                    <form class="d-flex ms-3" style="width: 340px;" action="/Estanco_web/CtrProducto?accion=buscar" method="post">
+                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar" name="buscarr">
+                        <button class="btn btn-outline-light" type="submit" value="buscar"><i class="bi bi-search"></i></button>
                     </form>
+
                     <a href="/Estanco_web/vista/Login.jsp" class="nav-link">Iniciar Sesión</a>
                     <a href="#" class="nav-link">Crear Cuenta</a>
                 </div>
@@ -48,28 +50,28 @@
         <div class="carousel">
             <div class="list">
                 <div class="item">
-                    <img src="../imagenes/img1.jpg" alt="TODO TIPO DE CERVEZAS"/>
+                    <img src="/Estanco_web/imagenes/img1.jpg" alt="TODO TIPO DE CERVEZAS"/>
                     <div class="content">
                         <div class="title">TODO TIPO</div>
                         <div class="topic">DE CERVEZAS</div>
                     </div>
                 </div>
                 <div class="item">
-                    <img src="../imagenes/img2.jpg" alt="Licores Y RON"/>
+                    <img src="/Estanco_web/imagenes/img2.jpg" alt="Licores Y RON"/>
                     <div class="content">
                         <div class="title">Licores</div>
                         <div class="topic">Y RON</div>
                     </div>
                 </div>
                 <div class="item">
-                    <img src="../imagenes/img3.jpg" alt="MECATOS Y MÁS..."/>
+                    <img src="/Estanco_web/imagenes/img3.jpg" alt="MECATOS Y MÁS..."/>
                     <div class="content">
                         <div class="title">MECATOS</div>
                         <div class="topic">Y MÁS...</div>
                     </div>
                 </div>
                 <div class="item">
-                    <img src="../imagenes/img4.jpg" alt="GASEOSAS Y ENERGIZANTES"/>
+                    <img src="/Estanco_web/imagenes/img4.jpg" alt="GASEOSAS Y ENERGIZANTES"/>
                     <div class="content">
                         <div class="title">GASEOSAS</div>
                         <div class="topic">Y ENERGIZANTES</div>
@@ -79,25 +81,25 @@
 
             <div class="thumbnail">
                 <div class="item">
-                    <img src="../imagenes/img1.jpg" alt="TODO TIPO DE CERVEZAS"/>
+                    <img src="/Estanco_web/imagenes/img1.jpg" alt="TODO TIPO DE CERVEZAS"/>
                     <div class="content">
                         <div class="title">Contamos con todo tipo de Cervezas.</div>
                     </div>
                 </div>
                 <div class="item">
-                    <img src="../imagenes/img2.jpg" alt="Licores Y RON"/>
+                    <img src="/Estanco_web/imagenes/img2.jpg" alt="Licores Y RON"/>
                     <div class="content">
                         <div class="title">¡Los mejores licores y ron del mercado!</div>
                     </div>
                 </div>
                 <div class="item">
-                    <img src="../imagenes/img3.jpg" alt="MECATOS Y MÁS..."/>
+                    <img src="/Estanco_web/imagenes/img3.jpg" alt="MECATOS Y MÁS..."/>
                     <div class="content">
                         <div class="title">¡Mecatos y más!</div>
                     </div>
                 </div>
                 <div class="item">
-                    <img src="../imagenes/img4.jpg" alt="GASEOSAS Y ENERGIZANTES"/>
+                    <img src="/Estanco_web/imagenes/img4.jpg" alt="GASEOSAS Y ENERGIZANTES"/>
                     <div class="content">
                         <div class="title">Gaseosas y Energizantes!</div>
                     </div>
@@ -112,16 +114,23 @@
             <div class="time"></div>
         </div>
 
-       <div class="product-container">
-            <c:forEach var="p" items="${producto}">
+        <div class="product-container">
+            <c:forEach var="p" items="${productos}">
                 <div class="product-card">
-                    <img src="${p.foto} "alt="${p.nombre}">
-                    <h2><c:out value="${p.nombre}"/></h2>
-                    <p><c:out value="${p.descripcion}"/></p>
-                    <div class="price">$<c:out value="${p.precio}"/></div>
-                    <a href="/Estanco_web/CtrProducto?accion=AgregarCarrito&id=${p.getId()}"class="order-btn"><i class="bi bi-cart3"></i></a>
+                    <img src="${p.getFoto()}" alt="${p.getNombre()}">
+                    <h2><c:out value="${p.getNombre()}"/></h2>
+                    <div class="price-container">
+                        <div class="price">$<c:out value="${p.getPrecio()}"/></div>
+                        <a href="/Estanco_web/vista/Carrito.jsp" class="order-btn">
+                            <i class="bi bi-cart3"></i>
+                        </a>
+                    </div>
                 </div>
-               </c:forEach>
+            </c:forEach>
+        </div>
+
+
+
         <footer>
             <div class="container-fluid" style="background-color: black; color: white; padding: 20px;">
                 <div class="row">
@@ -162,6 +171,6 @@
             </div>
         </footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-srnF2N6FQFmNm0R1O5yKo+TpyDntpD3B5Q1mlO7xHFvY67p06mH0nv6S1V8GxTkg" crossorigin="anonymous"></script>
-        <script src="../JS/carrusel.js" type="text/javascript"></script>
+        <script src="/Estanco_web/JS/carrusel.js" type="text/javascript"></script>
     </body>
 </html>

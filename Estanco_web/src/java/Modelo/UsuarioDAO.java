@@ -62,7 +62,7 @@ public class UsuarioDAO {
            if (con != null){
                System.out.println("Se ha establecido una conexcion con la base de datos");
            }
-           pstm = con.prepareStatement("select * from usuarios");
+           pstm = con.prepareStatement("select * from usuario");
            rs = pstm.executeQuery();
            while(rs.next()){
                Usuario usu = new Usuario();
@@ -91,7 +91,7 @@ public class UsuarioDAO {
            if (con != null){
                System.out.println("Se ha establecido una conexcion con la base de datos");
            }
-           pstm = con.prepareStatement("select * from usuarios where nombre like ?");
+           pstm = con.prepareStatement("select * from usuario where Nombre like ?");
            pstm.setString(1, nombre);
            rs = pstm.executeQuery();
            while(rs.next()){

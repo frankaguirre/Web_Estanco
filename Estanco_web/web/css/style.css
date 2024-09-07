@@ -1,219 +1,173 @@
 
 footer {
-    background-color: #000000; /* Fondo negro */
-    color: #ffffff; /* Texto blanco */
-    padding: 20px 0; /* Espaciado superior e inferior */
+    background-color: #000000; 
+    color: #ffffff; 
+    padding: 20px 0; 
 }
 
 footer a {
-    text-decoration: none; /* Quitar subrayado de los enlaces */
-    color: #ffffff; /* Color de texto blanco */
+    text-decoration: none; 
+    color: #ffffff; 
 }
 
 footer a:hover {
-    text-decoration: underline; /* Subrayado al pasar el ratón */
+    text-decoration: underline;
 }
 
 footer .container {
-    max-width: 1140px; /* Limitar el ancho máximo del contenedor */
+    max-width: 1140px; 
     margin: 0 auto; /* Centrar el contenedor horizontalmente */
 }
 
 footer ul {
-    list-style-type: none; /* Quitar puntos de la lista */
-    padding: 0; /* Quitar espaciado interno */
+    list-style-type: none; 
+    padding: 0; 
 }
 
 footer ul li {
-    margin-bottom: 10px; /* Espacio inferior entre elementos de lista */
+    margin-bottom: 10px; 
 }
 
+footer h5 {
+    font-weight: bold; 
+}
+body {
+    background: url('../Imagenes/fondo.png') no-repeat center center fixed;
+    background-size: cover;
+}
+.carousel {
+    margin-bottom: 20px; 
+}
+
+footer {
+    background-color: #000000; /* Fondo negro */
+    color: #ffffff; /* Texto blanco */
+    padding: 20px 0; /* Espaciado superior e inferior */
+    margin-top: 20px; /* Espacio superior para separarlo del contenido anterior */
+    width: 100%; /* Asegura que el footer ocupe todo el ancho de la página */
+    position: absolute;
+    bottom: 0;
+}
+footer a {
+    text-decoration: none; /* Quitar subrayado de los enlaces */
+    color: #ffffff; /* Color de texto blanco */
+}
+footer a:hover {
+    text-decoration: underline; /* Subrayado al pasar el ratón */
+}
+footer .container {
+    max-width: 1140px; /* Limitar el ancho máximo del contenedor */
+    margin: 0 auto; /* Centrar el contenedor horizontalmente */
+}
+footer ul {
+    list-style-type: none; /* Quitar puntos de la lista */
+    padding: 0; /* Quitar espaciado interno */
+}
+footer ul li {
+    margin-bottom: 10px; /* Espacio inferior entre elementos de lista */
+}
 footer h5 {
     font-weight: bold; /* Negrita para los títulos */
 }
 body {
-            background: url('../Imagenes/fondo.png') no-repeat center center fixed;
-            background-size: cover;
-        }
-        .carousel {
-            margin-bottom: 20px; /* Espacio inferior para separar del contenido siguiente */
-        }
- .card {
-            width: 18rem; /* Ancho fijo para las tarjetas */
-            height: 20rem; /* Altura fija para las tarjetas */
-            margin: 1rem; /* Espacio alrededor de las tarjetas */
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            flex-direction: column;
-            border: 2px solid black; /* Borde negro para las tarjetas */
-            border-radius: 0.25rem; /* Radio de borde para redondear esquinas */
-        }
-        .card-img-top {
-            width: 100%;
-            height: 12rem; /* Altura fija para las imágenes */
-            object-fit: contain; /* Ajusta la imagen sin recortar */
-            border-bottom: 2px solid black; /* Borde negro en la parte inferior de la imagen */
-        }
-        .card-body {
-            flex: 1; /* Hace que el cuerpo de la tarjeta ocupe el espacio restante */
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Centra horizontalmente */
-            justify-content: center; /* Centra verticalmente */
-        }
-        .card-title, .card-text {
-            margin: 0; /* Elimina los márgenes por defecto */
-            text-align: center; /* Centra el texto horizontalmente */
-        }
-        .card-info {
-            margin-top: auto; /* Asegura que el texto se alinee al final del cuerpo de la tarjeta */
-        }
-         body {
-            background: url('../Imagenes/fondo.png') no-repeat center center fixed;
-            background-size: cover;
-        }
-        .carousel {
-            margin-bottom: 20px; /* Espacio inferior para separar del contenido siguiente */
-        }
-        .card {
-            margin: 10px; /* Espacio alrededor de las tarjetas */
-        }
-        .card-info {
-            padding: 15px; /* Espaciado interno del nuevo div */
-            background-color: #f8f9fa; /* Color de fondo para el div */
-            border-radius: 5px; /* Bordes redondeados para el div */
-            margin-top: 10px; /* Espacio superior para separar del contenido anterior */
-        }
-        footer {
-            background-color: #000000; /* Fondo negro */
-            color: #ffffff; /* Texto blanco */
-            padding: 20px 0; /* Espaciado superior e inferior */
-            margin-top: 20px; /* Espacio superior para separarlo del contenido anterior */
-            width: 100%; /* Asegura que el footer ocupe todo el ancho de la página */
-            position: absolute;
-            bottom: 0;
-        }
-        footer a {
-            text-decoration: none; /* Quitar subrayado de los enlaces */
-            color: #ffffff; /* Color de texto blanco */
-        }
-        footer a:hover {
-            text-decoration: underline; /* Subrayado al pasar el ratón */
-        }
-        footer .container {
-            max-width: 1140px; /* Limitar el ancho máximo del contenedor */
-            margin: 0 auto; /* Centrar el contenedor horizontalmente */
-        }
-        footer ul {
-            list-style-type: none; /* Quitar puntos de la lista */
-            padding: 0; /* Quitar espaciado interno */
-        }
-        footer ul li {
-            margin-bottom: 10px; /* Espacio inferior entre elementos de lista */
-        }
-        footer h5 {
-            font-weight: bold; /* Negrita para los títulos */
-        }
-          body {
-            background: linear-gradient(120deg, #f0f4f8, #d9e2ec);
-            font-family: 'Roboto', sans-serif;
-            color: #343a40;
-        }
-        header {
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .navbar-dark {
-            background-color: #343a40;
-        }
-        .navbar-dark .navbar-nav .nav-link {
-            color: #ffffff;
-            font-weight: bold;
-        }
-        .navbar-dark .navbar-nav .nav-link:hover {
-            color: #ffc107;
-        }
-        .container {
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-            margin-top: 30px;
-        }
-        h1 {
-            font-weight: 700;
-            color: #495057;
-            text-transform: uppercase;
-            border-bottom: 3px solid #ffa500;
-            display: inline-block;
-            padding-bottom: 10px;
-            margin-bottom: 30px;
-        }
-        .table-striped tbody tr:nth-of-type(odd) {
-            background-color: rgba(0, 0, 0, 0.03);
-        }
-        .table thead {
-            background-color: #007bff;
-            color: #ffffff;
-            text-transform: uppercase;
-            font-weight: bold;
-        }
-        .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
-            transition: all 0.3s;
-            font-weight: bold;
-        }
-        .btn-primary:hover {
-            background-color: #0056b3;
-            border-color: #004085;
-        }
-        .btn-warning {
-            background-color: #ffcc00;
-            border-color: #ffcc00;
-            transition: all 0.3s;
-            font-weight: bold;
-        }
-        .btn-warning:hover {
-            background-color: #cc9900;
-            border-color: #cc9900;
-        }
-        .btn-danger {
-            background-color: #e60000;
-            border-color: #e60000;
-            transition: all 0.3s;
-            font-weight: bold;
-        }
-        .btn-danger:hover {
-            background-color: #cc0000;
-            border-color: #cc0000;
-        }
-        .modal-content {
-            border-radius: 10px;
-            padding: 20px;
-            background: #f8f9fa;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-        }
-        .form-label {
-            font-weight: 600;
-        }
-        .btn-close {
-            background-color: #e60000;
-            color: #ffffff;
-        }
-        .btn-close:hover {
-            background-color: #cc0000;
-        }
-        .dropdown-menu {
-            border-radius: 8px;
-            background: #f8f9fa;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-        }
-        .dropdown-item:hover {
-            background-color: #007bff;
-            color: #ffffff;
-        }
-        header {
+    background: linear-gradient(120deg, #f0f4f8, #d9e2ec);
+    font-family: 'Roboto', sans-serif;
+    color: #343a40;
+}
+header {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.navbar-dark {
+    background-color: #343a40;
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: #ffffff;
+    font-weight: bold;
+}
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #ffc107;
+}
+.container {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    margin-top: 30px;
+}
+h1 {
+    font-weight: 700;
+    color: #495057;
+    text-transform: uppercase;
+    border-bottom: 3px solid #ffa500;
+    display: inline-block;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+.table thead {
+    background-color: #007bff;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: all 0.3s;
+    font-weight: bold;
+}
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+.btn-warning {
+    background-color: #ffcc00;
+    border-color: #ffcc00;
+    transition: all 0.3s;
+    font-weight: bold;
+}
+.btn-warning:hover {
+    background-color: #cc9900;
+    border-color: #cc9900;
+}
+.btn-danger {
+    background-color: #e60000;
+    border-color: #e60000;
+    transition: all 0.3s;
+    font-weight: bold;
+}
+.btn-danger:hover {
+    background-color: #cc0000;
+    border-color: #cc0000;
+}
+.modal-content {
+    border-radius: 10px;
+    padding: 20px;
+    background: #f8f9fa;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+.form-label {
+    font-weight: 600;
+}
+.btn-close {
+    background-color: #e60000;
+    color: #ffffff;
+}
+.btn-close:hover {
+    background-color: #cc0000;
+}
+.dropdown-menu {
+    border-radius: 8px;
+    background: #f8f9fa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+.dropdown-item:hover {
+    background-color: #007bff;
+    color: #ffffff;
+}
+header {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 

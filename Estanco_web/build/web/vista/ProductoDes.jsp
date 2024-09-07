@@ -3,7 +3,7 @@
     Created on : 15/08/2024, 10:29:21 AM
     Author     : ALEANDRES RODRIGUE
 --%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <title>Producto Descripcion</title>
-        <link href="../css/inicio.css" rel="stylesheet" type="text/css"/>
+        <link href="/Estanco_web/css/inicio.css" rel="stylesheet" type="text/css"/>
     </head>
     <style>
         body {
@@ -40,7 +40,7 @@
         }
 
         .navbar-dark .nav-link i {
-            color: #ffffff; /* Asegura que los íconos también sean blancos */
+            color: #ffffff; 
         }
 
 
@@ -142,22 +142,21 @@
 
     </style>
     <body>
-        <header
+        <header>
             <nav class="navbar navbar-dark bg-dark justify-content-between px-3">
-                <a href="/EstancoCurrambero/vista/Inicio.jsp" class="navbar-brand">Inicio</a>
+                <a href="/Estanco_web/CtrProducto?accion=inicio" class="navbar-brand">Inicio</a>
                 <div class="d-flex align-items-center">
-                    <a href="/EstancoCurrambero/vista/CarritoInicio.jsp" class="nav-link"><i class="bi bi-cart3"></i> Carrito</a>
+                    <a href="/Estanco_web/vista/Carrito.jsp" class="nav-link"><i class="bi bi-cart3"></i> Carrito</a>
                     <a href="#" class="nav-link">Ofertas</a>
                     <div class="dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="categoriasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Categorías
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="categoriasDropdown">
-                            <li><a class="dropdown-item" href="#">Cervezas</a></li>
-                            <li><a class="dropdown-item" href="#">Licores</a></li>
-                            <li><a class="dropdown-item" href="#">Mecatos</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Otras</a></li>
+                            <c:forEach var="c" items="${categorias}">
+                                <li><a class="dropdown-item" href="/Estanco_web/CtrProducto?accion=buscarcat&catid=${c.getId()}">${c.getNombre()}</a></li>
+                                <input type="hidden" value="${c.getId()}" name="catid" id="catid">
+                            </c:forEach>
                         </ul>
                     </div>
                     <a href="#" class="nav-link">Ayuda</a>
@@ -165,17 +164,9 @@
                         <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
                         <button class="btn btn-outline-light" type="submit"><i class="bi bi-search"></i></button>
                     </form>
-                    <div>
-                        <div class="dropdown d-flex align-items-center">
-                            <a class="nav-link dropdown-toggle me-3" href="#" id="userDropdown" role="button" data-bs-toggle="modal" data-bs-target="#IniciarSesion" aria-expanded="false">
-                                <i class="bi bi-person"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                                <li><a class="dropdown-item" href="URL_DE_INICIO_SESION">Iniciar Sesión</a></li>
-                                <li><a class="dropdown-item" href="URL_DE_CREAR_CUENTA">Crear Cuenta</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    <a href="/Estanco_web/vista/Login.jsp" class="nav-link">Iniciar Sesión</a>
+                    <a href="#" class="nav-link">Crear Cuenta</a>
+                </div>
             </nav>
         </header>
         <div class="container mt-5">

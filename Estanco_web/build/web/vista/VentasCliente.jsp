@@ -3,6 +3,7 @@
     Created on : 12/08/2024, 07:59:56 PM
 
 --%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,8 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-        <link href="../css/style.css" rel="stylesheet" type="text/css"/>
-        <link href="../css/inicio.css" rel="stylesheet" type="text/css"/>
+        <link href="/Estanco_web/css/inicio.css" rel="stylesheet" type="text/css"/>
         <title>Estanco Currambero</title>
     </head>
     <%
@@ -32,11 +32,10 @@
                             Categorías
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="categoriasDropdown">
-                            <li><a class="dropdown-item" href="#">Cervezas</a></li>
-                            <li><a class="dropdown-item" href="#">Licores</a></li>
-                            <li><a class="dropdown-item" href="#">Mecatos</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Otras</a></li>
+                            <c:forEach var="c" items="${categorias}">
+                                <li><a class="dropdown-item" href="/Estanco_web/CtrProducto?accion=buscarcat&catid=${c.getId()}">${c.getNombre()}</a></li>
+                                <input type="hidden" value="${c.getId()}" name="catid" id="catid">
+                            </c:forEach>
                         </ul>
                     </div>
                     <a href="#" class="nav-link">Ayuda</a>
@@ -50,7 +49,7 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                             <li><a class="dropdown-item" href="#">Ciente</a></li>
-                            <li><a class="dropdown-item" href="#">hola</a></li>
+                            <li><a class="dropdown-item text-center" href="/Estanco_web/CtrProducto?accion=salir">Salir</a></li>
                         </ul>
                     </div>
                 </div>
@@ -61,28 +60,28 @@
         <div class="carousel">
             <div class="list">
                 <div class="item">
-                    <img src="../imagenes/img1.jpg" alt=""/>
+                    <img src="/Estanco_web/imagenes/img1.jpg" alt=""/>
                     <div class="content">
                         <div class="title">TODO TIPO</div>
                         <div class="topic">DE CERVEZAS</div>
                     </div>
                 </div>
                 <div class="item">
-                    <img src="../imagenes/img2.jpg" alt=""/>
+                    <img src="/Estanco_web/imagenes/img2.jpg" alt=""/>
                     <div class="content">
                         <div class="title">Licores</div>
                         <div class="topic">Y RON</div>
                     </div>
                 </div>
                 <div class="item">
-                    <img src="../imagenes/img3.jpg" alt=""/>
+                    <img src="/Estanco_web/imagenes/img3.jpg" alt=""/>
                     <div class="content">
                         <div class="title">MECATOS</div>
                         <div class="topic">Y MÁS...</div>
                     </div>
                 </div>
                 <div class="item">
-                    <img src="../imagenes/img4.jpg" alt=""/>
+                    <img src="/Estanco_web/imagenes/img4.jpg" alt=""/>
                     <div class="content">
                         <div class="title">GASEOSAS</div>
                         <div class="topic">Y ENERGIZANTES</div>
@@ -92,7 +91,7 @@
 
             <div class="thumbnail">
                 <div class="item">
-                    <img src="../imagenes/img1.jpg" alt=""/>
+                    <img src="/Estanco_web/imagenes/img1.jpg" alt=""/>
                     <div class="content">
                         <div class="title">
                             Contamos con todo tipo de Cervezas.
@@ -100,7 +99,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <img src="../imagenes/img2.jpg" alt=""/>
+                    <img src="/Estanco_web/imagenes/img2.jpg" alt=""/>
                     <div class="content">
                         <div class="title">
                             ¡Los mejores licores y ron del mercado!!
@@ -108,7 +107,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <img src="../imagenes/img3.jpg" alt=""/>
+                    <img src="/Estanco_web/imagenes/img3.jpg" alt=""/>
                     <div class="content">
                         <div class="title">
                             ¡Mecatos y más!
@@ -116,7 +115,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <img src="../imagenes/img4.jpg" alt=""/>
+                    <img src="/Estanco_web/imagenes/img4.jpg" alt=""/>
                     <div class="content">
                         <div class="title">
                             Gaseosas y Energizantes!!
@@ -132,14 +131,20 @@
 
             <div class="time"></div>
         </div>
-
-        <!-- Product Cards -->
-        <div class="product-card">
-            <img src="https://via.placeholder.com/250" alt="Product Image">
-            <h2>Morning Set</h2>
-            <p>Set of coffee and chocolate cookies as a top tier among our customers and a perfect way to start your day.</p>
-            <div class="price">$16</div>
-            <a href="#" class="order-btn"><i class="bi bi-cart3"></i></a>
+        
+        <div class="product-container">
+            <c:forEach var="p" items="${productos}">
+                <div class="product-card">
+                    <img src="${p.getFoto()}" alt="${p.getNombre()}">
+                    <h2><c:out value="${p.getNombre()}"/></h2>
+                    <div class="price-container">
+                        <div class="price">$<c:out value="${p.getPrecio()}"/></div>
+                        <a href="/Estanco_web/CtrProducto?accion=AgregarCarrito&id=${p.getId()}" class="order-btn">
+                            <i class="bi bi-cart3"></i>
+                        </a>
+                    </div>
+                </div>
+            </c:forEach>
         </div>
         <footer>
         <div class="container-fluid" style="background-color: black; color: white; padding: 20px;">

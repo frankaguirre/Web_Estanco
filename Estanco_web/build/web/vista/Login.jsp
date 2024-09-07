@@ -8,8 +8,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Login/Sign Up</title>
-        <!-- Vincula a Font Awesome para usar íconos -->
+        <title>Estanco Currambero</title>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
         <link href="../css/login.css" rel="stylesheet" type="text/css"/>
     </head>
@@ -33,6 +32,7 @@
             <div class="right-side">
                 <div id="form-container">
                     <form id="login-form" class="form active" action="/Estanco_web/CtrValidar" method="post">
+                        <h1> ¡Bienvenido! </h1>
                         <div class="input-group">
                             <i class="fas fa-user icon"></i>
                             <input type="text" name="txtuser" id="usuario" placeholder="Usuario">
@@ -46,47 +46,48 @@
                         <p style="Color: red;"><%=Mensaje%></p>
                     </form>
 
-                    <form id="signup-form" class="form">
+                    <form id="signup-form" class="form" action="/Estanco_web/CtrUsuario?accion=nuevo">
+                        <h6>Completa los datos para crear tu cuenta:</h6>
                         <div class="input-group-row">
                             <div class="input-group">
                                 <i class="fas fa-user icon"></i>
-                                <input type="text" id="new-nombre" placeholder="Nombre">
+                                <input type="text" id="nombre" name="nombre" placeholder="Nombre">
                             </div>
                             <div class="input-group">
                                 <i class="fas fa-user icon"></i>
-                                <input type="text" id="new-apellido" placeholder="Apellido">
+                                <input type="text" id="apellido" name="apellido" placeholder="Apellido">
                             </div>
                         </div>
                         <div class="input-group-row">
                             <div class="input-group">
                                 <i class="fas fa-map-marker-alt icon"></i>
-                                <input type="text" id="new-direccion" placeholder="Dirección">
+                                <input type="text" id="direccion" name="direccion" placeholder="Dirección">
                             </div>
                             <div class="input-group">
                                 <i class="fas fa-phone icon"></i>
-                                <input type="text" id="new-telefono" placeholder="Teléfono">
+                                <input type="text" id="telefono" name="telefono" placeholder="Teléfono">
                             </div>
                         </div>
                         <div class="input-group-row">
                             <div class="input-group">
-                                <input type="date" id="new-fecha" placeholder="Fecha de Nacimiento"> <!-- Eliminado icono -->
+                                <input type="date" id="fechanaci" name="fechanaci" placeholder="Fecha de Nacimiento"> 
                             </div>
                             <div class="input-group">
                                 <i class="fas fa-envelope icon"></i>
-                                <input type="email" id="new-email" placeholder="Email">
+                                <input type="email" id="correo" name="correo" placeholder="Email">
                             </div>
                         </div>
                         <div class="input-group-row">
                             <div class="input-group">
                                 <i class="fas fa-user icon"></i>
-                                <input type="text" id="new-username" placeholder="Usuario">
+                                <input type="text" id="usuario"  name="usuario" placeholder="Usuario">
                             </div>
                             <div class="input-group">
                                 <i class="fas fa-lock icon"></i>
-                                <input type="password" id="new-password" placeholder="Password">
+                                <input type="password" id="contrasena" id="contrasena" placeholder="Password">
                             </div>
                         </div>
-                        <button type="submit" class="login-btn-form">Crear Cuenta</button>
+                        <button type="submit" name="accion" value="nuevo" class="login-btn-form">Crear Cuenta</button>
                     </form>
                 </div>
             </div>

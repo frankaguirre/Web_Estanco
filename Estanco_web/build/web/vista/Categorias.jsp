@@ -84,11 +84,11 @@
             <ul class="sidebar-links">
                 <div class="menu-separator"></div>
                 <li><a href="/Estanco_web/vista/VentasAdmin.jsp"><i class="bi bi-house-door"></i> Inicio</a></li>
-                <li><a href="/EstancoCurrambero/vista/ListarProductos.jsp"><i class="bi bi-grid"></i> Productos</a></li>
-                <li><a href="/EstancoCurrambero/vista/ListarUsuario.jsp"><i class="bi bi-people"></i> Usuarios</a></li>
-                <li><a href="/EstancoCurrambero/vista/PedidosAdmin.jsp"><i class="bi bi-box-seam"></i> Pedidos</a></li>
-                <li><a href="/EstancoCurrambero/vista/ListarProveedor.jsp"><i class="bi bi-folder"></i> Proveedores</a></li>
-                <li><a href="/EstancoCurrambero/vista/Categorias.jsp"><i class="bi bi-tags"></i> Categorías</a></li>
+                <li><a href="/Estanco_web/vista/ListarProductos.jsp"><i class="bi bi-grid"></i> Productos</a></li>
+                <li><a href="/Estanco_web/vista/ListarUsuario.jsp"><i class="bi bi-people"></i> Usuarios</a></li>
+                <li><a href="/Estanco_web/vista/PedidosAdmin.jsp"><i class="bi bi-box-seam"></i> Pedidos</a></li>
+                <li><a href="/Estanco_web/vista/ListarProveedor.jsp"><i class="bi bi-folder"></i> Proveedores</a></li>
+                <li><a href="/Estanco_web/vista/Categorias.jsp"><i class="bi bi-tags"></i> Categorías</a></li>
                 <li><a href="#"><i class="bi bi-bar-chart"></i> Reportes</a></li>
                 <li><a href="#"><i class="bi bi-question-circle"></i> Ayuda</a></li>
                 <li><a href="/Estanco_web/CtrProducto?accion=salir"><i class="bi bi-box-arrow-left"></i> Salir</a></li>
@@ -116,7 +116,7 @@
                         </div>
                     </form>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarCategoriaModal">
-                        <i class="bi bi-plus-square"></i> Agregar
+                        <i class="bi bi-plus-square"></i>
                     </button>
                 </div>
 

@@ -26,7 +26,7 @@ public class CtrProducto extends HttpServlet {
     ProductoDAO pdao = new ProductoDAO();
     CategoriaDAO cdao = new CategoriaDAO();
     List<Producto> productos = new ArrayList();
-    List<Categoria> categoria = new ArrayList();
+    List<Categoria> categorias = new ArrayList();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,26 +43,51 @@ public class CtrProducto extends HttpServlet {
         System.out.println("accion= " + accion);
         HttpSession sesion = request.getSession();
         productos = pdao.listar();
-        categoria = cdao.Listar();
+        categorias = cdao.Listar();
         Producto p = new Producto();
         switch (accion) {
             case "inicio":
-                request.setAttribute("categoria", categoria);
-                request.setAttribute("producto", productos);
-                if (sesion.getAttribute("Tipo") != null) {
-                    System.out.println("Tipo en sesión: " + sesion.getAttribute("Tipo"));
-                    if (sesion.getAttribute("Tipo").equals("administrador")) {
-                        System.out.println("Redireccionando a la vista del administrador");
-                        request.getRequestDispatcher("/Estanco_web/vista/VentasAdmin.jsp").forward(request, response);
-                    } else if (sesion.getAttribute("Tipo").equals("cliente")) {
+                request.setAttribute("categoria", categorias);
+                request.setAttribute("productos", productos);
+                if (sesion.getAttribute("tipo") != null) {
+                    System.out.println("Tipo en sesión: " + sesion.getAttribute("tipo"));
+                    if (sesion.getAttribute("tipo").equals("cliente")) {
                         System.out.println("Redireccionando a la vista del cliente");
-                        request.getRequestDispatcher("/Estanco_web/vista/VentasCliente.jsp").forward(request, response);
+                        request.getRequestDispatcher("/vista/VentasCliente.jsp").forward(request, response);
                     }
                 } else {
                     System.out.println("Atributo Tipo es null, redirigiendo a inicio");
                     request.getRequestDispatcher("/vista/Inicio.jsp").forward(request, response);
                 }
                 break;
+            case "buscarcat":
+                int idcat = Integer.parseInt(request.getParameter("catid"));
+                productos = pdao.buscarcat(idcat);
+                request.setAttribute("categorias", categorias); 
+                request.setAttribute("producto", productos); 
+                if (sesion.getAttribute("Tipo") != null && sesion.getAttribute("Tipo").equals("cliente")) {
+                    request.getRequestDispatcher("vista/VentasCliente.jsp").forward(request, response);
+                } else {
+                    System.out.println("Atributo Tipo es null, redirigiendo a inicio");
+                    request.getRequestDispatcher("vista/Inicio.jsp").forward(request, response);
+                }
+                break;
+            case "buscar":
+                String nombre = request.getParameter("buscarr");
+                productos = pdao.buscar(nombre);
+                request.setAttribute("categorias", categorias);
+                request.setAttribute("productos", productos);
+                if (sesion.getAttribute("tipo") != null) {
+                    System.out.println("Tipo en sesión: " + sesion.getAttribute("tipo"));
+                    if (sesion.getAttribute("tipo").equals("cliente")) {
+                        System.out.println("Redireccionando a la vista del cliente");
+                        request.getRequestDispatcher("/vista/VentasCliente.jsp").forward(request, response);
+                    }
+                } else {
+                    System.out.println("Atributo Tipo es null, redirigiendo a inicio");
+                    request.getRequestDispatcher("/vista/Inicio.jsp").forward(request, response);
+                }
+
             case "salir":
                 //HttpSession sesion = request.getSession();
                 sesion.invalidate();
