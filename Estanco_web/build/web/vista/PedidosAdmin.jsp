@@ -14,6 +14,11 @@
         <title>Pedidos</title>
         <link href="../css/admin.css" rel="stylesheet" type="text/css"/>
     </head>
+    <%
+        if (session.getAttribute("log") == null || session.getAttribute("log").equals('0')){
+            response.sendRedirect("../vista/Login.jsp");
+        }
+    %>
     <body>
         <div class="wrapper">
             <aside class="sidebar">

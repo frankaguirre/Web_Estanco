@@ -14,6 +14,11 @@
         <title>Usuarios</title>
         <link href="../css/admin.css" rel="stylesheet" type="text/css"/>
     </head>
+    <%
+        if (session.getAttribute("log") == null || session.getAttribute("log").equals('0')){
+            response.sendRedirect("../vista/Login.jsp");
+        }
+    %>
     <body>
         <div class="wrapper">
             <aside class="sidebar">
@@ -82,7 +87,7 @@
             <main class="contentmain">
                 <div class="container mt-5">
                     <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h1>Usuarios</h1>
+                        <h1>Productos</h1>
                         <form class="form-inline mt-4 mb-4" action="#">
                             <div class="input-group">
                                 <input type="text" class="form-control form-control-sm" name="txtbuscar" placeholder="Digite nombre">
@@ -91,44 +96,47 @@
                                 </button>
                             </div>
                         </form>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarUsuarioModal">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">
                             <i class="bi bi-plus-square"></i>
                         </button>
                     </div>
-
-                    <table class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th class="text-center">Id</th>
-                                <th class="text-center">Nombre</th>
-                                <th class="text-center">Apellido</th>
-                                <th class="text-center">Dirección</th>
-                                <th class="text-center">Teléfono</th>
-                                <th class="text-center">Fecha Nacimiento</th>
-                                <th class="text-center">Correo</th>
-                                <th class="text-center">Usuario</th>
-                                <th class="text-center">Tipo</th>
-                                <th class="text-center">Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="text-center">1</td>
-                                <td class="text-center">Juan</td>
-                                <td class="text-center">Pérez</td>
-                                <td class="text-center">Calle Falsa 123</td>
-                                <td class="text-center">555-1234</td>
-                                <td class="text-center">01/01/1990</td>
-                                <td class="text-center">juan@gmail.com</td>
-                                <td class="text-center">juanp</td>
-                                <td class="text-center">Admin</td>
-                                <td class="text-center">
-                                    <a class="btn btn-warning" href="#" data-bs-toggle="modal" data-bs-target="#editarUsuarioModal"><i class="bi bi-pencil-fill"></i></a>
-                                    <a class="btn btn-danger" href="#"><i class="bi bi-trash-fill"></i></a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="row mt-3">
+                        <div class="col-sm">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Id</th>
+                                        <th class="text-center">Nombre</th>
+                                        <th class="text-center">Foto</th>
+                                        <th class="text-center">Descripción</th>
+                                        <th class="text-center">Fecha de Vencimiento</th>
+                                        <th class="text-center">Precio</th>
+                                        <th class="text-center">Stock</th>
+                                        <th class="text-center">Categoria</th>
+                                        <th class="text-center">Id Proveedor</th>
+                                        <th class="text-center">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center">1</td>
+                                        <td class="text-center">Producto</td>
+                                        <td class="text-center">Producto</td>
+                                        <td class="text-center">Producto</td>
+                                        <td class="text-center">Producto</td>
+                                        <td class="text-center">Producto</td>
+                                        <td class="text-center">Producto</td>
+                                        <td class="text-center">Producto</td>
+                                        <td class="text-center">Producto</td>
+                                        <td class="text-center">
+                                            <a class="btn btn-warning" href="#" data-bs-toggle="modal" data-bs-target="#editProductModal"><i class="bi bi-pencil-fill"></i></a>
+                                            <a class="btn btn-danger" href="#"><i class="bi bi-trash-fill"></i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Modal para agregar usuario -->
