@@ -116,7 +116,7 @@
                         </div>
                     </form>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarCategoriaModal">
-                        <i class="bi bi-plus-square"></i> Agregar
+                        <i class="bi bi-plus-square"></i>
                     </button>
                 </div>
 

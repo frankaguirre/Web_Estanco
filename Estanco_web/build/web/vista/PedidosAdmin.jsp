@@ -26,8 +26,8 @@
                 overflow: hidden;
             }
             .table thead {
-                background-color: #ffffff; /* Cambiar el color de fondo del encabezado a blanco */
-                color: #000000; /* Cambiar el color del texto a negro para un mejor contraste */
+                background-color: #ffffff;
+                color: #000000; 
             }
             .table tbody tr:nth-child(even) {
                 background-color: #f2f2f2;

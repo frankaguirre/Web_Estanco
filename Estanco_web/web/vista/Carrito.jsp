@@ -117,21 +117,24 @@
                     <thead>
                         <tr>
                             <th>Productos</th>
-                            <th>Precio Unitario</th>
+                            <th>Precio</th>
                             <th>Cantidad</th>
                         </tr>
                     </thead>
                     <tbody>
+                    <c:forEach var="car" items="${carrito}">
                         <tr>
-                            <td>Cerveza Aguila Negra</td>
-                            <td>$4,000</td>
-                            <td>3</td>
+                            <td>${car.getNombre()}<img src="${car.getFoto()}" width="100" height="100"></td>
+                            <td>${car.getPrecio()}</td>
+                            <td><input type="hidden" id="idpro" value="${car.getIdproducto()}">
+                                <input type="number" id="cantidad" value="${car.getCantidad()}" class="form-control text-center" min="1">
+                            </td>
+                            <td>${car.getSubtotal()}</td>
+                            <td><input type="hidden" id="idp" value="${car.getIdproducto()}">
+                                <a class="btn btn-outline-danger" href="#" id="btndelete"><i class="bi bi-trash"></i></a>
+                            </td>
                         </tr>
-                        <tr>
-                            <td>Barrilito</td>
-                            <td>$2,500</td>
-                            <td>5</td>
-                        </tr>   
+                    </c:forEach>
                     </tbody>
                 </table>
             </div>

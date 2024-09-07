@@ -60,7 +60,7 @@ public class ProductoDAO {
                 System.out.println("Se ha establecido una conexion con la base de datos");
 
             }
-            pstm = con.prepareStatement("select * from producto where Stock >0 and categoria = ?");
+            pstm = con.prepareStatement("select * from producto where Stock >0 and Categoria = ?");
             pstm.setInt(1, idcat);
             rs = pstm.executeQuery();
             while (rs.next()) {
@@ -81,5 +81,37 @@ public class ProductoDAO {
             System.out.println("Error al listar los productos por categoria " + e);
         }
         return producto;  
+    }
+    public List buscar(String nombre){
+        List<Producto> producto = new ArrayList();
+        try {
+            Conexion = new Conectar();
+            Connection con = Conexion.crearconexion();
+            if (con != null) {
+                System.out.println("Se ha establecido una conexcion con la base de datos");
+
+            }
+            nombre = "%"+ nombre +"%";
+            pstm = con.prepareStatement("select * from producto where Stock >0 and Nombre like ?");
+            pstm.setString(1, nombre);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                Producto p = new Producto();
+                p.setId(rs.getInt(1));
+                p.setNombre(rs.getString(2));
+                p.setFoto(rs.getString(3));
+                p.setDescripcion(rs.getString(4));
+                p.setFecha_vencimiento(rs.getString(5));
+                p.setPrecio(rs.getInt(6));
+                p.setStock(rs.getInt(7));
+                p.setCategoria(rs.getInt(8));
+                p.setId_proveedor(rs.getInt(9));
+                producto.add(p);
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error al buscar los productos" + e);
+        }
+        return producto;
     }
 }

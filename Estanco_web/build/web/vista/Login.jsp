@@ -23,7 +23,7 @@
     <body>
         <div class="container">
             <div class="left-side">
-                <img src="../imagenes/carrito.jpeg" alt="" class="shoe-image"/>
+                <img src="../imagenes/logoestancoo.jpg" alt="" class="shoe-image"/>
                 <div class="buttons">
                     <button class="login-btn" onclick="showLogin()">Iniciar Sesion</button>
                     <button class="signup-btn" onclick="showSignUp()">Crear Cuenta</button>
@@ -46,48 +46,48 @@
                         <p style="Color: red;"><%=Mensaje%></p>
                     </form>
 
-                    <form id="signup-form" class="form">
+                    <form id="signup-form" class="form" action="/Estanco_web/CtrUsuario?accion=nuevo">
                         <h6>Completa los datos para crear tu cuenta:</h6>
                         <div class="input-group-row">
                             <div class="input-group">
                                 <i class="fas fa-user icon"></i>
-                                <input type="text" id="new-nombre" placeholder="Nombre">
+                                <input type="text" id="nombre" name="nombre" placeholder="Nombre">
                             </div>
                             <div class="input-group">
                                 <i class="fas fa-user icon"></i>
-                                <input type="text" id="new-apellido" placeholder="Apellido">
+                                <input type="text" id="apellido" name="apellido" placeholder="Apellido">
                             </div>
                         </div>
                         <div class="input-group-row">
                             <div class="input-group">
                                 <i class="fas fa-map-marker-alt icon"></i>
-                                <input type="text" id="new-direccion" placeholder="Dirección">
+                                <input type="text" id="direccion" name="direccion" placeholder="Dirección">
                             </div>
                             <div class="input-group">
                                 <i class="fas fa-phone icon"></i>
-                                <input type="text" id="new-telefono" placeholder="Teléfono">
+                                <input type="text" id="telefono" name="telefono" placeholder="Teléfono">
                             </div>
                         </div>
                         <div class="input-group-row">
                             <div class="input-group">
-                                <input type="date" id="new-fecha" placeholder="Fecha de Nacimiento"> 
+                                <input type="date" id="fechanaci" name="fechanaci" placeholder="Fecha de Nacimiento"> 
                             </div>
                             <div class="input-group">
                                 <i class="fas fa-envelope icon"></i>
-                                <input type="email" id="new-email" placeholder="Email">
+                                <input type="email" id="correo" name="correo" placeholder="Email">
                             </div>
                         </div>
                         <div class="input-group-row">
                             <div class="input-group">
                                 <i class="fas fa-user icon"></i>
-                                <input type="text" id="new-username" placeholder="Usuario">
+                                <input type="text" id="usuario"  name="usuario" placeholder="Usuario">
                             </div>
                             <div class="input-group">
                                 <i class="fas fa-lock icon"></i>
-                                <input type="password" id="new-password" placeholder="Password">
+                                <input type="password" id="contrasena" id="contrasena" placeholder="Password">
                             </div>
                         </div>
-                        <button type="submit" class="login-btn-form">Crear Cuenta</button>
+                        <button type="submit" name="accion" value="nuevo" class="login-btn-form">Crear Cuenta</button>
                     </form>
                 </div>
             </div>
