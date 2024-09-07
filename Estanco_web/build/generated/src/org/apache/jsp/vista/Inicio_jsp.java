@@ -90,10 +90,11 @@ public final class Inicio_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    </div>\r\n");
       out.write("\r\n");
       out.write("                    <a href=\"#\" class=\"nav-link\">Ayuda</a>\r\n");
-      out.write("                    <form class=\"d-flex ms-3\" style=\"width: 340px;\">\r\n");
-      out.write("                        <input class=\"form-control me-2\" type=\"search\" placeholder=\"Buscar\" aria-label=\"Buscar\">\r\n");
-      out.write("                        <button class=\"btn btn-outline-light\" type=\"submit\"><i class=\"bi bi-search\"></i></button>\r\n");
+      out.write("                    <form class=\"d-flex ms-3\" style=\"width: 340px;\" action=\"/Estanco_web/CtrProducto?accion=buscar\" method=\"post\">\r\n");
+      out.write("                        <input class=\"form-control me-2\" type=\"search\" placeholder=\"Buscar\" aria-label=\"Buscar\" name=\"buscarr\">\r\n");
+      out.write("                        <button class=\"btn btn-outline-light\" type=\"submit\" value=\"buscar\"><i class=\"bi bi-search\"></i></button>\r\n");
       out.write("                    </form>\r\n");
+      out.write("\r\n");
       out.write("                    <a href=\"/Estanco_web/vista/Login.jsp\" class=\"nav-link\">Iniciar Sesión</a>\r\n");
       out.write("                    <a href=\"#\" class=\"nav-link\">Crear Cuenta</a>\r\n");
       out.write("                </div>\r\n");

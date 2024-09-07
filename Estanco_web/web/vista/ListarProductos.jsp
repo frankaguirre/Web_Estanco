@@ -22,8 +22,8 @@
                 overflow: hidden;
             }
             .table thead {
-                background-color: #343a40;
-                color: white;
+                background-color: #ffffff;
+                color: #000000; 
             }
             .table tbody tr:nth-child(even) {
                 background-color: #f2f2f2;
