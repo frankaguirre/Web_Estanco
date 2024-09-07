@@ -1,7 +1,7 @@
 /* Importación de fuentes */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
-/* Estilos globales */
+
 * {
   margin: 0;
   padding: 0;
@@ -38,7 +38,6 @@ a {
   text-decoration: none;
 }
 
-/* Estilos del header */
 header {
   width: 1140px;
   max-width: 80%;
@@ -61,7 +60,6 @@ header a {
   transition: margin-left 0.4s ease;
 }
 
-/* Estilos del sidebar */
 .sidebar {
   position: fixed;
   top: 0;
@@ -205,7 +203,7 @@ header a {
   border-radius: 4px;
 }
 
-/* Estilos del contenido principal */
+
 .contentmain {
   flex: 1;
   margin-left: 85px; 
@@ -220,7 +218,6 @@ header a {
   }
 }
 
-/* Estilos de botones e inputs personalizados */
 .custom-btn {
   background-color: orange;
   border-radius: 10px;
@@ -271,7 +268,6 @@ th, td {
   border-bottom: 1px solid #ddd;
 }
 
-/* Encabezados de la tabla */
 th {
   background-color: #007bff;
   color: #ffffff;
@@ -279,18 +275,15 @@ th {
   font-weight: bold;
 }
 
-/* Estilo para las filas de la tabla */
 tr {
   background-color: #fff;
 }
 
-/* Efecto al pasar el cursor */
 tr:hover {
-  background-color: #333; /* Gris oscuro */
-  color: #fff; /* Cambia el color del texto a blanco */
+  background-color: #333; 
+  color: #fff; 
 }
 
-/* Estilo para los botones en la columna de detalle */
 .btn-ver {
   background-color: #00c4ff;
   color: #fff;
@@ -309,7 +302,6 @@ tr:hover {
   cursor: pointer;
 }
 
-/* Efecto hover en los botones */
 .btn-ver:hover, .btn-editar:hover {
   opacity: 0.8;
 }
