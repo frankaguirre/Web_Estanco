@@ -94,6 +94,7 @@ public final class Inicio_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <input class=\"form-control me-2\" type=\"search\" placeholder=\"Buscar\" aria-label=\"Buscar\" name=\"buscarr\">\r\n");
       out.write("                        <button class=\"btn btn-outline-light\" type=\"submit\" value=\"buscar\"><i class=\"bi bi-search\"></i></button>\r\n");
       out.write("                    </form>\r\n");
+      out.write("                    <br>\r\n");
       out.write("\r\n");
       out.write("                    <a href=\"/Estanco_web/vista/Login.jsp\" class=\"nav-link\">Iniciar Sesión</a>\r\n");
       out.write("                    <a href=\"#\" class=\"nav-link\">Crear Cuenta</a>\r\n");

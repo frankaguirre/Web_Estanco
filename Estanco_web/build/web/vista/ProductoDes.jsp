@@ -188,8 +188,8 @@
 
                     <!-- Botones organizados en columna -->
                     <div class="d-grid gap-2">
-                    <button class="btn btn-primary btn-checkout">Método de pago</button>
-                    <button class="btn btn-danger btn-checkout">Generar pedido</button>
+                        <button class="btn btn-primary btn-checkout">Método de pago</button>
+                        <button class="btn btn-danger btn-checkout">Generar pedido</button>
                     </div>
                 </div>
 
