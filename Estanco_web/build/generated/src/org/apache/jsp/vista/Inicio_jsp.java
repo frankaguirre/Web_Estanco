@@ -79,14 +79,16 @@ public final class Inicio_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <a href=\"#\" class=\"nav-link\">Ofertas</a>\r\n");
       out.write("                    <div class=\"dropdown\">\r\n");
       out.write("                        <a class=\"nav-link dropdown-toggle\" href=\"/Estanco_web/CtrProducto?accion=buscarcat&catid=");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${c.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${c.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("\" id=\"categoriasDropdown\" role=\"button\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">\r\n");
       out.write("                            Categorías\r\n");
       out.write("                        </a>\r\n");
+      out.write("\r\n");
       out.write("                        <ul class=\"dropdown-menu\" aria-labelledby=\"categoriasDropdown\">\r\n");
       out.write("                            ");
       if (_jspx_meth_c_forEach_0(_jspx_page_context))
         return;
+      out.write("\r\n");
       out.write("\r\n");
       out.write("                        </ul>\r\n");
       out.write("                    </div>\r\n");
@@ -96,6 +98,7 @@ public final class Inicio_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <input class=\"form-control me-2\" type=\"search\" placeholder=\"Buscar\" aria-label=\"Buscar\" name=\"buscarr\">\r\n");
       out.write("                        <button class=\"btn btn-outline-light\" type=\"submit\" value=\"buscar\"><i class=\"bi bi-search\"></i></button>\r\n");
       out.write("                    </form>\r\n");
+      out.write("\r\n");
       out.write("\r\n");
       out.write("                    <a href=\"/Estanco_web/vista/Login.jsp\" class=\"nav-link\">Iniciar Sesión</a>\r\n");
       out.write("                    <a href=\"#\" class=\"nav-link\">Crear Cuenta</a>\r\n");
@@ -253,10 +256,10 @@ public final class Inicio_jsp extends org.apache.jasper.runtime.HttpJspBase
         do {
           out.write("\r\n");
           out.write("                                <li><a class=\"dropdown-item\" href=\"/Estanco_web/CtrProducto?accion=buscarcat&catid=");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${c.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${c.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write('"');
           out.write('>');
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${c.nombre}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${c.getNombre()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</a></li>\r\n");
           out.write("                                ");
           int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
