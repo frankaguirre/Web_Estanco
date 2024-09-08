@@ -21,16 +21,18 @@
             <nav class="navbar navbar-dark bg-dark justify-content-between px-3">
                 <a href="/Estanco_web/CtrProducto?accion=inicio" class="navbar-brand">Inicio</a>
                 <div class="d-flex align-items-center">
-                    <a href="/Estanco_web/vista/Carrito.jsp" class="nav-link"><i class="bi bi-cart3"></i> Carrito</a>
+                    <a href="/Estanco_web/CtrProducto?accion=Carrito" class="nav-link"> Carrito<i class="bi bi-cart3">(<label style="color: darkorange">${contador}</label>)</i></a>
                     <a href="#" class="nav-link">Ofertas</a>
                     <div class="dropdown">
-                        <a class="nav-link dropdown-toggle" href="/Estanco_web/CtrProducto?accion=buscarcat&catid=${c.id}" id="categoriasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="/Estanco_web/CtrProducto?accion=buscarcat&catid=${c.getId()}" id="categoriasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Categorías
                         </a>
+
                         <ul class="dropdown-menu" aria-labelledby="categoriasDropdown">
                             <c:forEach var="c" items="${categorias}">
-                                <li><a class="dropdown-item" href="/Estanco_web/CtrProducto?accion=buscarcat&catid=${c.id}">${c.nombre}</a></li>
+                                <li><a class="dropdown-item" href="/Estanco_web/CtrProducto?accion=buscarcat&catid=${c.getId()}">${c.getNombre()}</a></li>
                                 </c:forEach>
+
                         </ul>
                     </div>
 
@@ -39,6 +41,7 @@
                         <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar" name="buscarr">
                         <button class="btn btn-outline-light" type="submit" value="buscar"><i class="bi bi-search"></i></button>
                     </form>
+
 
                     <a href="/Estanco_web/vista/Login.jsp" class="nav-link">Iniciar Sesión</a>
                     <a href="#" class="nav-link">Crear Cuenta</a>
@@ -121,7 +124,7 @@
                     <h2><c:out value="${p.getNombre()}"/></h2>
                     <div class="price-container">
                         <div class="price">$<c:out value="${p.getPrecio()}"/></div>
-                        <a href="/Estanco_web/vista/Carrito.jsp" class="order-btn">
+                        <a href="/Estanco_web/CtrProducto?accion=AgregarCarrito&id=${p.getId()}" class="order-btn">
                             <i class="bi bi-cart3"></i>
                         </a>
                     </div>

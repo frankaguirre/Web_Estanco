@@ -82,6 +82,33 @@ public class ProductoDAO {
         }
         return producto;  
     }
+    public Producto listarid(int idp){
+        Producto p = new Producto();
+        try {
+            Conexion = new Conectar();
+            Connection con = Conexion.crearconexion();
+            if (con != null) {
+                System.out.println("Se ha establecido una conexcion con la base de datos");
+
+            }
+            pstm = con.prepareStatement("select * from producto where Stock >0 and id = ?");
+            pstm.setInt(1, idp);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                p.setId(rs.getInt(1));
+                p.setNombre(rs.getString(2));
+                p.setFoto(rs.getString(3));
+                p.setDescripcion(rs.getString(4));
+                p.setPrecio(rs.getInt(5));
+                p.setStock(rs.getInt(6));
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error al listar los productos " + e);
+        }
+        return p;
+    }
+    
     public List buscar(String nombre){
         List<Producto> producto = new ArrayList();
         try {

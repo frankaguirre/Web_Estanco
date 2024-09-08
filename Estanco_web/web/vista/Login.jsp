@@ -10,12 +10,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Estanco Currambero</title>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-        <link href="../css/login.css" rel="stylesheet" type="text/css"/>
+        <link href="/Estanco_web/css/login.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <div class="container">
             <div class="left-side">
-                <img src="../imagenes/logoestancoo.jpg" alt="" class="shoe-image"/>
+                <img src="/Estanco_web/imagenes/logoestancoo.jpg" alt="" class="shoe-image"/>
                 <div class="buttons">
                     <button class="login-btn" onclick="showLogin()">Iniciar Sesión</button>
                     <button class="signup-btn" onclick="showSignUp()">Crear Cuenta</button>
@@ -99,49 +99,6 @@
                 </div>
             </div>
         </div>
-        <script src="../JS/login.js" type="text/javascript"></script>
-        <script>
-            // Funciones para mostrar y ocultar formularios
-            function showLogin() {
-                document.getElementById('login-form').classList.add('active');
-                document.getElementById('signup-form').classList.remove('active');
-            }
-
-            function showSignUp() {
-                document.getElementById('signup-form').classList.add('active');
-                document.getElementById('login-form').classList.remove('active');
-            }
-
-            // Validación de contraseñas en el formulario de registro
-            document.getElementById('signup-form').addEventListener('submit', function (event) {
-                const password = document.getElementById('contrasena').value;
-                const repeatPassword = document.getElementById('contrasena_repetir').value;
-
-                if (password !== repeatPassword) {
-                    event.preventDefault();
-                    document.getElementById('formulario_mensaje').innerHTML = '<p><i class="bi bi-exclamation-triangle"></i><b> Error:</b> Las contraseñas no coinciden.</p>';
-                }
-            });
-        </script>
-        <script>
-        document.getElementById('formulario').addEventListener('submit', function (event) {
-
-            const fechaNacimiento = new Date(document.getElementById('fechanaci').value);
-
-            const fechaActual = new Date();
-
-            const edad = fechaActual.getFullYear() - fechaNacimiento.getFullYear();
-
-            const mes = fechaActual.getMonth() - fechaNacimiento.getMonth();
-            if (mes < 0 || (mes === 0 && fechaActual.getDate() < fechaNacimiento.getDate())) {
-                edad--;
-            }
-
-            if (edad < 18) {
-                event.preventDefault();
-                alert('Debes tener al menos 18 años para registrarte.');
-            }
-        });
-    </script>
+        <script src="/Estanco_web/JS/login.js" type="text/javascript"></script>
     </body>
 </html>

@@ -25,23 +25,24 @@
             <nav class="navbar navbar-dark bg-dark justify-content-between px-3">
                 <a href="/Estanco_web/CtrProducto?accion=inicio" class="navbar-brand">Inicio</a>
                 <div class="d-flex align-items-center">
-                    <a href="/Estanco_web/vista/Carrito.jsp" class="nav-link"><i class="bi bi-cart3"></i> Carrito</a>
+                    <a href="/Estanco_web/CtrProducto?accion=Carrito" class="nav-link"> Carrito<i class="bi bi-cart3">(<label style="color: darkorange">${contador}</label>)</i></a>
                     <a href="#" class="nav-link">Ofertas</a>
                     <div class="dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="categoriasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Categorías
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="categoriasDropdown">
-                            <c:forEach var="c" items="${categorias}">
-                                <li><a class="dropdown-item" href="/Estanco_web/CtrProducto?accion=buscarcat&catid=${c.getId()}">${c.getNombre()}</a></li>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                                <c:forEach var="c" items="${categorias}">
+                                <li><a class="dropdown-item" href="/AppWeb/CtrProducto?accion=buscarcat&catid=${c.getId()}" ><i class="bi bi-bookmarks"></i> ${c.getNombre()}</a></li>
                                 <input type="hidden" value="${c.getId()}" name="catid" id="catid">
-                            </c:forEach>
+                                </c:forEach>
+                                <li><a class="dropdown-item" href="#" ><i></i> Todas</a></li>
                         </ul>
                     </div>
                     <a href="#" class="nav-link">Ayuda</a>
-                    <form class="d-flex ms-3" style="width: 340px;">
-                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
-                        <button class="btn btn-outline-light" type="submit"><i class="bi bi-search"></i></button>
+                    <form class="d-flex ms-3" style="width: 340px;" action="/Estanco_web/CtrProducto?accion=buscar" method="post">
+                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar" name="buscarr">
+                        <button class="btn btn-outline-light" type="submit" value="buscar"><i class="bi bi-search"></i></button>
                     </form>
                     <div class="dropdown ms-3">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
