@@ -15,12 +15,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.mindrot.jbcrypt.BCrypt;
 
 
-@WebServlet(name = "CtrValidar_1", urlPatterns = {"/CtrValidar_1"})
 public class CtrValidar extends HttpServlet {
-    UsuarioDAO usudao = new UsuarioDAO();
-    Usuario us = new Usuario();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,6 +29,10 @@ public class CtrValidar extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
+    UsuarioDAO usudao = new UsuarioDAO();
+    Usuario us = new Usuario();
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -71,18 +73,30 @@ public class CtrValidar extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+     private static final long serialVersionUID = 1L;
+
+    // Método para verificar la contraseña
+    public static boolean verificarcontrasena(String password, String contrasenaencriptada) {
+        return BCrypt.checkpw(password, contrasenaencriptada);
+    }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         String accion = request.getParameter("accion");
+        String accion = request.getParameter("accion");
         if (accion.equalsIgnoreCase("Ingresar")) {
             HttpSession sesion = request.getSession();
             String usu = request.getParameter("txtuser");
             String pas = request.getParameter("txtpass");
 
-            us = usudao.validar(usu, pas);
-            if (us.getUsuario() != null) {
-                if (us.getContrasena().equals(pas)) {
+            // Validar el usuario con el DAO
+            UsuarioDAO usudao = new UsuarioDAO(); // Asegúrate de instanciar correctamente
+            Usuario us = usudao.validar(usu, pas);
+
+            if (us != null && us.getUsuario() != null) {
+                // Verificar la contraseña encriptada
+                boolean verificarpassword = verificarcontrasena(pas, us.getContrasena());
+                if (verificarpassword) {
                     sesion.setAttribute("log", '1');
                     sesion.setAttribute("User", us.getUsuario());
                     sesion.setAttribute("tipo", us.getTipo());
@@ -90,9 +104,9 @@ public class CtrValidar extends HttpServlet {
                     sesion.setAttribute("correo", us.getCorreo());
                     sesion.setAttribute("usuario", us);
 
-                    if (us.getTipo().equals("administrador")) {
+                    if (us.getTipo().equals("Administrador")) {
                         response.sendRedirect("/Estanco_web/vista/VentasAdmin.jsp");
-                    } else if (us.getTipo().equals("cliente")) {
+                    } else if (us.getTipo().equals("Cliente")) {
                         response.sendRedirect("/Estanco_web/vista/VentasCliente.jsp");
                     }
                 } else {
@@ -114,4 +128,4 @@ public class CtrValidar extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-}
+} 

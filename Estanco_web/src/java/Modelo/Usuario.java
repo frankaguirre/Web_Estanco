@@ -9,7 +9,7 @@ package Modelo;
  *
  */
 public class Usuario {
-    int Id;
+    String Id;
     String Nombre;
     String Apellido;
     String Fecha_nacimiento;
@@ -23,7 +23,7 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(int Id, String Nombre, String Apellido, String Fecha_nacimiento, String Direccion, String Telefono, String Correo, String Usuario, String Contrasena, String Tipo) {
+    public Usuario(String Id, String Nombre, String Apellido, String Fecha_nacimiento, String Direccion, String Telefono, String Correo, String Usuario, String Contrasena, String Tipo) {
         this.Id = Id;
         this.Nombre = Nombre;
         this.Apellido = Apellido;
@@ -36,11 +36,11 @@ public class Usuario {
         this.Tipo = Tipo;
     }
 
-    public int getId() {
+    public String getId() {
         return Id;
     }
 
-    public void setId(int Id) {
+    public void setId(String Id) {
         this.Id = Id;
     }
 

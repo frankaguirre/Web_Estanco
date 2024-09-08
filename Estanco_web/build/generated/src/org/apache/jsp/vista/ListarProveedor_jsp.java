@@ -127,7 +127,7 @@ public final class ListarProveedor_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("                </div>\r\n");
       out.write("            </aside>\r\n");
       out.write("            <main class=\"contentmain\">\r\n");
-      out.write("                <div class=\"container mt-4\">\r\n");
+      out.write("                <div class=\"container mt-5\">\r\n");
       out.write("                    <div class=\"d-flex justify-content-between align-items-center mb-4\">\r\n");
       out.write("                        <h1>Proveedores</h1>\r\n");
       out.write("                        <form class=\"form-inline mt-4 mb-4\" action=\"#\">\r\n");

@@ -7,7 +7,6 @@ and open the template in the editor.
     Created on : 6/09/2024, 11:23:32 AM
     Author     : ALEANDRES RODRIGUEZ
 */
-
 * {
     margin: 0;
     padding: 0;
@@ -21,13 +20,12 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    margin: 0;
 }
+
 h1 {
-  text-align: center;
-  margin-bottom: 20px; 
-}
-h6 {
-  margin-bottom: 20px; 
+    text-align: center;
+    margin-bottom: 20px; 
 }
 
 .container {
@@ -37,6 +35,7 @@ h6 {
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
+    padding: 20px;
 }
 
 .left-side {
@@ -66,7 +65,7 @@ h6 {
 }
 
 .login-btn, .signup-btn {
-    background-color: transparent; /* Fondo transparente para ambos botones */
+    background-color: transparent;
     color: white;
     font-size: 20px;
     cursor: pointer;
@@ -93,14 +92,9 @@ h6 {
     background-color: white;
 }
 
-.logo {
-    width: 100px;
-    margin-bottom: 30px;
-}
-
 #form-container {
     width: 100%;
-    max-width: 300px;
+    max-width: 600px; /* Ajusta el ancho del formulario */
 }
 
 .form {
@@ -114,18 +108,17 @@ h6 {
 
 .input-group-row {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px; /* Espacio entre filas */
 }
 
 .input-group {
     position: relative;
-    margin-bottom: 30px;
     flex: 1;
-    margin-right: 10px;
-}
-
-.input-group:last-child {
-    margin-right: 0;
+    margin-bottom: 20px; /* Ajuste del margen inferior */
+    display: flex;
+    align-items: center;
 }
 
 .input-group input {
@@ -144,7 +137,7 @@ h6 {
 
 .input-group .icon {
     position: absolute;
-    left: 5px;
+    left: 10px;
     top: 50%;
     transform: translateY(-50%);
     color: black;
@@ -176,5 +169,5 @@ h6 {
 
 .input-group input[type="date"] {
     padding-left: 10px; 
-    width: 85%; 
+    width: 100%; 
 }
