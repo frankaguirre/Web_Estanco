@@ -37,14 +37,14 @@
                     </div>
 
                     <a href="#" class="nav-link">Ayuda</a>
-                    <form class="d-flex ms-3" style="width: 340px;" action="/Estanco_web/CtrProducto?accion=buscar" method="post">
-                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar" name="buscarr">
-                        <button class="btn btn-outline-light" type="submit" value="buscar"><i class="bi bi-search"></i></button>
-                    </form>
+                <form class="d-flex ms-3" style="width: 340px;" action="/Estanco_web/CtrProducto?accion=buscar" method="post">
+    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar" name="buscarr">
+    <!-- Añade estilo en línea para el margen derecho -->
+    <button class="btn btn-outline-light" type="submit" value="buscar" style="margin-right: 15px;"><i class="bi bi-search"></i></button>
+</form>
 
-
-                    <a href="/Estanco_web/vista/Login.jsp" class="nav-link">Iniciar Sesión</a>
-                    <a href="#" class="nav-link">Crear Cuenta</a>
+<a href="/Estanco_web/vista/Login.jsp" class="nav-link">Iniciar Sesión</a>
+<a href="#" class="nav-link">Crear Cuenta</a>
                 </div>
             </nav>
         </header>
