@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import Modelo.Carrito;
 import Modelo.Categoria;
 import Modelo.CategoriaDAO;
 import Modelo.Producto;
@@ -27,6 +28,13 @@ public class CtrProducto extends HttpServlet {
     CategoriaDAO cdao = new CategoriaDAO();
     List<Producto> productos = new ArrayList();
     List<Categoria> categorias = new ArrayList();
+    List<Carrito> listacarrito = new ArrayList();
+    Carrito car;
+    int cantidad;
+    int idp;
+    int subtotal;
+    int item;
+    int totalpagar;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -87,7 +95,53 @@ public class CtrProducto extends HttpServlet {
                     System.out.println("Atributo Tipo es null, redirigiendo a inicio");
                     request.getRequestDispatcher("/vista/Inicio.jsp").forward(request, response);
                 }
+                break;
+                case "AgregarCarrito":
+                cantidad = 1;
+                int pos = 0;
 
+                idp = Integer.parseInt(request.getParameter("id"));
+                p = pdao.listarid(idp);
+                if (listacarrito.size() > 0) {
+                    for (int i = 0; i < listacarrito.size(); i++) {
+                        if (idp == listacarrito.get(i).getIdproducto()) {
+                            pos = i;
+                        }
+                    }
+                    if (idp == listacarrito.get(pos).getIdproducto()) {
+                        cantidad = cantidad + listacarrito.get(pos).getCantidad();
+                        subtotal = cantidad * listacarrito.get(pos).getPreciocompra();
+                        listacarrito.get(pos).setCantidad(cantidad);
+                        listacarrito.get(pos).setSubtotal(subtotal);
+                    } else {
+                        item++;
+                        car = new Carrito();
+                        car.setItem(item);
+                        car.setIdproducto(idp);
+                        car.setNombre(p.getNombre());
+                        car.setDescripcion(p.getDescripcion());
+                        car.setFoto(p.getFoto());
+                        car.setPreciocompra(p.getPrecio());
+                        car.setCantidad(cantidad);
+                        car.setSubtotal(cantidad * p.getPrecio());
+                        listacarrito.add(car);
+                    }
+                } else {
+                    item++;
+                    car = new Carrito();
+                    car.setItem(item);
+                    car.setIdproducto(idp);
+                    car.setNombre(p.getNombre());
+                    car.setDescripcion(p.getDescripcion());
+                    car.setFoto(p.getFoto());
+                    car.setPreciocompra(p.getPrecio());
+                    car.setCantidad(cantidad);
+                    car.setSubtotal(cantidad * p.getPrecio());
+                    listacarrito.add(car);
+                }
+                request.setAttribute("contador", listacarrito.size());
+                request.getRequestDispatcher("CtrProducto?accion=home").forward(request, response);
+                break;
             case "salir":
                 //HttpSession sesion = request.getSession();
                 sesion.invalidate();

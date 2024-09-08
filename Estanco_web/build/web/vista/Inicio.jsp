@@ -121,7 +121,7 @@
                     <h2><c:out value="${p.getNombre()}"/></h2>
                     <div class="price-container">
                         <div class="price">$<c:out value="${p.getPrecio()}"/></div>
-                        <a href="/Estanco_web/vista/Carrito.jsp" class="order-btn">
+                        <a href="/AppWeb/CtrProducto?accion=AgregarCarrito&id=${p.getId()}" class="order-btn">
                             <i class="bi bi-cart3"></i>
                         </a>
                     </div>
