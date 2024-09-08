@@ -21,7 +21,7 @@
             <nav class="navbar navbar-dark bg-dark justify-content-between px-3">
                 <a href="/Estanco_web/CtrProducto?accion=inicio" class="navbar-brand">Inicio</a>
                 <div class="d-flex align-items-center">
-                    <a href="/Estanco_web/vista/Carrito.jsp" class="nav-link"><i class="bi bi-cart3"></i> Carrito</a>
+                    <a href="/Estanco_web/CtrProducto?accion=Carrito" class="nav-link"> Carrito<i class="bi bi-cart3">(<label style="color: darkorange">${contador}</label>)</i></a>
                     <a href="#" class="nav-link">Ofertas</a>
                     <div class="dropdown">
                         <a class="nav-link dropdown-toggle" href="/Estanco_web/CtrProducto?accion=buscarcat&catid=${c.id}" id="categoriasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -121,7 +121,7 @@
                     <h2><c:out value="${p.getNombre()}"/></h2>
                     <div class="price-container">
                         <div class="price">$<c:out value="${p.getPrecio()}"/></div>
-                        <a href="/Estanco_web/vista/Carrito.jsp" class="order-btn">
+                        <a href="/Estanco_web/CtrProducto?accion=AgregarCarrito&id=${p.getId()}" class="order-btn">
                             <i class="bi bi-cart3"></i>
                         </a>
                     </div>

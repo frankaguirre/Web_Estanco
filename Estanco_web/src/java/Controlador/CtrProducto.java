@@ -50,6 +50,10 @@ public class CtrProducto extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String accion = request.getParameter("accion");
+        if (accion == null || accion.isEmpty()) {
+            // Si no se proporciona una acción, se asigna "inicio" como predeterminado
+            accion = "inicio";
+        }
         System.out.println("accion= " + accion);
         HttpSession sesion = request.getSession();
         productos = pdao.listar();
@@ -61,7 +65,7 @@ public class CtrProducto extends HttpServlet {
                 request.setAttribute("productos", productos);
                 if (sesion.getAttribute("tipo") != null) {
                     System.out.println("Tipo en sesión: " + sesion.getAttribute("tipo"));
-                    if (sesion.getAttribute("tipo").equals("cliente")) {
+                    if (sesion.getAttribute("tipo").equals("Cliente")) {
                         System.out.println("Redireccionando a la vista del cliente");
                         request.getRequestDispatcher("/vista/VentasCliente.jsp").forward(request, response);
                     }
@@ -75,11 +79,11 @@ public class CtrProducto extends HttpServlet {
                 productos = pdao.buscarcat(idcat);
                 request.setAttribute("categorias", categorias);
                 request.setAttribute("producto", productos);
-                if (sesion.getAttribute("Tipo") != null && sesion.getAttribute("Tipo").equals("cliente")) {
-                    request.getRequestDispatcher("vista/VentasCliente.jsp").forward(request, response);
+                if (sesion.getAttribute("tipo") != null && sesion.getAttribute("tipo").equals("Cliente")) {
+                    request.getRequestDispatcher("/Estanco_web/vista/VentasCliente.jsp").forward(request, response);
                 } else {
                     System.out.println("Atributo Tipo es null, redirigiendo a inicio");
-                    request.getRequestDispatcher("vista/Inicio.jsp").forward(request, response);
+                    request.getRequestDispatcher("/Estanco_web/vista/Inicio.jsp").forward(request, response);
                 }
                 break;
             case "buscar":
@@ -89,13 +93,13 @@ public class CtrProducto extends HttpServlet {
                 request.setAttribute("productos", productos);
                 if (sesion.getAttribute("tipo") != null) {
                     System.out.println("Tipo en sesión: " + sesion.getAttribute("tipo"));
-                    if (sesion.getAttribute("tipo").equals("cliente")) {
+                    if (sesion.getAttribute("tipo").equals("Cliente")) {
                         System.out.println("Redireccionando a la vista del cliente");
-                        request.getRequestDispatcher("/vista/VentasCliente.jsp").forward(request, response);
+                        request.getRequestDispatcher("/Estanco_web/vista/VentasCliente.jsp").forward(request, response);
                     }
                 } else {
                     System.out.println("Atributo Tipo es null, redirigiendo a inicio");
-                    request.getRequestDispatcher("/vista/Inicio.jsp").forward(request, response);
+                    request.getRequestDispatcher("/Estanco_web/vista/Inicio.jsp").forward(request, response);
                 }
             case "AgregarCarrito":
                 cantidad = 1;
@@ -144,23 +148,26 @@ public class CtrProducto extends HttpServlet {
                 request.getRequestDispatcher("CtrProducto?accion=inicio").forward(request, response);
                 break;
             case "Carrito":
-                totalpagar = 0;
-                for (int i = 0; i < listacarrito.size(); i++) {
-                    totalpagar = totalpagar + listacarrito.get(i).getSubtotal();
-                }
-                request.setAttribute("totalpagar", totalpagar);
-                request.setAttribute("carrito", listacarrito);
-                if (sesion.getAttribute("tipo") != null) {
+                if (sesion.getAttribute("tipo") == null) {
+                    System.out.println("El usuario no ha iniciado sesión, redirigiendo a Login");
+                    request.getRequestDispatcher("/vista/Login.jsp").forward(request, response);
+                } else {
+                    // Si el usuario ha iniciado sesión, se procede con la vista del carrito
+                    totalpagar = 0;
+                    for (int i = 0; i < listacarrito.size(); i++) {
+                        totalpagar += listacarrito.get(i).getSubtotal();
+                    }
+                    request.setAttribute("totalpagar", totalpagar);
+                    request.setAttribute("carrito", listacarrito);
+
                     System.out.println("Tipo en sesión: " + sesion.getAttribute("tipo"));
-                    if (sesion.getAttribute("tipo").equals("cliente")) {
+                    if (sesion.getAttribute("tipo").equals("Cliente")) {
                         System.out.println("Redireccionando a la vista del cliente");
                         request.getRequestDispatcher("/vista/Carrito.jsp").forward(request, response);
                     }
-                } else {
-                    System.out.println("Atributo Tipo es null, redirigiendo a inicio");
-                    request.getRequestDispatcher("/vista/Login.jsp").forward(request, response);
                 }
                 break;
+
             case "salir":
                 //HttpSession sesion = request.getSession();
                 sesion.invalidate();

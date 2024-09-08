@@ -73,7 +73,9 @@ public final class Inicio_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <nav class=\"navbar navbar-dark bg-dark justify-content-between px-3\">\r\n");
       out.write("                <a href=\"/Estanco_web/CtrProducto?accion=inicio\" class=\"navbar-brand\">Inicio</a>\r\n");
       out.write("                <div class=\"d-flex align-items-center\">\r\n");
-      out.write("                    <a href=\"/Estanco_web/vista/Carrito.jsp\" class=\"nav-link\"><i class=\"bi bi-cart3\"></i> Carrito</a>\r\n");
+      out.write("                    <a href=\"/Estanco_web/CtrProducto?accion=Carrito\" class=\"nav-link\"> Carrito<i class=\"bi bi-cart3\">(<label style=\"color: darkorange\">");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${contador}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("</label>)</i></a>\r\n");
       out.write("                    <a href=\"#\" class=\"nav-link\">Ofertas</a>\r\n");
       out.write("                    <div class=\"dropdown\">\r\n");
       out.write("                        <a class=\"nav-link dropdown-toggle\" href=\"/Estanco_web/CtrProducto?accion=buscarcat&catid=");
@@ -307,7 +309,9 @@ public final class Inicio_jsp extends org.apache.jasper.runtime.HttpJspBase
           if (_jspx_meth_c_out_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_1, _jspx_page_context, _jspx_push_body_count_c_forEach_1))
             return true;
           out.write("</div>\r\n");
-          out.write("                        <a href=\"/Estanco_web/vista/Carrito.jsp\" class=\"order-btn\">\r\n");
+          out.write("                        <a href=\"/Estanco_web/CtrProducto?accion=AgregarCarrito&id=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${p.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" class=\"order-btn\">\r\n");
           out.write("                            <i class=\"bi bi-cart3\"></i>\r\n");
           out.write("                        </a>\r\n");
           out.write("                    </div>\r\n");
