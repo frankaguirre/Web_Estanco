@@ -86,7 +86,7 @@
             </aside>
             <main class="contentmain">
                 <div class="container mt-5">
-                        <h1>Usuarios</h1>
+                        <h1>Pedidos</h1>
                     
                     <div class="row">
                         <div class="col-sm-6">

@@ -71,8 +71,8 @@ public class CtrProducto extends HttpServlet {
             case "buscarcat":
                 int idcat = Integer.parseInt(request.getParameter("catid"));
                 productos = pdao.buscarcat(idcat);
-                request.setAttribute("categorias", categorias); 
-                request.setAttribute("producto", productos); 
+                request.setAttribute("categorias", categorias);
+                request.setAttribute("producto", productos);
                 if (sesion.getAttribute("Tipo") != null && sesion.getAttribute("Tipo").equals("cliente")) {
                     request.getRequestDispatcher("vista/VentasCliente.jsp").forward(request, response);
                 } else {
@@ -96,7 +96,18 @@ public class CtrProducto extends HttpServlet {
                     request.getRequestDispatcher("/vista/Inicio.jsp").forward(request, response);
                 }
                 break;
-                case "AgregarCarrito":
+            case "Carrito":
+                totalpagar = 0;
+                for (int i = 0; i < listacarrito.size(); i++) {
+                    totalpagar = totalpagar + listacarrito.get(i).getSubtotal();
+                }
+                request.setAttribute("totalpagar", totalpagar);
+                request.setAttribute("carrito", listacarrito);
+                if (sesion.getAttribute("tipo").equals("cliente")) {
+                    request.getRequestDispatcher("/Estanco_web/vista/Carrito.jsp").forward(request, response);
+                }
+                break;
+            case "AgregarCarrito":
                 cantidad = 1;
                 int pos = 0;
 
@@ -140,7 +151,7 @@ public class CtrProducto extends HttpServlet {
                     listacarrito.add(car);
                 }
                 request.setAttribute("contador", listacarrito.size());
-                request.getRequestDispatcher("CtrProducto?accion=home").forward(request, response);
+                request.getRequestDispatcher("CtrProducto?accion=inicio").forward(request, response);
                 break;
             case "salir":
                 //HttpSession sesion = request.getSession();

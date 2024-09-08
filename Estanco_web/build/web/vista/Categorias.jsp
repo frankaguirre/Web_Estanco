@@ -77,7 +77,7 @@
         <main class="contentmain">
             <div class="container mt-5">
                     <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h1>Usuarios</h1>
+                        <h1>Categorías</h1>
                         <form class="form-inline mt-4 mb-4" action="#">
                             <div class="input-group">
                                 <input type="text" class="form-control form-control-sm" name="txtbuscar" placeholder="Digite nombre">
