@@ -10,6 +10,7 @@ package Modelo;
  * @author ALEANDRES RODRIGUEZ
  */
 public class Carrito {
+    private int item;
     private int idproducto;
     private String nombre;
     private String descripcion;
@@ -21,7 +22,8 @@ public class Carrito {
     public Carrito() {
     }
 
-    public Carrito( int idproducto, String nombre, String descripcion, String foto, int preciocompra, int cantidad, int subtotal) {
+    public Carrito(int item, int idproducto, String nombre, String descripcion, String foto, int preciocompra, int cantidad, int subtotal) {
+        this.item = item;
         this.idproducto = idproducto;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -31,6 +33,13 @@ public class Carrito {
         this.subtotal = subtotal;
     }
 
+    public int getItem() {
+        return item;
+    }
+
+    public void setItem(int item) {
+        this.item = item;
+    }
 
     public int getIdproducto() {
         return idproducto;
@@ -90,5 +99,3 @@ public class Carrito {
     
     
 }
-
-
