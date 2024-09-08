@@ -95,12 +95,13 @@ public class CtrProducto extends HttpServlet {
                     System.out.println("Tipo en sesión: " + sesion.getAttribute("tipo"));
                     if (sesion.getAttribute("tipo").equals("Cliente")) {
                         System.out.println("Redireccionando a la vista del cliente");
-                        request.getRequestDispatcher("/Estanco_web/vista/VentasCliente.jsp").forward(request, response);
+                        request.getRequestDispatcher("/vista/VentasCliente.jsp").forward(request, response);
                     }
                 } else {
                     System.out.println("Atributo Tipo es null, redirigiendo a inicio");
-                    request.getRequestDispatcher("/Estanco_web/vista/Inicio.jsp").forward(request, response);
+                    request.getRequestDispatcher("/vista/Inicio.jsp").forward(request, response);
                 }
+                break;
             case "AgregarCarrito":
                 cantidad = 1;
                 int pos = 0;
@@ -166,6 +167,41 @@ public class CtrProducto extends HttpServlet {
                         request.getRequestDispatcher("/vista/Carrito.jsp").forward(request, response);
                     }
                 }
+                break;
+            case "EliminarPro":
+                int idproducto = Integer.parseInt(request.getParameter("idp"));
+                for (int i = 0; i < listacarrito.size(); i++) {
+                    if (idproducto == listacarrito.get(i).getIdproducto()) {
+                        listacarrito.remove(i);
+                        break;
+                    }
+                }
+                totalpagar = 0;
+                for (Carrito item : listacarrito) {
+                    totalpagar += item.getSubtotal();
+                }
+                request.setAttribute("totalpagar", totalpagar);
+                request.setAttribute("carrito", listacarrito);
+                request.getRequestDispatcher("/vista/Carrito.jsp").forward(request, response);
+                break;
+
+            case "ActualizarCant":
+                int idpro = Integer.parseInt(request.getParameter("idp"));
+                int can = Integer.parseInt(request.getParameter("cantidad"));
+                for (Carrito item : listacarrito) {
+                    if (idpro == item.getIdproducto()) {
+                        item.setCantidad(can);
+                        item.setSubtotal(item.getPreciocompra() * can);
+                        break;
+                    }
+                }
+                totalpagar = 0;
+                for (Carrito item : listacarrito) {
+                    totalpagar += item.getSubtotal();
+                }
+                request.setAttribute("totalpagar", totalpagar);
+                request.setAttribute("carrito", listacarrito);
+                request.getRequestDispatcher("/vista/Carrito.jsp").forward(request, response);
                 break;
 
             case "salir":

@@ -89,7 +89,7 @@
                         <ul class="dropdown-menu" aria-labelledby="categoriasDropdown">
                             <c:forEach var="c" items="${categorias}">
                                 <li><a class="dropdown-item" href="/Estanco_web/CtrProducto?accion=buscarcat&catid=${c.id}">${c.nombre}</a></li>
-                            </c:forEach>
+                                </c:forEach>
                         </ul>
                     </div>
                     <a href="#" class="nav-link">Ayuda</a>
@@ -121,18 +121,21 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <c:forEach var="car" items="${carrito}">
-                        <tr>
-                            <td>${car.getNombre()}<img src="${car.getFoto()}" width="100" height="100"></td>
-                            <td>${car.getPreciocompra()}</td>
-                            <td><input type="hidden" id="idpro" value="${car.getIdproducto()}">
-                                <input type="number" id="cantidad" value="${car.getCantidad()}" class="form-control text-center" min="1">
-                            </td>
-                            <td><input type="hidden" id="idp" value="${car.getIdproducto()}">
-                                <a class="btn btn-danger" href="#" id="btndelete"><i class="bi bi-trash3"></i></a>
-                            </td>
-                        </tr>
-                    </c:forEach>
+                        <c:forEach var="car" items="${carrito}">
+                            <tr>
+                                <td>${car.getNombre()}<img src="${car.getFoto()}" width="100" height="100"></td>
+                                <td>${car.getPreciocompra()}</td>
+                                <td><input type="hidden" id="idpro" value="${car.getIdproducto()}">
+                                    <input type="number" id="cantidad" value="${car.getCantidad()}" class="form-control text-center" min="1">
+                                </td>
+                                <td>
+                                    <a class="btn btn-danger" href="CtrProducto_1?accion=EliminarPro&idp=${car.getIdproducto()}">
+                                        <i class="bi bi-trash3"></i>
+                                    </a>
+                                </td>
+
+                            </tr>
+                        </c:forEach>
                     </tbody>
                 </table>
             </div>
