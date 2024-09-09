@@ -69,7 +69,7 @@ public final class VentasCliente_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("    </head>\r\n");
       out.write("    ");
 
-        if (session.getAttribute("log") == null || session.getAttribute("log").equals('0')){
+        if (session.getAttribute("log") == null || session.getAttribute("log").equals('0')) {
             response.sendRedirect("../vista/Login.jsp");
         }
     
@@ -88,11 +88,11 @@ public final class VentasCliente_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("                            Categorías\r\n");
       out.write("                        </a>\r\n");
       out.write("                        <ul class=\"dropdown-menu dropdown-menu-dark\">\r\n");
-      out.write("                                ");
+      out.write("                            ");
       if (_jspx_meth_c_forEach_0(_jspx_page_context))
         return;
       out.write("\r\n");
-      out.write("                                <li><a class=\"dropdown-item\" href=\"#\" ><i></i> Todas</a></li>\r\n");
+      out.write("                            <li><a class=\"dropdown-item\" href=\"#\" ><i></i> Todas</a></li>\r\n");
       out.write("                        </ul>\r\n");
       out.write("                    </div>\r\n");
       out.write("                    <a href=\"#\" class=\"nav-link\">Ayuda</a>\r\n");
@@ -188,50 +188,50 @@ public final class VentasCliente_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("\r\n");
       out.write("            <div class=\"time\"></div>\r\n");
       out.write("        </div>\r\n");
-      out.write("        <div class=\"product-container\">\r\n");
-      out.write("          ");
+      out.write("        <div class=\"row justify-content-center\" style=\"margin: 20px;\">\r\n");
+      out.write("            ");
       if (_jspx_meth_c_forEach_1(_jspx_page_context))
         return;
       out.write("\r\n");
-      out.write("         </div>\r\n");
+      out.write("        </div>\r\n");
       out.write("        <footer>\r\n");
-      out.write("        <div class=\"container-fluid\" style=\"background-color: black; color: white; padding: 20px;\">\r\n");
-      out.write("            <div class=\"row\">\r\n");
-      out.write("                <div class=\"col-md-4\">\r\n");
-      out.write("                    <h5>Sobre Nosotros</h5>\r\n");
+      out.write("            <div class=\"container-fluid\" style=\"background-color: black; color: white; padding: 20px;\">\r\n");
+      out.write("                <div class=\"row\">\r\n");
+      out.write("                    <div class=\"col-md-4\">\r\n");
+      out.write("                        <h5>Sobre Nosotros</h5>\r\n");
       out.write("\r\n");
-      out.write("                    <p>Estanco Currambero ofrece una amplia selección de cervezas, licores, mecatos y más. ¡Descubre nuestros productos y disfruta de una experiencia única!</p>\r\n");
-      out.write("                    <a href=\"https://facebook.com\" target=\"_blank\" style=\"color: white; margin-right: 10px;\">\r\n");
-      out.write("                        <i class=\"bi bi-facebook\"></i>\r\n");
-      out.write("                    </a>\r\n");
-      out.write("                    <a href=\"https://twitter.com\" target=\"_blank\" style=\"color: white; margin-right: 10px;\">\r\n");
-      out.write("                        <i class=\"bi bi-twitter\"></i>\r\n");
-      out.write("                    </a>\r\n");
-      out.write("                    <a href=\"https://instagram.com\" target=\"_blank\" style=\"color: white; margin-right: 10px;\">\r\n");
-      out.write("                        <i class=\"bi bi-instagram\"></i>\r\n");
-      out.write("                    </a>\r\n");
-      out.write("                    <a href=\"https://linkedin.com\" target=\"_blank\" style=\"color: white;\">\r\n");
-      out.write("                        <i class=\"bi bi-linkedin\"></i>\r\n");
-      out.write("                    </a>\r\n");
+      out.write("                        <p>Estanco Currambero ofrece una amplia selección de cervezas, licores, mecatos y más. ¡Descubre nuestros productos y disfruta de una experiencia única!</p>\r\n");
+      out.write("                        <a href=\"https://facebook.com\" target=\"_blank\" style=\"color: white; margin-right: 10px;\">\r\n");
+      out.write("                            <i class=\"bi bi-facebook\"></i>\r\n");
+      out.write("                        </a>\r\n");
+      out.write("                        <a href=\"https://twitter.com\" target=\"_blank\" style=\"color: white; margin-right: 10px;\">\r\n");
+      out.write("                            <i class=\"bi bi-twitter\"></i>\r\n");
+      out.write("                        </a>\r\n");
+      out.write("                        <a href=\"https://instagram.com\" target=\"_blank\" style=\"color: white; margin-right: 10px;\">\r\n");
+      out.write("                            <i class=\"bi bi-instagram\"></i>\r\n");
+      out.write("                        </a>\r\n");
+      out.write("                        <a href=\"https://linkedin.com\" target=\"_blank\" style=\"color: white;\">\r\n");
+      out.write("                            <i class=\"bi bi-linkedin\"></i>\r\n");
+      out.write("                        </a>\r\n");
       out.write("\r\n");
-      out.write("                </div>\r\n");
-      out.write("                <div class=\"col-md-4\">\r\n");
-      out.write("                    <h5>Enlaces Rápidos</h5>\r\n");
-      out.write("                    <ul style=\"list-style-type: none; padding: 0;\">\r\n");
-      out.write("                        <li><a href=\"/EstancoCurrambero/vista/VentasAdmin.jsp\" style=\"color: white;\">Inicio</a></li>\r\n");
-      out.write("                        <li><a href=\"#\" style=\"color: white;\">Ofertas</a></li>\r\n");
-      out.write("                        <li><a href=\"#\" style=\"color: white;\">Categorías</a></li>\r\n");
-      out.write("                        <li><a href=\"#\" style=\"color: white;\">Ayuda</a></li>\r\n");
-      out.write("                    </ul>\r\n");
-      out.write("                </div>\r\n");
-      out.write("                <div class=\"col-md-4\">\r\n");
-      out.write("                    <h5>Contacto</h5>\r\n");
-      out.write("                    <p>Email: contacto@estancocurrambero.com</p>\r\n");
-      out.write("                    <p>Teléfono: +123 456 789</p>\r\n");
-      out.write("                    <p>Dirección: Calle Ficticia 123, Ciudad, País</p>\r\n");
+      out.write("                    </div>\r\n");
+      out.write("                    <div class=\"col-md-4\">\r\n");
+      out.write("                        <h5>Enlaces Rápidos</h5>\r\n");
+      out.write("                        <ul style=\"list-style-type: none; padding: 0;\">\r\n");
+      out.write("                            <li><a href=\"/EstancoCurrambero/vista/VentasAdmin.jsp\" style=\"color: white;\">Inicio</a></li>\r\n");
+      out.write("                            <li><a href=\"#\" style=\"color: white;\">Ofertas</a></li>\r\n");
+      out.write("                            <li><a href=\"#\" style=\"color: white;\">Categorías</a></li>\r\n");
+      out.write("                            <li><a href=\"#\" style=\"color: white;\">Ayuda</a></li>\r\n");
+      out.write("                        </ul>\r\n");
+      out.write("                    </div>\r\n");
+      out.write("                    <div class=\"col-md-4\">\r\n");
+      out.write("                        <h5>Contacto</h5>\r\n");
+      out.write("                        <p>Email: contacto@estancocurrambero.com</p>\r\n");
+      out.write("                        <p>Teléfono: +123 456 789</p>\r\n");
+      out.write("                        <p>Dirección: Calle Ficticia 123, Ciudad, País</p>\r\n");
+      out.write("                    </div>\r\n");
       out.write("                </div>\r\n");
       out.write("            </div>\r\n");
-      out.write("        </div>\r\n");
       out.write("        </footer>\r\n");
       out.write("\r\n");
       out.write("        <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz\" crossorigin=\"anonymous\"></script>\r\n");
@@ -276,7 +276,7 @@ public final class VentasCliente_jsp extends org.apache.jasper.runtime.HttpJspBa
           out.write("                                <input type=\"hidden\" value=\"");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${c.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("\" name=\"catid\" id=\"catid\">\r\n");
-          out.write("                                ");
+          out.write("                            ");
           int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
             break;
@@ -312,27 +312,35 @@ public final class VentasCliente_jsp extends org.apache.jasper.runtime.HttpJspBa
       if (_jspx_eval_c_forEach_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
           out.write("\r\n");
-          out.write("           <a href=\"/Estanco_web/vista/ProductoDes.jsp?id=");
+          out.write("                <div class=\"col-6 col-md-4 col-lg-2 mb-4\">\r\n");
+          out.write("                    <a href=\"/Estanco_web/CtrProducto?accion=verProducto&id=");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${p.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("\" class=\"product-card\">\r\n");
-          out.write("            <img src=\"");
+          out.write("\" class=\"product-card-link\">\r\n");
+          out.write("                        <div class=\"product-card\">\r\n");
+          out.write("                            <img src=\"");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${p.getFoto()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("\" alt=\"");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${p.getNombre()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("\">\r\n");
-          out.write("            <h2 style=\"color: black;\">");
+          out.write("\" class=\"img-fluid\">\r\n");
+          out.write("                            <h2>");
           if (_jspx_meth_c_out_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_1, _jspx_page_context, _jspx_push_body_count_c_forEach_1))
             return true;
           out.write("</h2>\r\n");
-          out.write("            <div class=\"price-container\">\r\n");
-          out.write("                <div class=\"price\">$");
+          out.write("                            <div class=\"price-container\">\r\n");
+          out.write("                                <div class=\"price\">$");
           if (_jspx_meth_c_out_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_1, _jspx_page_context, _jspx_push_body_count_c_forEach_1))
             return true;
           out.write("</div>\r\n");
-          out.write("                <i class=\"bi bi-cart3\" style=\"color: black;\"></i>\r\n");
-          out.write("            </div>\r\n");
-          out.write("            </a>\r\n");
-          out.write("          ");
+          out.write("                                <a href=\"/Estanco_web/CtrProducto?accion=AgregarCarrito&id=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${p.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" class=\"order-btn\">\r\n");
+          out.write("                                    <i class=\"bi bi-cart3\"></i>\r\n");
+          out.write("                                </a>\r\n");
+          out.write("                            </div>\r\n");
+          out.write("                        </div>\r\n");
+          out.write("                    </a>\r\n");
+          out.write("                </div>\r\n");
+          out.write("            ");
           int evalDoAfterBody = _jspx_th_c_forEach_1.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
             break;

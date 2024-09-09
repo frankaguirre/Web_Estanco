@@ -274,7 +274,9 @@ public final class ProductoDes_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        </div>\r\n");
       out.write("        <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz\" crossorigin=\"anonymous\"></script>\r\n");
       out.write("    </body>\r\n");
-      out.write("</html>\r\n");
+      out.write("    \r\n");
+      out.write("    \r\n");
+      out.write("</html>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
