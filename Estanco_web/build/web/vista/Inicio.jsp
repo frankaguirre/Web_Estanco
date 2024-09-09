@@ -115,25 +115,25 @@
             <div class="time"></div>
         </div>
 
-        <div class="product-container">
-    <c:forEach var="p" items="${productos}">
-        <a href="/Estanco_web/CtrProducto?accion=verProducto&id=${p.getId()}" class="product-card-link">
-            <div class="product-card">
-                <img src="${p.getFoto()}" alt="${p.getNombre()}">
-                <h2><c:out value="${p.getNombre()}"/></h2>
-                <div class="price-container">
-                    <div class="price">$<c:out value="${p.getPrecio()}"/></div>
-                    <a href="/Estanco_web/CtrProducto?accion=AgregarCarrito&id=${p.getId()}" class="order-btn">
-                        <i class="bi bi-cart3"></i>
+ 
+        <div class="row justify-content-center" style="margin: 20px;">
+            <c:forEach var="p" items="${productos}">
+                <div class="col-6 col-md-4 col-lg-2 mb-4">
+                    <a href="/Estanco_web/CtrProducto?accion=verProducto&id=${p.getId()}" class="product-card-link">
+                        <div class="product-card">
+                            <img src="${p.getFoto()}" alt="${p.getNombre()}" class="img-fluid">
+                            <h2><c:out value="${p.getNombre()}"/></h2>
+                            <div class="price-container">
+                                <div class="price">$<c:out value="${p.getPrecio()}"/></div>
+                                <a href="/Estanco_web/CtrProducto?accion=AgregarCarrito&id=${p.getId()}" class="order-btn">
+                                    <i class="bi bi-cart3"></i>
+                                </a>
+                            </div>
+                        </div>
                     </a>
                 </div>
-            </div>
-        </a>
-    </c:forEach>
-</div>
-
-
-
+            </c:forEach>
+        </div>
 
         <footer>
             <div class="container-fluid" style="background-color: black; color: white; padding: 20px;">

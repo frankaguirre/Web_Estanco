@@ -22,11 +22,11 @@ body {
     height: 100vh;
 }
 h1 {
-  text-align: center;
-  margin-bottom: 20px; 
+    text-align: center;
+    margin-bottom: 20px; 
 }
 h5 {
-  margin-bottom: 20px; 
+    margin-bottom: 20px; 
 }
 
 .container {
@@ -153,11 +153,23 @@ h5 {
 .forgot-password {
     text-align: right;
     color: orange;
-    font-size: 14px;
+    font-size: 13px;
     margin-bottom: 20px;
     text-decoration: none;
 }
-
+.registro{
+    text-align: right;
+    color: orange;
+    font-size: 13px;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+.mt-6 {
+    margin-bottom: 20px;
+}
+.registro, .forgot-password {
+    margin: 10px;
+}
 .login-btn-form {
     background-color: #000;
     color: white;
@@ -172,7 +184,7 @@ h5 {
 .login-btn-form:hover {
     background-color: orange;
 }
- 
+
 
 .formulario_label {
     display: flex;

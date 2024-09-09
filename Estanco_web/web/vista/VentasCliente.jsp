@@ -16,7 +16,7 @@
         <title>Estanco Currambero</title>
     </head>
     <%
-        if (session.getAttribute("log") == null || session.getAttribute("log").equals('0')){
+        if (session.getAttribute("log") == null || session.getAttribute("log").equals('0')) {
             response.sendRedirect("../vista/Login.jsp");
         }
     %>
@@ -32,11 +32,11 @@
                             Categorías
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark">
-                                <c:forEach var="c" items="${categorias}">
+                            <c:forEach var="c" items="${categorias}">
                                 <li><a class="dropdown-item" href="/AppWeb/CtrProducto?accion=buscarcat&catid=${c.getId()}" ><i class="bi bi-bookmarks"></i> ${c.getNombre()}</a></li>
                                 <input type="hidden" value="${c.getId()}" name="catid" id="catid">
-                                </c:forEach>
-                                <li><a class="dropdown-item" href="#" ><i></i> Todas</a></li>
+                            </c:forEach>
+                            <li><a class="dropdown-item" href="#" ><i></i> Todas</a></li>
                         </ul>
                     </div>
                     <a href="#" class="nav-link">Ayuda</a>
@@ -132,56 +132,62 @@
 
             <div class="time"></div>
         </div>
-        <div class="product-container">
-          <c:forEach var="p" items="${productos}">
-           <a href="/Estanco_web/vista/ProductoDes.jsp?id=${p.getId()}" class="product-card">
-            <img src="${p.getFoto()}" alt="${p.getNombre()}">
-            <h2 style="color: black;"><c:out value="${p.getNombre()}"/></h2>
-            <div class="price-container">
-                <div class="price">$<c:out value="${p.getPrecio()}"/></div>
-                <i class="bi bi-cart3" style="color: black;"></i>
-            </div>
-            </a>
-          </c:forEach>
-         </div>
-        <footer>
-        <div class="container-fluid" style="background-color: black; color: white; padding: 20px;">
-            <div class="row">
-                <div class="col-md-4">
-                    <h5>Sobre Nosotros</h5>
-
-                    <p>Estanco Currambero ofrece una amplia selección de cervezas, licores, mecatos y más. ¡Descubre nuestros productos y disfruta de una experiencia única!</p>
-                    <a href="https://facebook.com" target="_blank" style="color: white; margin-right: 10px;">
-                        <i class="bi bi-facebook"></i>
+        <div class="row justify-content-center" style="margin: 20px;">
+            <c:forEach var="p" items="${productos}">
+                <div class="col-6 col-md-4 col-lg-2 mb-4">
+                    <a href="/Estanco_web/CtrProducto?accion=verProducto&id=${p.getId()}" class="product-card-link">
+                        <div class="product-card">
+                            <img src="${p.getFoto()}" alt="${p.getNombre()}" class="img-fluid">
+                            <h2><c:out value="${p.getNombre()}"/></h2>
+                            <div class="price-container">
+                                <div class="price">$<c:out value="${p.getPrecio()}"/></div>
+                                <a href="/Estanco_web/CtrProducto?accion=AgregarCarrito&id=${p.getId()}" class="order-btn">
+                                    <i class="bi bi-cart3"></i>
+                                </a>
+                            </div>
+                        </div>
                     </a>
-                    <a href="https://twitter.com" target="_blank" style="color: white; margin-right: 10px;">
-                        <i class="bi bi-twitter"></i>
-                    </a>
-                    <a href="https://instagram.com" target="_blank" style="color: white; margin-right: 10px;">
-                        <i class="bi bi-instagram"></i>
-                    </a>
-                    <a href="https://linkedin.com" target="_blank" style="color: white;">
-                        <i class="bi bi-linkedin"></i>
-                    </a>
-
                 </div>
-                <div class="col-md-4">
-                    <h5>Enlaces Rápidos</h5>
-                    <ul style="list-style-type: none; padding: 0;">
-                        <li><a href="/EstancoCurrambero/vista/VentasAdmin.jsp" style="color: white;">Inicio</a></li>
-                        <li><a href="#" style="color: white;">Ofertas</a></li>
-                        <li><a href="#" style="color: white;">Categorías</a></li>
-                        <li><a href="#" style="color: white;">Ayuda</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <h5>Contacto</h5>
-                    <p>Email: contacto@estancocurrambero.com</p>
-                    <p>Teléfono: +123 456 789</p>
-                    <p>Dirección: Calle Ficticia 123, Ciudad, País</p>
-                </div>
-            </div>
+            </c:forEach>
         </div>
+        <footer>
+            <div class="container-fluid" style="background-color: black; color: white; padding: 20px;">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5>Sobre Nosotros</h5>
+
+                        <p>Estanco Currambero ofrece una amplia selección de cervezas, licores, mecatos y más. ¡Descubre nuestros productos y disfruta de una experiencia única!</p>
+                        <a href="https://facebook.com" target="_blank" style="color: white; margin-right: 10px;">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" style="color: white; margin-right: 10px;">
+                            <i class="bi bi-twitter"></i>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" style="color: white; margin-right: 10px;">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" style="color: white;">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Enlaces Rápidos</h5>
+                        <ul style="list-style-type: none; padding: 0;">
+                            <li><a href="/EstancoCurrambero/vista/VentasAdmin.jsp" style="color: white;">Inicio</a></li>
+                            <li><a href="#" style="color: white;">Ofertas</a></li>
+                            <li><a href="#" style="color: white;">Categorías</a></li>
+                            <li><a href="#" style="color: white;">Ayuda</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Contacto</h5>
+                        <p>Email: contacto@estancocurrambero.com</p>
+                        <p>Teléfono: +123 456 789</p>
+                        <p>Dirección: Calle Ficticia 123, Ciudad, País</p>
+                    </div>
+                </div>
+            </div>
         </footer>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

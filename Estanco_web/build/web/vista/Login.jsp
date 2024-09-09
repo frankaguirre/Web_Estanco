@@ -16,10 +16,6 @@
         <div class="container">
             <div class="left-side">
                 <img src="/Estanco_web/imagenes/logine.jpeg" alt="" class="shoe-image"/>
-                <div class="buttons">
-                    <button class="login-btn" onclick="showLogin()">Iniciar Sesión</button>
-                    <button class="signup-btn" onclick="showSignUp()">Crear Cuenta</button>
-                </div>
             </div>
             <div class="right-side">
                 <div id="form-container">
@@ -36,7 +32,11 @@
                             <i class="fas fa-lock icon"></i>
                             <input type="password" name="txtpass" id="password" placeholder="Contraseña">
                         </div>
-                        <a href="#" class="forgot-password">¿Se te olvidó la contraseña?</a>
+                        <div class="mt-6">
+                            <a href="/Estanco_web/vista/Login.jsp?signup=true" class="registro">No tienes cuenta? Registrate</a> 
+                            <a href="#" class="forgot-password">¿Se te olvidó la contraseña?</a>
+                        </div>
+                        
                         <button type="submit" name="accion" value="Ingresar" class="login-btn-form">Iniciar Sesión</button>
                     </form>
 
