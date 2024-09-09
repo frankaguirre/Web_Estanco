@@ -9,11 +9,11 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <title>Inicio Administrador</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-        <link href="../css/admin.css" rel="stylesheet" type="text/css"/>
+        <link href="/Estanco_web/css/admin.css" rel="stylesheet" type="text/css"/>
     </head>
     <%
         if (session.getAttribute("log") == null || session.getAttribute("log").equals('0')) {
-            response.sendRedirect("../vista/Login.jsp");
+           response.sendRedirect("../vista/Login.jsp");
         }
     %>
     <body>

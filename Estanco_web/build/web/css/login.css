@@ -20,12 +20,13 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
 }
-
 h1 {
-    text-align: center;
-    margin-bottom: 20px; 
+  text-align: center;
+  margin-bottom: 20px; 
+}
+h5 {
+  margin-bottom: 20px; 
 }
 
 .container {
@@ -34,8 +35,7 @@ h1 {
     max-width: 1200px;
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 20px;
-    padding: 20px;
+    border-radius: 15px;
 }
 
 .left-side {
@@ -65,7 +65,7 @@ h1 {
 }
 
 .login-btn, .signup-btn {
-    background-color: transparent;
+    background-color: transparent; 
     color: white;
     font-size: 20px;
     cursor: pointer;
@@ -92,9 +92,14 @@ h1 {
     background-color: white;
 }
 
+.logo {
+    width: 100px;
+    margin-bottom: 30px;
+}
+
 #form-container {
     width: 100%;
-    max-width: 600px; /* Ajusta el ancho del formulario */
+    max-width: 400px;
 }
 
 .form {
@@ -108,17 +113,18 @@ h1 {
 
 .input-group-row {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 20px; /* Espacio entre filas */
+    justify-content: space-between;
 }
 
 .input-group {
     position: relative;
+    margin-bottom: 15px;
     flex: 1;
-    margin-bottom: 20px; /* Ajuste del margen inferior */
-    display: flex;
-    align-items: center;
+    margin-right: 10px;
+}
+
+.input-group:last-child {
+    margin-right: 0;
 }
 
 .input-group input {
@@ -137,7 +143,7 @@ h1 {
 
 .input-group .icon {
     position: absolute;
-    left: 10px;
+    left: 5px;
     top: 50%;
     transform: translateY(-50%);
     color: black;
@@ -145,7 +151,7 @@ h1 {
 }
 
 .forgot-password {
-    text-align: center;
+    text-align: right;
     color: orange;
     font-size: 14px;
     margin-bottom: 20px;
@@ -166,8 +172,22 @@ h1 {
 .login-btn-form:hover {
     background-color: orange;
 }
+ 
 
-.input-group input[type="date"] {
-    padding-left: 10px; 
-    width: 100%; 
+.formulario_label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: black;
+    margin-top: 10px; 
+    margin-bottom: 20px;
+}
+
+.formulario_checkbox {
+    margin-right: 10px; 
+    cursor: pointer;
+}
+
+.formulario_label input[type="checkbox"] {
+    margin: 0; 
 }

@@ -68,6 +68,9 @@ public class CtrProducto extends HttpServlet {
                     if (sesion.getAttribute("tipo").equals("Cliente")) {
                         System.out.println("Redireccionando a la vista del cliente");
                         request.getRequestDispatcher("/vista/VentasCliente.jsp").forward(request, response);
+                    }else if(sesion.getAttribute("tipo").equals("Administrador")){
+                        System.out.println("Redireccionando a la vista del Administrador");
+                        request.getRequestDispatcher("/vista/VentasAdmin.jsp").forward(request, response);
                     }
                 } else {
                     System.out.println("Atributo Tipo es null, redirigiendo a inicio");
@@ -103,11 +106,18 @@ public class CtrProducto extends HttpServlet {
                 }
                 break;
             case "AgregarCarrito":
+                if (sesion.getAttribute("tipo") == null || !sesion.getAttribute("tipo").equals("Cliente")) {
+                    System.out.println("El usuario no tiene permiso para agregar al carrito. Redirigiendo a Login.");
+                    request.getRequestDispatcher("/vista/Login.jsp").forward(request, response);
+                    return;
+                }
+
                 cantidad = 1;
                 int pos = 0;
 
                 idp = Integer.parseInt(request.getParameter("id"));
                 p = pdao.listarid(idp);
+
                 if (listacarrito.size() > 0) {
                     for (int i = 0; i < listacarrito.size(); i++) {
                         if (idp == listacarrito.get(i).getIdproducto()) {
@@ -145,6 +155,7 @@ public class CtrProducto extends HttpServlet {
                     car.setSubtotal(cantidad * p.getPrecio());
                     listacarrito.add(car);
                 }
+
                 request.setAttribute("contador", listacarrito.size());
                 request.getRequestDispatcher("CtrProducto?accion=inicio").forward(request, response);
                 break;
@@ -184,7 +195,12 @@ public class CtrProducto extends HttpServlet {
                 request.setAttribute("carrito", listacarrito);
                 request.getRequestDispatcher("/vista/Carrito.jsp").forward(request, response);
                 break;
-
+            case "verProducto":
+                int idProducto = Integer.parseInt(request.getParameter("id"));
+                Producto producto = pdao.obtenerProductoPorId(idProducto);
+                request.setAttribute("producto", producto);
+                request.getRequestDispatcher("/vista/ProductoDes.jsp").forward(request, response);
+                break;
             case "ActualizarCant":
                 int idpro = Integer.parseInt(request.getParameter("idp"));
                 int can = Integer.parseInt(request.getParameter("cantidad"));
@@ -207,7 +223,11 @@ public class CtrProducto extends HttpServlet {
             case "salir":
                 //HttpSession sesion = request.getSession();
                 sesion.invalidate();
-                response.sendRedirect("/Estanco_web/vista/Inicio.jsp");
+                response.sendRedirect("CtrProducto?accion=inicio");
+                break;
+            case "Ayuda":
+                request.setAttribute("Ayuda", true);
+                request.getRequestDispatcher("CtrProducto?accion=home").forward(request, response);
                 break;
         }
 

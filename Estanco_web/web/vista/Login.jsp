@@ -87,14 +87,14 @@
                                 <input type="password" class="formulario_input" name="contrasena_repetir" id="contrasena_repetir" placeholder="Repite Contraseña" required>
                             </div>
                         </div>
-                        <div class="input-group">
+                        <div class="input">
                             <label for="terminos" class="formulario_label">
                                 <input type="checkbox" class="formulario_checkbox" name="terminos" id="terminos" required>
                                 Acepto los términos y condiciones
                             </label> 
                         </div>
                         <div class="formulario_mensaje" id="formulario_mensaje"></div>
-                        <button type="submit" class="login-btn-form" name="accion" value="nuevo">Guardar <i class="bi bi-floppy"></i></button>
+                        <button type="submit" class="login-btn-form" name="accion" value="nuevo">Crear Cuenta<i class="bi bi-floppy"></i></button>
                     </form>
                 </div>
             </div>
