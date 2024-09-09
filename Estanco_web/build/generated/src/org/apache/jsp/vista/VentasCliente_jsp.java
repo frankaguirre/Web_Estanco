@@ -68,6 +68,11 @@ public final class VentasCliente_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("        <title>Estanco Currambero</title>\r\n");
       out.write("    </head>\r\n");
       out.write("    ");
+
+        if (session.getAttribute("log") == null || session.getAttribute("log").equals('0')){
+            response.sendRedirect("../vista/Login.jsp");
+        }
+    
       out.write("\r\n");
       out.write("    <body>\r\n");
       out.write("        <header>\r\n");
@@ -183,13 +188,12 @@ public final class VentasCliente_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("\r\n");
       out.write("            <div class=\"time\"></div>\r\n");
       out.write("        </div>\r\n");
-      out.write("        \r\n");
       out.write("        <div class=\"product-container\">\r\n");
-      out.write("            ");
+      out.write("          ");
       if (_jspx_meth_c_forEach_1(_jspx_page_context))
         return;
       out.write("\r\n");
-      out.write("        </div>\r\n");
+      out.write("         </div>\r\n");
       out.write("        <footer>\r\n");
       out.write("        <div class=\"container-fluid\" style=\"background-color: black; color: white; padding: 20px;\">\r\n");
       out.write("            <div class=\"row\">\r\n");
@@ -308,29 +312,27 @@ public final class VentasCliente_jsp extends org.apache.jasper.runtime.HttpJspBa
       if (_jspx_eval_c_forEach_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
           out.write("\r\n");
-          out.write("                <div class=\"product-card\">\r\n");
-          out.write("                    <img src=\"");
+          out.write("           <a href=\"/Estanco_web/vista/ProductoDes.jsp?id=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${p.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" class=\"product-card\">\r\n");
+          out.write("            <img src=\"");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${p.getFoto()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("\" alt=\"");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${p.getNombre()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("\">\r\n");
-          out.write("                    <h2>");
+          out.write("            <h2 style=\"color: black;\">");
           if (_jspx_meth_c_out_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_1, _jspx_page_context, _jspx_push_body_count_c_forEach_1))
             return true;
           out.write("</h2>\r\n");
-          out.write("                    <div class=\"price-container\">\r\n");
-          out.write("                        <div class=\"price\">$");
+          out.write("            <div class=\"price-container\">\r\n");
+          out.write("                <div class=\"price\">$");
           if (_jspx_meth_c_out_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_1, _jspx_page_context, _jspx_push_body_count_c_forEach_1))
             return true;
           out.write("</div>\r\n");
-          out.write("                        <a href=\"/Estanco_web/CtrProducto?accion=AgregarCarrito&id=");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${p.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("\" class=\"order-btn\">\r\n");
-          out.write("                            <i class=\"bi bi-cart3\"></i>\r\n");
-          out.write("                        </a>\r\n");
-          out.write("                    </div>\r\n");
-          out.write("                </div>\r\n");
-          out.write("            ");
+          out.write("                <i class=\"bi bi-cart3\" style=\"color: black;\"></i>\r\n");
+          out.write("            </div>\r\n");
+          out.write("            </a>\r\n");
+          out.write("          ");
           int evalDoAfterBody = _jspx_th_c_forEach_1.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
             break;
