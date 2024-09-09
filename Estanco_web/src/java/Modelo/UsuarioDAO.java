@@ -26,37 +26,41 @@ public class UsuarioDAO {
     Usuario us = new Usuario();
     Usuario usua;
     
-    public Usuario validar(String usu, String pass){
-       usua = new Usuario();
-       try{
-           Conexcion = new Conectar();
-           con = Conexcion.crearconexion();
-           if (con != null){
-               System.out.println("Se ha establecido una conexión con la base de datos");
-               pstm = con.prepareStatement("SELECT * FROM usuario WHERE usuario = ? AND contrasena = ?");
-               pstm.setString(1, usu);
-               pstm.setString(2, pass);
-               rs = pstm.executeQuery();
-               while (rs.next()){
-                   if (!rs.getString("usuario").equals("")){
-                       usua.setId(rs.getString("Id"));
-                       usua.setNombre(rs.getString("nombre"));
-                       usua.setApellido(rs.getString("apellido"));
-                       usua.setDireccion(rs.getString("direccion"));
-                       usua.setTelefono(rs.getString("telefono"));
-                       usua.setUsuario(rs.getString("usuario"));
-                       usua.setCorreo(rs.getString("correo"));
-                       usua.setContrasena(rs.getString("contrasena"));
-                       usua.setTipo(rs.getString("tipo"));
-                   }
-               }
-           }
-       }catch(Exception e){
-           System.out.println("Error al conectarse con la base de datos: " + e);
-       }
-       return usua;
+    public Usuario validar(String usu, String pass) {
+    usua = new Usuario();
+    try {
+        Conexcion = new Conectar();
+        con = Conexcion.crearconexion();
+        if (con != null) {
+            System.out.println("Se ha establecido una conexión con la base de datos");
+            pstm = con.prepareStatement("SELECT * FROM usuario WHERE usuario = ?");
+            pstm.setString(1, usu);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                if (!rs.getString("usuario").equals("")) {
+                    usua.setId(rs.getString("Id"));
+                    usua.setNombre(rs.getString("nombre"));
+                    usua.setApellido(rs.getString("apellido"));
+                    usua.setDireccion(rs.getString("direccion"));
+                    usua.setTelefono(rs.getString("telefono"));
+                    usua.setUsuario(rs.getString("usuario"));
+                    usua.setCorreo(rs.getString("correo"));
+                    usua.setContrasena(rs.getString("contrasena"));
+                    usua.setTipo(rs.getString("tipo"));
+                    // Verificar la contraseña
+                    boolean verificarpassword = BCrypt.checkpw(pass, rs.getString("contrasena"));
+                    if (!verificarpassword) {
+                        return null; // Contraseña incorrecta, retornar null
+                    }
+                }
+            }
+        }
+    } catch (Exception e) {
+        System.out.println("Error al conectarse con la base de datos: " + e);
     }
-    
+    return usua;
+}
+
     public List<Usuario> listar(){
         ArrayList<Usuario> list = new ArrayList<>();
         try{
