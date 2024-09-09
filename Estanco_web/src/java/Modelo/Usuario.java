@@ -36,6 +36,10 @@ public class Usuario {
         this.Tipo = Tipo;
     }
 
+    public Usuario(int id, String nombre, String apellido, String fechaNacimiento, String direccion, String telefono, String correo, String usuario, String tipo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public String getId() {
         return Id;
     }

@@ -73,7 +73,7 @@ public final class Inicio_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <nav class=\"navbar navbar-dark bg-dark justify-content-between px-3\">\r\n");
       out.write("                <a href=\"/Estanco_web/CtrProducto?accion=inicio\" class=\"navbar-brand\">Inicio</a>\r\n");
       out.write("                <div class=\"d-flex align-items-center\">\r\n");
-      out.write("                    <a href=\"/Estanco_web/vista/Carrito.jsp\" class=\"nav-link\"><i class=\"bi bi-cart3\"></i> Carrito</a>\r\n");
+      out.write("                    <a href=\"/Estanco_web/vista/Login.jsp\" class=\"nav-link\"><i class=\"bi bi-cart3\"></i> Carrito</a>\r\n");
       out.write("                    <a href=\"#\" class=\"nav-link\">Ofertas</a>\r\n");
       out.write("                    <div class=\"dropdown\">\r\n");
       out.write("                        <a class=\"nav-link dropdown-toggle\" href=\"/Estanco_web/CtrProducto?accion=buscarcat&catid=");
@@ -118,13 +118,7 @@ public final class Inicio_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <div class=\"topic\">Y RON</div>\r\n");
       out.write("                    </div>\r\n");
       out.write("                </div>\r\n");
-      out.write("                <div class=\"item\">\r\n");
-      out.write("                    <img src=\"/Estanco_web/imagenes/img3.jpg\" alt=\"MECATOS Y MÁS...\"/>\r\n");
-      out.write("                    <div class=\"content\">\r\n");
-      out.write("                        <div class=\"title\">MECATOS</div>\r\n");
-      out.write("                        <div class=\"topic\">Y MÁS...</div>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                </div>\r\n");
+      out.write("             \r\n");
       out.write("                <div class=\"item\">\r\n");
       out.write("                    <img src=\"/Estanco_web/imagenes/img4.jpg\" alt=\"GASEOSAS Y ENERGIZANTES\"/>\r\n");
       out.write("                    <div class=\"content\">\r\n");
@@ -147,12 +141,7 @@ public final class Inicio_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <div class=\"title\">¡Los mejores licores y ron del mercado!</div>\r\n");
       out.write("                    </div>\r\n");
       out.write("                </div>\r\n");
-      out.write("                <div class=\"item\">\r\n");
-      out.write("                    <img src=\"/Estanco_web/imagenes/img3.jpg\" alt=\"MECATOS Y MÁS...\"/>\r\n");
-      out.write("                    <div class=\"content\">\r\n");
-      out.write("                        <div class=\"title\">¡Mecatos y más!</div>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                </div>\r\n");
+      out.write("                \r\n");
       out.write("                <div class=\"item\">\r\n");
       out.write("                    <img src=\"/Estanco_web/imagenes/img4.jpg\" alt=\"GASEOSAS Y ENERGIZANTES\"/>\r\n");
       out.write("                    <div class=\"content\">\r\n");

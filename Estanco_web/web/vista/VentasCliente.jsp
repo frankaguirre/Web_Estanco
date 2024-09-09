@@ -15,11 +15,11 @@
         <link href="/Estanco_web/css/inicio.css" rel="stylesheet" type="text/css"/>
         <title>Estanco Currambero</title>
     </head>
-    <%---
+    <%
         if (session.getAttribute("log") == null || session.getAttribute("log").equals('0')) {
             response.sendRedirect("../vista/Login.jsp");
         }
-    ---%>
+   %>
     <body>
         <header>
             <nav class="navbar navbar-dark bg-dark justify-content-between px-3">
@@ -74,13 +74,6 @@
                     </div>
                 </div>
                 <div class="item">
-                    <img src="/Estanco_web/imagenes/img3.jpg" alt=""/>
-                    <div class="content">
-                        <div class="title">MECATOS</div>
-                        <div class="topic">Y MÁS...</div>
-                    </div>
-                </div>
-                <div class="item">
                     <img src="/Estanco_web/imagenes/img4.jpg" alt=""/>
                     <div class="content">
                         <div class="title">GASEOSAS</div>
@@ -103,14 +96,6 @@
                     <div class="content">
                         <div class="title">
                             ¡Los mejores licores y ron del mercado!!
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="/Estanco_web/imagenes/img3.jpg" alt=""/>
-                    <div class="content">
-                        <div class="title">
-                            ¡Mecatos y más!
                         </div>
                     </div>
                 </div>

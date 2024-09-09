@@ -152,20 +152,29 @@ h1 {
     text-decoration: none;
 }
 
-.login-btn-form {
-    background-color: #000;
-    color: white;
-    border: none;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    text-transform: uppercase;
+.buttons {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.login-btn-form:hover {
-    background-color: orange;
+.login-btn, .signup-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
 }
+
+.login-btn:hover, .signup-btn:hover {
+    background-color: #45a049;
+}
+
 
 .input-group input[type="date"] {
     padding-left: 10px; 

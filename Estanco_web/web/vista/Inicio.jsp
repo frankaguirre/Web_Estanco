@@ -21,7 +21,7 @@
             <nav class="navbar navbar-dark bg-dark justify-content-between px-3">
                 <a href="/Estanco_web/CtrProducto?accion=inicio" class="navbar-brand">Inicio</a>
                 <div class="d-flex align-items-center">
-                    <a href="/Estanco_web/vista/Carrito.jsp" class="nav-link"><i class="bi bi-cart3"></i> Carrito</a>
+                    <a href="/Estanco_web/vista/Login.jsp" class="nav-link"><i class="bi bi-cart3"></i> Carrito</a>
                     <a href="#" class="nav-link">Ofertas</a>
                     <div class="dropdown">
                         <a class="nav-link dropdown-toggle" href="/Estanco_web/CtrProducto?accion=buscarcat&catid=${c.id}" id="categoriasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -40,8 +40,8 @@
                         <button class="btn btn-outline-light" type="submit" value="buscar"><i class="bi bi-search"></i></button>
                     </form>
 
-                    <a href="/Estanco_web/vista/Login.jsp" class="nav-link">Iniciar Sesión</a>
-                    <a href="#" class="nav-link">Crear Cuenta</a>
+                    <a href="/Estanco_web/vista/Login.jsp" class="nav-link">Iniciar Sesión y crear cuenta</a>
+                    
                 </div>
             </nav>
         </header>
@@ -63,13 +63,7 @@
                         <div class="topic">Y RON</div>
                     </div>
                 </div>
-                <div class="item">
-                    <img src="/Estanco_web/imagenes/img3.jpg" alt="MECATOS Y MÁS..."/>
-                    <div class="content">
-                        <div class="title">MECATOS</div>
-                        <div class="topic">Y MÁS...</div>
-                    </div>
-                </div>
+             
                 <div class="item">
                     <img src="/Estanco_web/imagenes/img4.jpg" alt="GASEOSAS Y ENERGIZANTES"/>
                     <div class="content">
@@ -92,12 +86,7 @@
                         <div class="title">¡Los mejores licores y ron del mercado!</div>
                     </div>
                 </div>
-                <div class="item">
-                    <img src="/Estanco_web/imagenes/img3.jpg" alt="MECATOS Y MÁS..."/>
-                    <div class="content">
-                        <div class="title">¡Mecatos y más!</div>
-                    </div>
-                </div>
+                
                 <div class="item">
                     <img src="/Estanco_web/imagenes/img4.jpg" alt="GASEOSAS Y ENERGIZANTES"/>
                     <div class="content">
