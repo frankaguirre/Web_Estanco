@@ -10,13 +10,17 @@
         <title>Inicio Administrador</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <link href="/Estanco_web/css/admin.css" rel="stylesheet" type="text/css"/>
+        
+        
     </head>
+    
     <%
         if (session.getAttribute("log") == null || session.getAttribute("log").equals('0')) {
            response.sendRedirect("../vista/Login.jsp");
         }
     %>
     <body>
+        
         <div class="wrapper">
             <aside class="sidebar">
                 <div class="sidebar-header">
@@ -101,7 +105,9 @@
                                         <h5 class="card-title">Categorías</h5>
                                         <p class="card-text">Gestiona las diferentes categorías de productos para una mejor organización.</p>
                                     </div>
+                                    
                                 </div>
+                                
                             </div>
                         </div>
                         <div class="card-group">
@@ -141,12 +147,20 @@
                                     <h5 class="card-title">Información Adicional</h5>
                                     <p class="card-text">Para asistencia adicional, consulta la sección de <a href="#" class="text-dark">Ayuda</a> o contacta a soporte. Revisa los reportes para obtener información detallada sobre el desempeño del negocio.</p>
                                 </div>
+                                
                             </div>
+                            
                         </div>
+                        
                     </div>
+                    
                 </div>
+                
             </main>
+            
         </div>   
+        
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     </body>
+    
 </html>

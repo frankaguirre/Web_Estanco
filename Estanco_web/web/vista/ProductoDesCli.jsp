@@ -156,6 +156,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="categoriasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Categorías
                         </a>
+                        
                         <ul class="dropdown-menu" aria-labelledby="categoriasDropdown">
                             <li><a class="dropdown-item" href="#">Cervezas</a></li>
                             <li><a class="dropdown-item" href="#">Licores</a></li>
@@ -164,11 +165,13 @@
                             <li><a class="dropdown-item" href="#">Otras</a></li>
                         </ul>
                     </div>
+                    
                     <a href="#" class="nav-link">Ayuda</a>
                     <form class="d-flex ms-3" style="width: 340px;">
                         <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
                         <button class="btn btn-outline-light" type="submit"><i class="bi bi-search"></i></button>
                     </form>
+                    
                     <div>
                         <div class="dropdown d-flex align-items-center">
                             <a class="nav-link dropdown-toggle me-3" href="#" id="userDropdown" role="button" data-bs-toggle="modal" data-bs-target="#IniciarSesion" aria-expanded="false">
@@ -180,6 +183,7 @@
                             </ul>
                         </div>
                     </div>
+                    
             </nav>
         </header>
      <div class="container mt-5">
@@ -214,6 +218,7 @@
                     <h4>Descripción del Producto</h4>
                     <p><c:out value="${p.Descripcion()}"/></p>
                 </div>
+                
             </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

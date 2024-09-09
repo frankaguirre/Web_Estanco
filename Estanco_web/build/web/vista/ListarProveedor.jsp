@@ -14,12 +14,16 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <title>Proveedor</title>
         <link href="../css/admin.css" rel="stylesheet" type="text/css"/>
+        
+        
     </head>
     <%
         if (session.getAttribute("log") == null || session.getAttribute("log").equals('0')) {
             response.sendRedirect("../vista/Login.jsp");
         }
     %>
+    
+    
     <body>
         <div class="wrapper">
             <aside class="sidebar">
@@ -173,7 +177,9 @@
                             </div>
                         </div>
                     </div>
+                    
                 </div>
+            
                 <!-- Modal para editar proveedor -->
                 <div class="modal fade" id="editProductModal" tabindex="-1" aria-labelledby="editProductModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
@@ -213,14 +219,20 @@
                                         <button type="submit" class="btn btn-primary">Guardar Cambios</button>
                                     </div>
                                 </form>
+                                
                             </div>
+                            
                         </div>
+                        
                     </div>
+                    
                 </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybVuC2B34KpZ9I6eg5a1FhH5A5cKtFNwKkMxWoDhPpQ0ZaK4i" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12B5L8sUwZH5qOOhcvr+rZeGsGA/UbmXp2vI2U2BWI5yIk05" crossorigin="anonymous"></script>
     </body>
+    
+    
 </html>
 
 
