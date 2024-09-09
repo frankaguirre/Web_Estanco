@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package Configuracion;
 
 import  java.sql.DriverManager;
@@ -13,14 +14,14 @@ import java.sql.Connection;
  * @author HPLAPTOP01
  */
 public class Conectar {
-    
+
     private String driver ="com.mysql.jdbc.Driver";
     private String CadenaConeccion = "jdbc:mysql://localhost/estancoweb";
     private String usuario = "root";
     private String contrasena="";
     public Connection con;
     
-    
+
     public Conectar(){
         try{
             Class.forName(driver);
@@ -36,7 +37,7 @@ public class Conectar {
     public Connection crearconexion(){
         return con;
     }
-    
+
     public void desconectar(){
         con = null;
         if (con == null){

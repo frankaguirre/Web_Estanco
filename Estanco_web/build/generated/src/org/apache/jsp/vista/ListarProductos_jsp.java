@@ -118,9 +118,9 @@ public final class ListarProductos_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("    </head>\r\n");
       out.write("    ");
 
-        //if (session.getAttribute("log") == null || session.getAttribute("log").equals('0')){
-          //  response.sendRedirect("../vista/Login.jsp");
-        //}
+        if (session.getAttribute("log") == null || session.getAttribute("log").equals('0')){
+            response.sendRedirect("../vista/Login.jsp");
+        }
     
       out.write("\r\n");
       out.write("    <body>\r\n");
@@ -282,7 +282,7 @@ public final class ListarProductos_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("                    </div>\r\n");
       out.write("                </div>\r\n");
       out.write("\r\n");
-      out.write("                <!-- Modal para editar producto -->\r\n");
+      out.write("              \r\n");
       out.write("                <div class=\"modal fade\" id=\"editProductModal\" tabindex=\"-1\" aria-labelledby=\"editProductModalLabel\" aria-hidden=\"true\">\r\n");
       out.write("                    <div class=\"modal-dialog\">\r\n");
       out.write("                        <div class=\"modal-content\">\r\n");
@@ -307,19 +307,30 @@ public final class ListarProductos_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("                                        <label for=\"editProductCategory\" class=\"form-label\">Categoría</label>\r\n");
       out.write("                                        <input type=\"text\" class=\"form-control\" id=\"editProductCategory\" value=\"Electrónica\" required>\r\n");
       out.write("                                    </div>\r\n");
+      out.write("                                    \r\n");
       out.write("                                </form>\r\n");
+      out.write("                                \r\n");
       out.write("                            </div>\r\n");
+      out.write("                            \r\n");
       out.write("                            <div class=\"modal-footer\">\r\n");
       out.write("                                <button type=\"button\" class=\"btn btn-cancel\" data-bs-dismiss=\"modal\">Cancelar</button>\r\n");
       out.write("                                <button type=\"submit\" class=\"btn btn-primary\">Guardar Cambios</button>\r\n");
       out.write("                            </div>\r\n");
       out.write("                        </div>\r\n");
+      out.write("                        \r\n");
       out.write("                    </div>\r\n");
+      out.write("                    \r\n");
       out.write("                </div>\r\n");
       out.write("            </main>\r\n");
+      out.write("            \r\n");
       out.write("        </div>\r\n");
       out.write("        <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz\" crossorigin=\"anonymous\"></script>\r\n");
       out.write("    </body>\r\n");
+      out.write("    \r\n");
+      out.write("    \r\n");
+      out.write("    \r\n");
+      out.write("    \r\n");
+      out.write("\r\n");
       out.write("</html>\r\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){

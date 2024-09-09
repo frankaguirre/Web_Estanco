@@ -56,10 +56,6 @@ public final class Login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <div class=\"container\">\r\n");
       out.write("            <div class=\"left-side\">\r\n");
       out.write("                <img src=\"/Estanco_web/imagenes/logine.jpeg\" alt=\"\" class=\"shoe-image\"/>\r\n");
-      out.write("                <div class=\"buttons\">\r\n");
-      out.write("                    <button class=\"login-btn\" onclick=\"showLogin()\">Iniciar Sesión</button>\r\n");
-      out.write("                    <button class=\"signup-btn\" onclick=\"showSignUp()\">Crear Cuenta</button>\r\n");
-      out.write("                </div>\r\n");
       out.write("            </div>\r\n");
       out.write("            <div class=\"right-side\">\r\n");
       out.write("                <div id=\"form-container\">\r\n");
@@ -74,9 +70,13 @@ public final class Login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        </div>\r\n");
       out.write("                        <div class=\"input-group\">\r\n");
       out.write("                            <i class=\"fas fa-lock icon\"></i>\r\n");
-      out.write("                            <input type=\"password\" name=\"txtpass\" id=\"password\" placeholder=\"Contraseña\">\r\n");
+      out.write("                            <input type=\"password\" name=\"txtpass\" id=\"password\" placeholder=\"Contrasena\">\r\n");
       out.write("                        </div>\r\n");
-      out.write("                        <a href=\"#\" class=\"forgot-password\">¿Se te olvidó la contraseña?</a>\r\n");
+      out.write("                        <div class=\"mt-6\">\r\n");
+      out.write("                            <a href=\"/Estanco_web/vista/Login.jsp?signup=true\" class=\"registro\">No tienes cuenta? Registrate</a> \r\n");
+      out.write("                            <a href=\"#\" class=\"forgot-password\">¿Se te olvidó la contraseña?</a>\r\n");
+      out.write("                        </div>\r\n");
+      out.write("                        \r\n");
       out.write("                        <button type=\"submit\" name=\"accion\" value=\"Ingresar\" class=\"login-btn-form\">Iniciar Sesión</button>\r\n");
       out.write("                    </form>\r\n");
       out.write("\r\n");

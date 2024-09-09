@@ -30,7 +30,7 @@
                         </div>
                         <div class="input-group">
                             <i class="fas fa-lock icon"></i>
-                            <input type="password" name="txtpass" id="password" placeholder="Contraseña">
+                            <input type="password" name="txtpass" id="password" placeholder="Contrasena">
                         </div>
                         <div class="mt-6">
                             <a href="/Estanco_web/vista/Login.jsp?signup=true" class="registro">No tienes cuenta? Registrate</a> 
