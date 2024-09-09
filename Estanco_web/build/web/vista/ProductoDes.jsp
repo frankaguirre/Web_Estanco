@@ -184,9 +184,7 @@
                  <div class="price">$<c:out value="${p.getPrecio()}"/></div>
 
                 <ul class="product-features list-unstyled">
-                    <li><i class="bi bi-check-circle-fill text-success"></i> Característica 1</li>
-                    <li><i class="bi bi-check-circle-fill text-success"></i> Característica 2</li>
-                    <li><i class="bi bi-check-circle-fill text-success"></i> Característica 3</li>
+                    <li><i class="bi bi-check-circle-fill text-success"></i> Nota: Te llegara fría!</li>
                 </ul>
 
                 <!-- Botones organizados en columna -->
