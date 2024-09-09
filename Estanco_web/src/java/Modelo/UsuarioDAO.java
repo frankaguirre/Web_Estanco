@@ -208,27 +208,7 @@ public class UsuarioDAO {
     }
 
 
-public boolean actualizar(Usuario usuario) {
-    String sql = "UPDATE usuario SET nombre=?, apellido=?, fecha_nacimiento=?, direccion=?, telefono=?, correo=?, usuario=?, tipo=? WHERE id=?";
-    try {
-        Connection conn = this.getConnection();
-        PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setString(1, usuario.getNombre());
-        ps.setString(2, usuario.getApellido());
-        ps.setString(3, usuario.getFecha_nacimiento());
-        ps.setString(4, usuario.getDireccion());
-        ps.setString(5, usuario.getTelefono());
-        ps.setString(6, usuario.getCorreo());
-        ps.setString(7, usuario.getUsuario());
-        ps.setString(8, usuario.getTipo());
-        ps.setString(9, usuario.getId());
-        
-        int rowsAffected = ps.executeUpdate();
-        return rowsAffected > 0;
-    } catch (SQLException e) {
-    }
-    return false;
-}
+
 
     public void crearUsuario(String nombre, String apellido, String direccion, String telefono, String correo, String fechanaci, String usuario, String contrasena) {
         Conectar conectar = new Conectar();

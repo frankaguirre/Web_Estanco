@@ -55,7 +55,7 @@ public final class Login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <body>\r\n");
       out.write("        <div class=\"container\">\r\n");
       out.write("            <div class=\"left-side\">\r\n");
-      out.write("                <img src=\"/Estanco_web/imagenes/logoestancoo.jpg\" alt=\"\" class=\"shoe-image\"/>\r\n");
+      out.write("                <img src=\"/Estanco_web/imagenes/logine.jpeg\" alt=\"\" class=\"shoe-image\"/>\r\n");
       out.write("                <div class=\"buttons\">\r\n");
       out.write("                    <button class=\"login-btn\" onclick=\"showLogin()\">Iniciar Sesión</button>\r\n");
       out.write("                    <button class=\"signup-btn\" onclick=\"showSignUp()\">Crear Cuenta</button>\r\n");
@@ -66,7 +66,9 @@ public final class Login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <!-- Formulario de inicio de sesión -->\r\n");
       out.write("                    <form id=\"login-form\" class=\"form active\" action=\"/Estanco_web/CtrValidar\" method=\"post\">\r\n");
       out.write("                        <h1> ¡Bienvenido! </h1>\r\n");
+      out.write("                        \r\n");
       out.write("                        <div class=\"input-group\">\r\n");
+      out.write("                            \r\n");
       out.write("                            <i class=\"fas fa-user icon\"></i>\r\n");
       out.write("                            <input type=\"text\" name=\"txtuser\" id=\"usuario\" placeholder=\"Usuario\">\r\n");
       out.write("                        </div>\r\n");
@@ -80,6 +82,7 @@ public final class Login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("                    <!-- Formulario de registro -->\r\n");
       out.write("                    <form id=\"signup-form\" class=\"form\" action=\"/Estanco_web/CtrUsuario?accion=nuevo\" method=\"post\">\r\n");
+      out.write("                        \r\n");
       out.write("                        <h1>Crear tu cuenta:</h1>\r\n");
       out.write("                        <div class=\"input-group-row\">\r\n");
       out.write("                            <div class=\"input-group\">\r\n");
@@ -101,6 +104,7 @@ public final class Login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <input type=\"text\" class=\"formulario_input\" name=\"telefono\" id=\"telefono\" placeholder=\"Teléfono\" required>\r\n");
       out.write("                            </div>\r\n");
       out.write("                        </div>\r\n");
+      out.write("                        \r\n");
       out.write("                        <div class=\"input-group-row\">\r\n");
       out.write("                            <div class=\"input-group\">\r\n");
       out.write("                                <i class=\"fas fa-envelope icon\"></i>\r\n");
@@ -127,20 +131,24 @@ public final class Login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <input type=\"password\" class=\"formulario_input\" name=\"contrasena_repetir\" id=\"contrasena_repetir\" placeholder=\"Repite Contraseña\" required>\r\n");
       out.write("                            </div>\r\n");
       out.write("                        </div>\r\n");
-      out.write("                        <div class=\"input-group\">\r\n");
+      out.write("                        <div class=\"input\">\r\n");
       out.write("                            <label for=\"terminos\" class=\"formulario_label\">\r\n");
       out.write("                                <input type=\"checkbox\" class=\"formulario_checkbox\" name=\"terminos\" id=\"terminos\" required>\r\n");
       out.write("                                Acepto los términos y condiciones\r\n");
       out.write("                            </label> \r\n");
       out.write("                        </div>\r\n");
+      out.write("                        \r\n");
       out.write("                        <div class=\"formulario_mensaje\" id=\"formulario_mensaje\"></div>\r\n");
-      out.write("                        <button type=\"submit\" class=\"login-btn-form\" name=\"accion\" value=\"nuevo\">Guardar <i class=\"bi bi-floppy\"></i></button>\r\n");
+      out.write("                        <button type=\"submit\" class=\"login-btn-form\" name=\"accion\" value=\"nuevo\">Crear Cuenta<i class=\"bi bi-floppy\"></i></button>\r\n");
       out.write("                    </form>\r\n");
       out.write("                </div>\r\n");
       out.write("            </div>\r\n");
+      out.write("            \r\n");
       out.write("        </div>\r\n");
+      out.write("        \r\n");
       out.write("        <script src=\"/Estanco_web/JS/login.js\" type=\"text/javascript\"></script>\r\n");
       out.write("    </body>\r\n");
+      out.write("    \r\n");
       out.write("</html>\r\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){

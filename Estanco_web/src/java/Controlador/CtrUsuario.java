@@ -192,31 +192,8 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
             response.sendRedirect("/Estanco_web/vista/Login.jsp");
         }
       
-        if (accion.equals("actualizar")) {
-            int id = Integer.parseInt(request.getParameter("id"));
-            String nombre = request.getParameter("nombre");
-            String apellido = request.getParameter("apellido");
-            String fecha_Nacimiento = request.getParameter("fecha_nacimiento");
-            String direccion = request.getParameter("direccion");
-            String telefono = request.getParameter("telefono");
-            String correo = request.getParameter("correo");
-            String usuario = request.getParameter("usuario");
-            String tipo = request.getParameter("tipo");
-
-            // Aquí se debe actualizar la base de datos
-            UsuarioDAO usuarioDAO = new UsuarioDAO();
-            Usuario usuarioActualizar = new Usuario(id, nombre, apellido, fecha_Nacimiento, direccion, telefono, correo, usuario, tipo);
-            
-            boolean actualizado = usuarioDAO.actualizar(usuarioActualizar);
-
-            if (actualizado) {
-                // Redirigir o recargar la página con un mensaje de éxito
-                response.sendRedirect("ListarUsuario.jsp?mensaje=actualizado");
-            } else {
-                // Manejo de error
-                response.sendRedirect("ListarUsuario.jsp?mensaje=error");
-            }
-    }
+  
+    
     
     /**
      *

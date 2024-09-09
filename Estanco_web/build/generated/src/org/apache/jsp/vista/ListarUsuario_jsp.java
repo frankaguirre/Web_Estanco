@@ -11,10 +11,20 @@ public final class ListarUsuario_jsp extends org.apache.jasper.runtime.HttpJspBa
 
   private static java.util.List<String> _jspx_dependants;
 
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_items;
+
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
   public java.util.List<String> getDependants() {
     return _jspx_dependants;
+  }
+
+  public void _jspInit() {
+    _jspx_tagPool_c_forEach_var_items = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+  }
+
+  public void _jspDestroy() {
+    _jspx_tagPool_c_forEach_var_items.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -30,7 +40,7 @@ public final class ListarUsuario_jsp extends org.apache.jasper.runtime.HttpJspBa
     PageContext _jspx_page_context = null;
 
     try {
-      response.setContentType("text/html");
+      response.setContentType("text/html;charset=UTF-8");
       pageContext = _jspxFactory.getPageContext(this, request, response,
       			null, true, 8192, true);
       _jspx_page_context = pageContext;
@@ -41,6 +51,7 @@ public final class ListarUsuario_jsp extends org.apache.jasper.runtime.HttpJspBa
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("<!DOCTYPE html>\r\n");
@@ -54,6 +65,11 @@ public final class ListarUsuario_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("        <link href=\"../css/admin.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n");
       out.write("    </head>\r\n");
       out.write("    ");
+
+        if (session.getAttribute("log") == null || session.getAttribute("log").equals('0')) {
+            response.sendRedirect("../vista/Login.jsp");
+        }
+    
       out.write("\r\n");
       out.write("    <body>\r\n");
       out.write("        <div class=\"wrapper\">\r\n");
@@ -124,7 +140,8 @@ public final class ListarUsuario_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("                <div class=\"container mt-5\">\r\n");
       out.write("                    <div class=\"d-flex justify-content-between align-items-center mb-4\">\r\n");
       out.write("                        <h1>Usuarios</h1>\r\n");
-      out.write("                        <form class=\"form-inline mt-4 mb-4\" action=\"#\">\r\n");
+      out.write("                        <!-- Formulario de búsqueda -->\r\n");
+      out.write("                        <form class=\"form-inline mt-4 mb-4\" action=\"/Estanco_web/CtrUsuario?accion=buscar\" method=\"get\">\r\n");
       out.write("                            <div class=\"input-group\">\r\n");
       out.write("                                <input type=\"text\" class=\"form-control form-control-sm\" name=\"txtbuscar\" placeholder=\"Digite nombre\">\r\n");
       out.write("                                <button type=\"submit\" class=\"btn btn-success\" name=\"accion\" value=\"buscar\">\r\n");
@@ -132,10 +149,13 @@ public final class ListarUsuario_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("                                </button>\r\n");
       out.write("                            </div>\r\n");
       out.write("                        </form>\r\n");
-      out.write("                        <button type=\"button\" class=\"btn btn-primary\" data-bs-toggle=\"modal\" data-bs-target=\"#addProductModal\">\r\n");
-      out.write("                            <i class=\"bi bi-plus-square\"></i>\r\n");
+      out.write("                        <!-- Botón para agregar usuario (abrir modal) -->\r\n");
+      out.write("                        <button type=\"button\" class=\"btn btn-primary\" data-bs-toggle=\"modal\" data-bs-target=\"#agregarUsuarioModal\">\r\n");
+      out.write("                            <i class=\"bi bi-plus-square\"></i> Agregar Usuario\r\n");
       out.write("                        </button>\r\n");
       out.write("                    </div>\r\n");
+      out.write("\r\n");
+      out.write("                    <!-- Tabla de usuarios -->\r\n");
       out.write("                    <div class=\"row mt-3\">\r\n");
       out.write("                        <div class=\"col-sm\">\r\n");
       out.write("                            <table class=\"table table-hover\">\r\n");
@@ -154,21 +174,16 @@ public final class ListarUsuario_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("                                    </tr>\r\n");
       out.write("                                </thead>\r\n");
       out.write("                                <tbody>\r\n");
-      out.write("                                    <tr>\r\n");
-      out.write("                                        <td class=\"text-center\">1</td>\r\n");
-      out.write("                                        <td class=\"text-center\">Usuario</td>\r\n");
-      out.write("                                        <td class=\"text-center\">Usuario</td>\r\n");
-      out.write("                                        <td class=\"text-center\">Usuario</td>\r\n");
-      out.write("                                        <td class=\"text-center\">Usuario</td>\r\n");
-      out.write("                                        <td class=\"text-center\">Usuario</td>\r\n");
-      out.write("                                        <td class=\"text-center\">Usuario</td>\r\n");
-      out.write("                                        <td class=\"text-center\">Usuario</td>\r\n");
-      out.write("                                        <td class=\"text-center\">Usuario</td>\r\n");
-      out.write("                                        <td class=\"text-center\">\r\n");
-      out.write("                                            <a class=\"btn btn-warning\" href=\"#\" data-bs-toggle=\"modal\" data-bs-target=\"#editProductModal\"><i class=\"bi bi-pencil-fill\"></i></a>\r\n");
-      out.write("                                            <a class=\"btn btn-danger\" href=\"#\"><i class=\"bi bi-trash-fill\"></i></a>\r\n");
-      out.write("                                        </td>\r\n");
-      out.write("                                    </tr>\r\n");
+      out.write("                                    <!-- Iteración sobre la lista de usuarios -->\r\n");
+      out.write("                                ");
+      if (_jspx_meth_c_forEach_0(_jspx_page_context))
+        return;
+      out.write("\r\n");
+      out.write("                                ");
+      if (_jspx_meth_c_forEach_1(_jspx_page_context))
+        return;
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("                                </tbody>\r\n");
       out.write("                            </table>\r\n");
       out.write("                        </div>\r\n");
@@ -184,117 +199,64 @@ public final class ListarUsuario_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("                                <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>\r\n");
       out.write("                            </div>\r\n");
       out.write("                            <div class=\"modal-body\">\r\n");
-      out.write("                                <form>\r\n");
-      out.write("                                    <div class=\"mb-3\">\r\n");
-      out.write("                                        <label for=\"userId\" class=\"form-label\">Id</label>\r\n");
-      out.write("                                        <input type=\"text\" class=\"form-control\" id=\"id\" name=\"id\" required>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                    <div class=\"mb-3\">\r\n");
-      out.write("                                        <label for=\"userName\" class=\"form-label\">Nombre</label>\r\n");
-      out.write("                                        <input type=\"text\" class=\"form-control\" id=\"nombre\" name=\"nombre\" required>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                    <div class=\"mb-3\">\r\n");
-      out.write("                                        <label for=\"userLastName\" class=\"form-label\">Apellido</label>\r\n");
-      out.write("                                        <input type=\"text\" class=\"form-control\" id=\"apellido\" name=\"apellido\" required>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                    <div class=\"mb-3\">\r\n");
-      out.write("                                        <label for=\"userAddress\" class=\"form-label\">Dirección</label>\r\n");
-      out.write("                                        <input type=\"text\" class=\"form-control\" id=\"direccion\" name=\"direccion\" required>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                    <div class=\"mb-3\">\r\n");
-      out.write("                                        <label for=\"userPhone\" class=\"form-label\">Teléfono</label>\r\n");
-      out.write("                                        <input type=\"text\" class=\"form-control\" id=\"telefono\" name=\"telefono\" required>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                    <div class=\"mb-3\">\r\n");
-      out.write("                                        <label for=\"userBirthDate\" class=\"form-label\">Fecha Nacimiento</label>\r\n");
-      out.write("                                        <input type=\"date\" class=\"form-control\" id=\"fechanaci\" name=\"fechanaci\" required>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                    <div class=\"mb-3\">\r\n");
-      out.write("                                        <label for=\"userEmail\" class=\"form-label\">Correo</label>\r\n");
-      out.write("                                        <input type=\"email\" class=\"form-control\" id=\"correo\" name=\"correo\" required>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                    <div class=\"mb-3\">\r\n");
-      out.write("                                        <label for=\"userUsername\" class=\"form-label\">Usuario</label>\r\n");
-      out.write("                                        <input type=\"text\" class=\"form-control\" id=\"usuario\" name=\"usuario\" required>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                    <div class=\"mb-3\" id=\"grupo_tipo\">\r\n");
-      out.write("                                        <label for=\"id\" class=\"formulario_label\">Tipo</label> \r\n");
-      out.write("                                        <div class=\"formulario_grupo-input\">\r\n");
-      out.write("                                            <select class=\"form control formulario_input\" name=\"tipo\">\r\n");
-      out.write("                                                <option value=\"Administrador\">Administrador</option> \r\n");
-      out.write("                                                <option value=\"Usuario\">Usuario</option> \r\n");
-      out.write("                                                <option value=\"Invitado\">Invitado</option> \r\n");
-      out.write("                                                <option value=\"Cliente\">Cliente</option> \r\n");
-      out.write("                                            </select><br>\r\n");
-      out.write("                                        </div><br>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </form>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                            <div class=\"modal-footer\">\r\n");
-      out.write("                                <button type=\"button\" class=\"btn btn-cancel\" data-bs-dismiss=\"modal\">Cancelar</button>\r\n");
-      out.write("                                <button type=\"submit\" class=\"btn btn-primary\">Guardar</button>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                        </div>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                </div>\r\n");
+      out.write("                                <form action=\"/Estanco_web/CtrUsuario?accion=nuevo\" method=\"post\">\r\n");
+      out.write("                                    <input type=\"hidden\" name=\"accion\" value=\"agregar\">\r\n");
       out.write("\r\n");
-      out.write("                <!-- Modal para editar usuario -->\r\n");
-      out.write("                <div class=\"modal fade\" id=\"editarUsuarioModal\" tabindex=\"-1\" aria-labelledby=\"editarUsuarioModalLabel\" aria-hidden=\"true\">\r\n");
-      out.write("                    <div class=\"modal-dialog\">\r\n");
-      out.write("                        <div class=\"modal-content\">\r\n");
-      out.write("                            <div class=\"modal-header\">\r\n");
-      out.write("                                <h5 class=\"modal-title\" id=\"editarUsuarioModalLabel\">Editar Usuario</h5>\r\n");
-      out.write("                                <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                            <div class=\"modal-body\">\r\n");
-      out.write("                                <form>\r\n");
       out.write("                                    <div class=\"mb-3\">\r\n");
-      out.write("                                        <label for=\"editUserId\" class=\"form-label\">Id</label>\r\n");
-      out.write("                                        <input type=\"text\" class=\"form-control\" id=\"editUserId\" value=\"1\" required>\r\n");
+      out.write("                                        <label for=\"nombre\" class=\"form-label\">Nombre</label>\r\n");
+      out.write("                                        <input type=\"text\" class=\"form-control\" name=\"nombre\" id=\"nombre\" required>\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                    <div class=\"mb-3\">\r\n");
-      out.write("                                        <label for=\"editUserName\" class=\"form-label\">Nombre</label>\r\n");
-      out.write("                                        <input type=\"text\" class=\"form-control\" id=\"editUserName\" value=\"Juan\" required>\r\n");
+      out.write("                                        <label for=\"apellido\" class=\"form-label\">Apellido</label>\r\n");
+      out.write("                                        <input type=\"text\" class=\"form-control\" name=\"apellido\" id=\"apellido\" required>\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                    <div class=\"mb-3\">\r\n");
-      out.write("                                        <label for=\"editUserLastName\" class=\"form-label\">Apellido</label>\r\n");
-      out.write("                                        <input type=\"text\" class=\"form-control\" id=\"editUserLastName\" value=\"Pérez\" required>\r\n");
+      out.write("                                        <label for=\"direccion\" class=\"form-label\">Dirección</label>\r\n");
+      out.write("                                        <input type=\"text\" class=\"form-control\" name=\"direccion\" id=\"direccion\" required>\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                    <div class=\"mb-3\">\r\n");
-      out.write("                                        <label for=\"editUserAddress\" class=\"form-label\">Dirección</label>\r\n");
-      out.write("                                        <input type=\"text\" class=\"form-control\" id=\"editUserAddress\" value=\"Calle Falsa 123\" required>\r\n");
+      out.write("                                        <label for=\"telefono\" class=\"form-label\">Teléfono</label>\r\n");
+      out.write("                                        <input type=\"text\" class=\"form-control\" name=\"telefono\" id=\"telefono\" required>\r\n");
+      out.write("                                    </div>\r\n");
+      out.write("                                    <div class=\"input-group\">\r\n");
+      out.write("                                        <label for=\"correo\" class=\"form-label\">Fecha_nacimiento</label>\r\n");
+      out.write("                                        <i class=\"fas fa-calendar icon\"></i>\r\n");
+      out.write("                                        <input type=\"date\" class=\"formulario_input\" name=\"fechanaci\" id=\"fechanaci\" required>\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                    <div class=\"mb-3\">\r\n");
-      out.write("                                        <label for=\"editUserPhone\" class=\"form-label\">Teléfono</label>\r\n");
-      out.write("                                        <input type=\"text\" class=\"form-control\" id=\"editUserPhone\" value=\"555-1234\" required>\r\n");
+      out.write("                                        <label for=\"correo\" class=\"form-label\">Correo</label>\r\n");
+      out.write("                                        <input type=\"email\" class=\"form-control\" name=\"correo\" id=\"correo\" required>\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                    <div class=\"mb-3\">\r\n");
-      out.write("                                        <label for=\"editUserBirthDate\" class=\"form-label\">Fecha Nacimiento</label>\r\n");
-      out.write("                                        <input type=\"date\" class=\"form-control\" id=\"editUserBirthDate\" value=\"1990-01-01\" required>\r\n");
+      out.write("                                        <label for=\"usuario\" class=\"form-label\">Usuario</label>\r\n");
+      out.write("                                        <input type=\"text\" class=\"form-control\" name=\"usuario\" id=\"usuario\" required>\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                    <div class=\"mb-3\">\r\n");
-      out.write("                                        <label for=\"editUserEmail\" class=\"form-label\">Correo</label>\r\n");
-      out.write("                                        <input type=\"email\" class=\"form-control\" id=\"editUserEmail\" value=\"juan@gmail.com\" required>\r\n");
+      out.write("                                        <label for=\"contrasena\" class=\"form-label\">contraseña</label>\r\n");
+      out.write("                                        <input type=\"text\" class=\"form-control\" name=\"contrasena\" id=\"contrasena\" required>\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                    <div class=\"mb-3\">\r\n");
-      out.write("                                        <label for=\"editUserUsername\" class=\"form-label\">Usuario</label>\r\n");
-      out.write("                                        <input type=\"text\" class=\"form-control\" id=\"editUserUsername\" value=\"juanp\" required>\r\n");
+      out.write("                                        <label for=\"tipo\" class=\"form-label\">Tipo</label>\r\n");
+      out.write("                                        <select class=\"form-control\" name=\"tipo\" id=\"tipo\" required>\r\n");
+      out.write("                                            <option value=\"Administrador\">Administrador</option>\r\n");
+      out.write("                                            <option value=\"Cliente\">Cliente</option>\r\n");
+      out.write("                                        </select>\r\n");
       out.write("                                    </div>\r\n");
-      out.write("                                    <div class=\"mb-3\">\r\n");
-      out.write("                                        <label for=\"editUserType\" class=\"form-label\">Tipo</label>\r\n");
-      out.write("                                        <input type=\"text\" class=\"form-control\" id=\"editUserType\" value=\"Admin\" required>\r\n");
+      out.write("                                    <div class=\"modal-footer\">\r\n");
+      out.write("                                        <button type=\"button\" hrf=\"/Estanco_web/vista/ListarUsuario.jsp\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Cancelar</button>\r\n");
+      out.write("                                        <button type=\"submit\" hrf=\"/Estanco_web/vista/ListarUsuario.jsp\" class=\"btn btn-primary\">Agregar Usuario</button>\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                </form>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                            <div class=\"modal-footer\">\r\n");
-      out.write("                                <button type=\"button\" class=\"btn btn-cancel\" data-bs-dismiss=\"modal\">Cancelar</button>\r\n");
-      out.write("                                <button type=\"submit\" class=\"btn btn-primary\">Guardar Cambios</button>\r\n");
       out.write("                            </div>\r\n");
       out.write("                        </div>\r\n");
       out.write("                    </div>\r\n");
       out.write("                </div>\r\n");
       out.write("            </main>\r\n");
+      out.write("\r\n");
       out.write("        </div>\r\n");
+      out.write("        <script src=\"https://code.jquery.com/jquery-3.3.1.js\"></script>                        \r\n");
+      out.write("        <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js\" crossorigin=\"anonymous\"></script>  \r\n");
+      out.write("        <script src=\"https://unpkg.com/sweetalert/dist/sweetalert.min.js\"></script>\r\n");
       out.write("        <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-rbsA0bDhUn/TxU+0bD6I4BO15AVY8l+t9f/4coiTrTWGFj1PSJrAKFENIG+9j2N\" crossorigin=\"anonymous\"></script>\r\n");
       out.write("    </body>\r\n");
       out.write("</html>\r\n");
@@ -310,5 +272,240 @@ public final class ListarUsuario_jsp extends org.apache.jasper.runtime.HttpJspBa
     } finally {
       _jspxFactory.releasePageContext(_jspx_page_context);
     }
+  }
+
+  private boolean _jspx_meth_c_forEach_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_0.setParent(null);
+    _jspx_th_c_forEach_0.setVar("usu");
+    _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usuarios}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int[] _jspx_push_body_count_c_forEach_0 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_forEach_0 = _jspx_th_c_forEach_0.doStartTag();
+      if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\r\n");
+          out.write("                                    <tr>\r\n");
+          out.write("                                        <td class=\"text-center\">");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</td>\r\n");
+          out.write("                                        <td class=\"text-center\">");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getNombre()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</td>\r\n");
+          out.write("                                        <td class=\"text-center\">");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getApellido()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</td>\r\n");
+          out.write("                                        <td class=\"text-center\">");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getFecha_nacimiento()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</td>\r\n");
+          out.write("                                        <td class=\"text-center\">");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getDireccion()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</td>\r\n");
+          out.write("                                        <td class=\"text-center\">");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getTelefono()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</td>\r\n");
+          out.write("                                        <td class=\"text-center\">");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getCorreo()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</td>\r\n");
+          out.write("                                        <td class=\"text-center\">");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getUsuario()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</td>\r\n");
+          out.write("                                        <td class=\"text-center\">");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getTipo()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</td>\r\n");
+          out.write("                                        <td class=\"text-center\">\r\n");
+          out.write("                                            <!-- Botón Editar -->\r\n");
+          out.write("                                            <a class=\"btn btn-warning\" href=\"#\" data-bs-toggle=\"modal\" data-bs-target=\"#editarUsuarioModal");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\">\r\n");
+          out.write("                                                <i class=\"bi bi-pencil-fill\"></i>\r\n");
+          out.write("                                            </a>\r\n");
+          out.write("\r\n");
+          out.write("                                            <!-- Botón Eliminar -->\r\n");
+          out.write("                                            <a class=\"btn btn-danger\" href=\"/Estanco_web/CtrUsuario?accion=eliminar&id=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\">\r\n");
+          out.write("                                                <i class=\"bi bi-trash-fill\"></i>\r\n");
+          out.write("                                            </a>\r\n");
+          out.write("                                        </td>\r\n");
+          out.write("                                    </tr>\r\n");
+          out.write("                                ");
+          int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_forEach_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_forEach_0[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_forEach_0.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_forEach_0.doFinally();
+      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_0);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_c_forEach_1(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_1 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_1.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_1.setParent(null);
+    _jspx_th_c_forEach_1.setVar("usu");
+    _jspx_th_c_forEach_1.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usuarios}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int[] _jspx_push_body_count_c_forEach_1 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_forEach_1 = _jspx_th_c_forEach_1.doStartTag();
+      if (_jspx_eval_c_forEach_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\r\n");
+          out.write("                                    <!-- Modal para editar usuario -->\r\n");
+          out.write("                                    <div class=\"modal fade\" id=\"editarUsuarioModal");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" tabindex=\"-1\" aria-labelledby=\"editarUsuarioModalLabel\" aria-hidden=\"true\">\r\n");
+          out.write("                                        <div class=\"modal-dialog\">\r\n");
+          out.write("                                            <div class=\"modal-content\">\r\n");
+          out.write("                                                <div class=\"modal-header\">\r\n");
+          out.write("                                                    <h5 class=\"modal-title\" id=\"editarUsuarioModalLabel\">Editar Usuario</h5>\r\n");
+          out.write("                                                    <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>\r\n");
+          out.write("                                                </div>\r\n");
+          out.write("                                                <div class=\"modal-body\">\r\n");
+          out.write("                                                    <form action=\"/Estanco_web/CtrUsuario?accion=actualizar\" method=\"post\">\r\n");
+          out.write("                                                        <input type=\"hidden\" name=\"accion\" value=\"actualizar\">\r\n");
+          out.write("                                                        <input type=\"hidden\" name=\"id\" value=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\">\r\n");
+          out.write("\r\n");
+          out.write("                                                        <div class=\"mb-3\">\r\n");
+          out.write("                                                            <label for=\"nombre");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" class=\"form-label\">Nombre</label>\r\n");
+          out.write("                                                            <input type=\"text\" class=\"form-control\" name=\"nombre\" id=\"nombre");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" value=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getNombre()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" required>\r\n");
+          out.write("                                                        </div>\r\n");
+          out.write("\r\n");
+          out.write("                                                        <div class=\"mb-3\">\r\n");
+          out.write("                                                            <label for=\"apellido");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" class=\"form-label\">Apellido</label>\r\n");
+          out.write("                                                            <input type=\"text\" class=\"form-control\" name=\"apellido\" id=\"apellido");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" value=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getApellido()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" required>\r\n");
+          out.write("                                                        </div>\r\n");
+          out.write("\r\n");
+          out.write("                                                        <div class=\"mb-3\">\r\n");
+          out.write("                                                            <label for=\"fecha_nacimiento");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" class=\"form-label\">Fecha de Nacimiento</label>\r\n");
+          out.write("                                                            <input type=\"date\" class=\"form-control\" name=\"fecha_nacimiento\" id=\"fecha_nacimiento");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" value=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getFecha_nacimiento()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" required>\r\n");
+          out.write("                                                        </div>\r\n");
+          out.write("\r\n");
+          out.write("                                                        <div class=\"mb-3\">\r\n");
+          out.write("                                                            <label for=\"direccion");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" class=\"form-label\">Dirección</label>\r\n");
+          out.write("                                                            <input type=\"text\" class=\"form-control\" name=\"direccion\" id=\"direccion");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" value=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getDireccion()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" required>\r\n");
+          out.write("                                                        </div>\r\n");
+          out.write("\r\n");
+          out.write("                                                        <div class=\"mb-3\">\r\n");
+          out.write("                                                            <label for=\"telefono");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" class=\"form-label\">Teléfono</label>\r\n");
+          out.write("                                                            <input type=\"text\" class=\"form-control\" name=\"telefono\" id=\"telefono");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" value=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getTelefono()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" required>\r\n");
+          out.write("                                                        </div>\r\n");
+          out.write("\r\n");
+          out.write("                                                        <div class=\"mb-3\">\r\n");
+          out.write("                                                            <label for=\"correo");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" class=\"form-label\">Correo</label>\r\n");
+          out.write("                                                            <input type=\"email\" class=\"form-control\" name=\"correo\" id=\"correo");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" value=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getCorreo()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" required>\r\n");
+          out.write("                                                        </div>\r\n");
+          out.write("\r\n");
+          out.write("                                                        <div class=\"mb-3\">\r\n");
+          out.write("                                                            <label for=\"usuario");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" class=\"form-label\">Usuario</label>\r\n");
+          out.write("                                                            <input type=\"text\" class=\"form-control\" name=\"usuario\" id=\"usuario");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" value=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getUsuario()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" required>\r\n");
+          out.write("                                                        </div>\r\n");
+          out.write("\r\n");
+          out.write("                                                        <div class=\"mb-3\">\r\n");
+          out.write("                                                            <label for=\"tipo");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" class=\"form-label\">Tipo</label>\r\n");
+          out.write("                                                            <select class=\"form-control\" name=\"tipo\" id=\"tipo");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" required>\r\n");
+          out.write("                                                                <option value=\"Administrador\" ");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getTipo() == 'Administrador' ? 'selected' : ''}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write(">Administrador</option>\r\n");
+          out.write("                                                                <option value=\"Cliente\" ");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getTipo() == 'Cliente' ? 'selected' : ''}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write(">Cliente</option>\r\n");
+          out.write("                                                            </select>\r\n");
+          out.write("                                                        </div>\r\n");
+          out.write("\r\n");
+          out.write("                                                        <div class=\"modal-footer\">\r\n");
+          out.write("                                                            <button type=\"submit\" class=\"btn btn-primary\">Guardar cambios</button>\r\n");
+          out.write("                                                            <button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Cancelar</button>\r\n");
+          out.write("                                                        </div>\r\n");
+          out.write("                                                    </form>\r\n");
+          out.write("                                                </div>\r\n");
+          out.write("                                            </div>\r\n");
+          out.write("                                        </div>\r\n");
+          out.write("                                    </div>\r\n");
+          out.write("                                ");
+          int evalDoAfterBody = _jspx_th_c_forEach_1.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_forEach_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_forEach_1[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_forEach_1.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_forEach_1.doFinally();
+      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_1);
+    }
+    return false;
   }
 }
