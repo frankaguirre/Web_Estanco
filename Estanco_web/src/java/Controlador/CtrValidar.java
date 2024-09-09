@@ -17,7 +17,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.mindrot.jbcrypt.BCrypt;
 
-
 public class CtrValidar extends HttpServlet {
 
     /**
@@ -29,10 +28,9 @@ public class CtrValidar extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
     UsuarioDAO usudao = new UsuarioDAO();
     Usuario us = new Usuario();
-    
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -41,7 +39,7 @@ public class CtrValidar extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CtrValidar</title>");            
+            out.println("<title>Servlet CtrValidar</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet CtrValidar at " + request.getContextPath() + "</h1>");
@@ -73,7 +71,7 @@ public class CtrValidar extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-     private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
     // Método para verificar la contraseña
     public static boolean verificarcontrasena(String password, String contrasenaencriptada) {
@@ -105,15 +103,15 @@ public class CtrValidar extends HttpServlet {
                     sesion.setAttribute("usuario", us);
 
                     if (us.getTipo().equals("Administrador")) {
-                        response.sendRedirect("/Estanco_web/vista/VentasAdmin.jsp");
+                        response.sendRedirect("/Estanco_web/CtrProducto?accion=inicio");
                     } else if (us.getTipo().equals("Cliente")) {
-                        response.sendRedirect("/Estanco_web/vista/VentasCliente.jsp");
+                        response.sendRedirect("/Estanco_web/CtrProducto?accion=inicio");
                     }
                 } else {
-                    response.sendRedirect("/Estanco_web/vista/Login.jsp?ingreso=0");
+                    response.sendRedirect("/vista/Login.jsp?ingreso=0");
                 }
             } else {
-                response.sendRedirect("/Estanco_web/vista/Login.jsp?ingreso=0");
+                response.sendRedirect("/vista/Login.jsp?ingreso=0");
             }
         }
     }
@@ -128,4 +126,4 @@ public class CtrValidar extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-} 
+}

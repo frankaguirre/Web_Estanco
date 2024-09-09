@@ -146,27 +146,29 @@
             <nav class="navbar navbar-dark bg-dark justify-content-between px-3">
                 <a href="/Estanco_web/CtrProducto?accion=inicio" class="navbar-brand">Inicio</a>
                 <div class="d-flex align-items-center">
-                    <a href="/Estanco_web/vista/Carrito.jsp" class="nav-link"><i class="bi bi-cart3"></i> Carrito</a>
+                    <a href="/Estanco_web/CtrProducto?accion=Carrito" class="nav-link"> Carrito<i class="bi bi-cart3">(<label style="color: darkorange">${contador}</label>)</i></a>
                     <a href="#" class="nav-link">Ofertas</a>
                     <div class="dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="categoriasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Categorías
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="categoriasDropdown">
-                            <c:forEach var="c" items="${categorias}">
-                                <li><a class="dropdown-item" href="/Estanco_web/CtrProducto?accion=buscarcat&catid=${c.getId()}">${c.getNombre()}</a></li>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                                <c:forEach var="c" items="${categorias}">
+                                <li><a class="dropdown-item" href="/AppWeb/CtrProducto?accion=buscarcat&catid=${c.getId()}" ><i class="bi bi-bookmarks"></i> ${c.getNombre()}</a></li>
                                 <input type="hidden" value="${c.getId()}" name="catid" id="catid">
-                            </c:forEach>
+                                </c:forEach>
+                                <li><a class="dropdown-item" href="#" ><i></i> Todas</a></li>
                         </ul>
                     </div>
                     <a href="#" class="nav-link">Ayuda</a>
-                    <form class="d-flex ms-3" style="width: 340px;">
-                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
-                        <button class="btn btn-outline-light" type="submit"><i class="bi bi-search"></i></button>
-                    </form>
-                    <a href="/Estanco_web/vista/Login.jsp" class="nav-link">Iniciar Sesión</a>
-                    <a href="#" class="nav-link">Crear Cuenta</a>
-                </div>
+                   <form class="d-flex ms-3" style="width: 340px;" action="/Estanco_web/CtrProducto?accion=buscar" method="post">
+                   <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar" name="buscarr">
+                   <button class="btn btn-outline-light" type="submit" value="buscar" style="margin-right: 15px;"><i class="bi bi-search"></i></button>
+                   </form>
+
+                   <a href="/Estanco_web/vista/Login.jsp" class="nav-link">Iniciar Sesión</a>
+                   <a href="/Estanco_web/vista/Login.jsp?signup=true" class="nav-link">Crear Cuenta</a>
+                    </div>
             </nav>
         </header>
       <div class="container mt-5">
@@ -200,53 +202,6 @@
                 <div class="col-12">
                     <h4>Descripción del Producto</h4>
                     <p><c:out value="${p.Descripcion()}"/></p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modal de Iniciar Sesión -->
-        <div class="modal fade" id="IniciarSesion" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content" style="border-radius: 10px; background-color: rgba(255, 255, 255, 0.8);">
-                    <div class="modal-body d-flex flex-column align-items-center text-center">
-                        <h5 class="modal-title mb-4" id="loginModalLabel" style="color: black;">Iniciar Sesión</h5>
-                        <form action="#" class="w-100 d-flex flex-column align-items-center">
-                            <div class="mb-3 w-75">
-                                <input type="text" id="username" class="form-control" placeholder="Usuario" required style="border-radius: 5px;">
-                            </div>
-                            <div class="mb-3 w-75">
-                                <input type="password" id="password" class="form-control" placeholder="Contraseña" required style="border-radius: 5px;">
-                            </div>
-                            <button type="submit" class="btn custom-btn w-75">Ingresar</button>
-                        </form>
-                        <p class="mt-4" style="color: black;">¿No tienes una cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#CrearCuenta">Regístrate</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-        <!-- Modal de Crear Cuenta -->
-        <div class="modal fade" id="CrearCuenta" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content" style="border-radius: 10px; background-color: rgba(255, 255, 255, 0.8);">
-                    <div class="modal-body d-flex flex-column align-items-center text-center">
-                        <h5 class="modal-title mb-4" id="registerModalLabel" style="color: black;">Crea tu Cuenta</h5>
-                        <form action="#" class="w-100 d-flex flex-column align-items-center">
-                            <div class="mb-3 w-75">
-                                <input type="text" id="newUser" class="form-control" placeholder="Usuario" required style="border-radius: 5px;">
-                            </div>
-                            <div class="mb-3 w-75">
-                                <input type="email" id="email" class="form-control" placeholder="Correo Electrónico" required style="border-radius: 5px;">
-                            </div>
-                            <div class="mb-3 w-75">
-                                <input type="password" id="newPassword" class="form-control" placeholder="Contraseña" required style="border-radius: 5px;">
-                            </div>
-                            <button type="submit" class="btn custom-btn w-75">Crear Cuenta</button>
-                        </form>
-                        <p class="mt-4" style="color: black;">¿Ya tienes una cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#IniciarSesion">Inicia Sesión</a></p>
-                    </div>
                 </div>
             </div>
         </div>

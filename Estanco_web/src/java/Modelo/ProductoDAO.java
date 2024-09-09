@@ -16,12 +16,13 @@ import java.util.List;
  *
  */
 public class ProductoDAO {
+
     Connection con;
     PreparedStatement pstm;
     Conectar Conexion;
     ResultSet rs;
-    
-    public List listar(){
+
+    public List listar() {
         List<Producto> producto = new ArrayList();
         try {
             Conexion = new Conectar();
@@ -51,8 +52,9 @@ public class ProductoDAO {
         }
         return producto;
     }
-    public List buscarcat(int idcat){
-       List<Producto> producto = new ArrayList();
+
+    public List buscarcat(int idcat) {
+        List<Producto> producto = new ArrayList();
         try {
             Conexion = new Conectar();
             Connection con = Conexion.crearconexion();
@@ -80,9 +82,10 @@ public class ProductoDAO {
         } catch (Exception e) {
             System.out.println("Error al listar los productos por categoria " + e);
         }
-        return producto;  
+        return producto;
     }
-    public Producto listarid(int idp){
+
+    public Producto listarid(int idp) {
         Producto p = new Producto();
         try {
             Conexion = new Conectar();
@@ -108,8 +111,36 @@ public class ProductoDAO {
         }
         return p;
     }
-    
-    public List buscar(String nombre){
+
+    public Producto obtenerProductoPorId(int idp) {
+        Producto p = new Producto();
+        try {
+            Conexion = new Conectar();
+            con = Conexion.crearconexion();
+            if (con != null) {
+                System.out.println("Se ha establecido una conexión con la base de datos");
+            }
+            pstm = con.prepareStatement("SELECT * FROM producto WHERE id = ?");
+            pstm.setInt(1, idp);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                p.setId(rs.getInt(1));
+                p.setNombre(rs.getString(2));
+                p.setFoto(rs.getString(3));
+                p.setDescripcion(rs.getString(4));
+                p.setFecha_vencimiento(rs.getString(5));
+                p.setPrecio(rs.getInt(6));
+                p.setStock(rs.getInt(7));
+                p.setCategoria(rs.getInt(8));
+                p.setId_proveedor(rs.getInt(9));
+            }
+        } catch (Exception e) {
+            System.out.println("Error al obtener el producto por ID " + e);
+        }
+        return p;
+    }
+
+    public List buscar(String nombre) {
         List<Producto> producto = new ArrayList();
         try {
             Conexion = new Conectar();
@@ -118,7 +149,7 @@ public class ProductoDAO {
                 System.out.println("Se ha establecido una conexcion con la base de datos");
 
             }
-            nombre = "%"+ nombre +"%";
+            nombre = "%" + nombre + "%";
             pstm = con.prepareStatement("select * from producto where Stock >0 and Nombre like ?");
             pstm.setString(1, nombre);
             rs = pstm.executeQuery();

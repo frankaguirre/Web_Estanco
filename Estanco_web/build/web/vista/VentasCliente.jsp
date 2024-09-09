@@ -15,11 +15,11 @@
         <link href="/Estanco_web/css/inicio.css" rel="stylesheet" type="text/css"/>
         <title>Estanco Currambero</title>
     </head>
-    <%---
-        if (session.getAttribute("log") == null || session.getAttribute("log").equals('0')) {
+    <%
+        if (session.getAttribute("log") == null || session.getAttribute("log").equals('0')){
             response.sendRedirect("../vista/Login.jsp");
         }
-    ---%>
+    %>
     <body>
         <header>
             <nav class="navbar navbar-dark bg-dark justify-content-between px-3">

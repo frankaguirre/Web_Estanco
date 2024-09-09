@@ -83,13 +83,15 @@
                     <a href="/Estanco_web/CtrProducto?accion=Carrito" class="nav-link"> Carrito<i class="bi bi-cart3">(<label style="color: darkorange">${contador}</label>)</i></a>
                     <a href="#" class="nav-link">Ofertas</a>
                     <div class="dropdown">
-                        <a class="nav-link dropdown-toggle" href="/Estanco_web/CtrProducto?accion=buscarcat&catid=${c.id}" id="categoriasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="categoriasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Categorías
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="categoriasDropdown">
-                            <c:forEach var="c" items="${categorias}">
-                                <li><a class="dropdown-item" href="/Estanco_web/CtrProducto?accion=buscarcat&catid=${c.id}">${c.nombre}</a></li>
+                        <ul class="dropdown-menu dropdown-menu-light">
+                                <c:forEach var="c" items="${categorias}">
+                                <li><a class="dropdown-item" href="/AppWeb/CtrProducto?accion=buscarcat&catid=${c.getId()}" ><i class="bi bi-bookmarks"></i> ${c.getNombre()}</a></li>
+                                <input type="hidden" value="${c.getId()}" name="catid" id="catid">
                                 </c:forEach>
+                                <li><a class="dropdown-item" href="#" ><i></i> Todas</a></li>
                         </ul>
                     </div>
                     <a href="#" class="nav-link">Ayuda</a>
