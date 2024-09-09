@@ -3,15 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Omar/Web_Estanco/Web_Estanco/Estanco_web/web/vista/VentasAdmin.jsp</file>
-            <file>file:/C:/Users/Omar/Web_Estanco/Web_Estanco/Estanco_web/web/vista/ListarProveedor.jsp</file>
-            <file>file:/C:/Users/Omar/Web_Estanco/Web_Estanco/Estanco_web/src/java/Configuracion/Conectar.java</file>
-            <file>file:/C:/Users/Omar/Web_Estanco/Web_Estanco/Estanco_web/src/java/Controlador/CtrValidar.java</file>
-            <file>file:/C:/Users/Omar/Web_Estanco/Web_Estanco/Estanco_web/src/java/Modelo/Usuario.java</file>
-            <file>file:/C:/Users/Omar/Web_Estanco/Web_Estanco/Estanco_web/web/vista/Login.jsp</file>
-            <file>file:/C:/Users/Omar/Web_Estanco/Web_Estanco/Estanco_web/web/vista/ListarUsuario.jsp</file>
-            <file>file:/C:/Users/Omar/Web_Estanco/Web_Estanco/Estanco_web/src/java/Modelo/UsuarioDAO.java</file>
-            <file>file:/C:/Users/Omar/Web_Estanco/Web_Estanco/Estanco_web/src/java/Controlador/CtrUsuario.java</file>
+            <file>file:/C:/Users/HPLAPTOP01/Desktop/alexa%20mi%20amor/Web_Estanco/Estanco_web/src/java/Modelo/UsuarioDAO.java</file>
+            <file>file:/C:/Users/HPLAPTOP01/Desktop/alexa%20mi%20amor/Web_Estanco/Estanco_web/web/vista/PedidosAdmin.jsp</file>
+            <file>file:/C:/Users/HPLAPTOP01/Desktop/alexa%20mi%20amor/Web_Estanco/Estanco_web/web/vista/ListarUsuario.jsp</file>
+            <file>file:/C:/Users/HPLAPTOP01/Desktop/alexa%20mi%20amor/Web_Estanco/Estanco_web/src/java/Controlador/CtrProducto.java</file>
+            <file>file:/C:/Users/HPLAPTOP01/Desktop/alexa%20mi%20amor/Web_Estanco/Estanco_web/web/css/inicio.css</file>
+            <file>file:/C:/Users/HPLAPTOP01/Desktop/alexa%20mi%20amor/Web_Estanco/Estanco_web/src/java/Configuracion/Conectar.java</file>
+            <file>file:/C:/Users/HPLAPTOP01/Desktop/alexa%20mi%20amor/Web_Estanco/Estanco_web/src/java/Controlador/CtrValidar.java</file>
+            <file>file:/C:/Users/HPLAPTOP01/Desktop/alexa%20mi%20amor/Web_Estanco/Estanco_web/web/vista/Login.jsp</file>
+            <file>file:/C:/Users/HPLAPTOP01/Desktop/alexa%20mi%20amor/Web_Estanco/Estanco_web/src/java/Controlador/CtrUsuario.java</file>
         </group>
     </open-files>
 </project-private>
