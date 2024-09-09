@@ -15,7 +15,7 @@
     <body>
         <div class="container">
             <div class="left-side">
-                <img src="/Estanco_web/imagenes/loginimg.jpeg" alt="" class="shoe-image"/>
+                <img src="/Estanco_web/imagenes/logoestancoo" alt="" class="shoe-image"/>
                 <div class="buttons">
                     <button class="login-btn" onclick="showLogin()">Iniciar Sesión</button>
                     <button class="signup-btn" onclick="showSignUp()">Crear Cuenta</button>
