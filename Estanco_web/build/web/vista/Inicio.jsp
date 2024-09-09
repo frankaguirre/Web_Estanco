@@ -24,18 +24,17 @@
                     <a href="/Estanco_web/CtrProducto?accion=Carrito" class="nav-link"> Carrito<i class="bi bi-cart3">(<label style="color: darkorange">${contador}</label>)</i></a>
                     <a href="#" class="nav-link">Ofertas</a>
                     <div class="dropdown">
-                        <a class="nav-link dropdown-toggle" href="/Estanco_web/CtrProducto?accion=buscarcat&catid=${c.getId()}" id="categoriasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="categoriasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Categorías
                         </a>
-
-                        <ul class="dropdown-menu" aria-labelledby="categoriasDropdown">
-                            <c:forEach var="c" items="${categorias}">
-                                <li><a class="dropdown-item" href="/Estanco_web/CtrProducto?accion=buscarcat&catid=${c.getId()}">${c.getNombre()}</a></li>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                                <c:forEach var="c" items="${categorias}">
+                                <li><a class="dropdown-item" href="/AppWeb/CtrProducto?accion=buscarcat&catid=${c.getId()}" ><i class="bi bi-bookmarks"></i> ${c.getNombre()}</a></li>
+                                <input type="hidden" value="${c.getId()}" name="catid" id="catid">
                                 </c:forEach>
-
+                                <li><a class="dropdown-item" href="#" ><i></i> Todas</a></li>
                         </ul>
                     </div>
-
                     <a href="#" class="nav-link">Ayuda</a>
                    <form class="d-flex ms-3" style="width: 340px;" action="/Estanco_web/CtrProducto?accion=buscar" method="post">
                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar" name="buscarr">
@@ -43,7 +42,7 @@
                    </form>
 
                    <a href="/Estanco_web/vista/Login.jsp" class="nav-link">Iniciar Sesión</a>
-                   <a href="#" class="nav-link">Crear Cuenta</a>
+                   <a href="/Estanco_web/vista/Login.jsp?signup=true" class="nav-link">Crear Cuenta</a>
                     </div>
             </nav>
         </header>
@@ -117,19 +116,22 @@
         </div>
 
         <div class="product-container">
-            <c:forEach var="p" items="${productos}">
-                <div class="product-card">
-                    <img src="${p.getFoto()}" alt="${p.getNombre()}">
-                    <h2><c:out value="${p.getNombre()}"/></h2>
-                    <div class="price-container">
-                        <div class="price">$<c:out value="${p.getPrecio()}"/></div>
-                        <a href="/Estanco_web/CtrProducto?accion=AgregarCarrito&id=${p.getId()}" class="order-btn">
-                            <i class="bi bi-cart3"></i>
-                        </a>
-                    </div>
+    <c:forEach var="p" items="${productos}">
+        <a href="/Estanco_web/CtrProducto?accion=verProducto&id=${p.getId()}" class="product-card-link">
+            <div class="product-card">
+                <img src="${p.getFoto()}" alt="${p.getNombre()}">
+                <h2><c:out value="${p.getNombre()}"/></h2>
+                <div class="price-container">
+                    <div class="price">$<c:out value="${p.getPrecio()}"/></div>
+                    <a href="/Estanco_web/CtrProducto?accion=AgregarCarrito&id=${p.getId()}" class="order-btn">
+                        <i class="bi bi-cart3"></i>
+                    </a>
                 </div>
-            </c:forEach>
-        </div>
+            </div>
+        </a>
+    </c:forEach>
+</div>
+
 
 
 

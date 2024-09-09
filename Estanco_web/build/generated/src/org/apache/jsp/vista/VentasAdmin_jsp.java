@@ -56,9 +56,9 @@ public final class VentasAdmin_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    </head>\r\n");
       out.write("    ");
 
-        if (session.getAttribute("log") == null || session.getAttribute("log").equals('0')) {
-            response.sendRedirect("../vista/Login.jsp");
-        }
+        //if (session.getAttribute("log") == null || session.getAttribute("log").equals('0')) {
+          //  response.sendRedirect("../vista/Login.jsp");
+        //}
     
       out.write("\r\n");
       out.write("    <body>\r\n");
