@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controlador;
 
 import Modelo.Usuario;
@@ -16,6 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.mindrot.jbcrypt.BCrypt;
 
+/**
+ *
+ * @author HPLAPTOP01
+ */
 public class CtrValidar extends HttpServlet {
 
     /**
@@ -27,9 +26,10 @@ public class CtrValidar extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
     UsuarioDAO usudao = new UsuarioDAO();
     Usuario us = new Usuario();
-
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -38,7 +38,7 @@ public class CtrValidar extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CtrValidar</title>");
+            out.println("<title>Servlet CtrValidar</title>");            
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet CtrValidar at " + request.getContextPath() + "</h1>");
@@ -70,13 +70,9 @@ public class CtrValidar extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    private static final long serialVersionUID = 1L;
-
-    // Método para verificar la contraseña
-    public static boolean verificarcontrasena(String password, String contrasenaencriptada) {
+    public static boolean verificarcontrasena (String password, String contrasenaencriptada){
         return BCrypt.checkpw(password, contrasenaencriptada);
     }
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -85,13 +81,10 @@ public class CtrValidar extends HttpServlet {
             HttpSession sesion = request.getSession();
             String usu = request.getParameter("txtuser");
             String pas = request.getParameter("txtpass");
-
-            // Validar el usuario con el DAO
-            UsuarioDAO usudao = new UsuarioDAO(); // Asegúrate de instanciar correctamente
-            Usuario us = usudao.validar(usu, pas);
-
-            if (us != null && us.getUsuario() != null) {
-                // Verificar la contraseña encriptada
+            us = usudao.validar(usu, pas);
+            if (us.getUsuario() != null) {
+                System.out.println("usuario: "+us.getContrasena());
+                System.out.println("contraseña: "+pas);
                 boolean verificarpassword = verificarcontrasena(pas, us.getContrasena());
                 if (verificarpassword) {
                     sesion.setAttribute("log", '1');
@@ -99,18 +92,18 @@ public class CtrValidar extends HttpServlet {
                     sesion.setAttribute("tipo", us.getTipo());
                     sesion.setAttribute("id", us.getId());
                     sesion.setAttribute("correo", us.getCorreo());
+                    System.out.println("correo: "+us.getCorreo());
                     sesion.setAttribute("usuario", us);
-
                     if (us.getTipo().equals("Administrador")) {
-                        response.sendRedirect("/Estanco_web/CtrProducto?accion=inicio");
-                    } else if (us.getTipo().equals("Cliente")) {
-                        response.sendRedirect("/Estanco_web/CtrProducto?accion=inicio");
+                        response.sendRedirect("/Estanco_web/vista/VentasAdmin.jsp");
                     }
-                } else {
-                    response.sendRedirect("/vista/Login.jsp?ingreso=0");
+                    if (us.getTipo().equals("Cliente")) {
+                        response.sendRedirect("/Estanco_web/vista/VentasCliente.jsp");
+                    }
                 }
+
             } else {
-                response.sendRedirect("/vista/Login.jsp?ingreso=0");
+                response.sendRedirect("/Estanco_web/vista/Login.jsp?ingreso=0");
             }
         }
     }
