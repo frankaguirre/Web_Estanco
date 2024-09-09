@@ -3,7 +3,8 @@
     Created on : 14/08/2024, 11:59:34 AM
     Author     : SENA
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -14,11 +15,11 @@
         <title>Usuarios</title>
         <link href="../css/admin.css" rel="stylesheet" type="text/css"/>
     </head>
-    <%---
-        if (session.getAttribute("log") == null || session.getAttribute("log").equals('0')){
+    <%
+        if (session.getAttribute("log") == null || session.getAttribute("log").equals('0')) {
             response.sendRedirect("../vista/Login.jsp");
         }
-    ---%>
+    %>
     <body>
         <div class="wrapper">
             <aside class="sidebar">
@@ -88,7 +89,8 @@
                 <div class="container mt-5">
                     <div class="d-flex justify-content-between align-items-center mb-4">
                         <h1>Usuarios</h1>
-                        <form class="form-inline mt-4 mb-4" action="#">
+                        <!-- Formulario de b煤squeda -->
+                        <form class="form-inline mt-4 mb-4" action="/Estanco_web/CtrUsuario?accion=buscar" method="get">
                             <div class="input-group">
                                 <input type="text" class="form-control form-control-sm" name="txtbuscar" placeholder="Digite nombre">
                                 <button type="submit" class="btn btn-success" name="accion" value="buscar">
@@ -96,10 +98,13 @@
                                 </button>
                             </div>
                         </form>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">
-                            <i class="bi bi-plus-square"></i>
+                        <!-- Bot贸n para agregar usuario (abrir modal) -->
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarUsuarioModal">
+                            <i class="bi bi-plus-square"></i> Agregar Usuario
                         </button>
                     </div>
+
+                    <!-- Tabla de usuarios -->
                     <div class="row mt-3">
                         <div class="col-sm">
                             <table class="table table-hover">
@@ -109,7 +114,7 @@
                                         <th class="text-center">Nombre</th>
                                         <th class="text-center">Apellido</th>
                                         <th class="text-center">Fecha de Nacimiento</th>
-                                        <th class="text-center">Direcci髇</th>
+                                        <th class="text-center">Direcci贸n</th>
                                         <th class="text-center">Telefono</th>
                                         <th class="text-center">Correo</th>
                                         <th class="text-center">Usuario</th>
@@ -118,21 +123,99 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <!-- Iteraci贸n sobre la lista de usuarios -->
+                                <c:forEach var="usu" items="${usuarios}">
                                     <tr>
-                                        <td class="text-center">1</td>
-                                        <td class="text-center">Usuario</td>
-                                        <td class="text-center">Usuario</td>
-                                        <td class="text-center">Usuario</td>
-                                        <td class="text-center">Usuario</td>
-                                        <td class="text-center">Usuario</td>
-                                        <td class="text-center">Usuario</td>
-                                        <td class="text-center">Usuario</td>
-                                        <td class="text-center">Usuario</td>
+                                        <td class="text-center">${usu.getId()}</td>
+                                        <td class="text-center">${usu.getNombre()}</td>
+                                        <td class="text-center">${usu.getApellido()}</td>
+                                        <td class="text-center">${usu.getFecha_nacimiento()}</td>
+                                        <td class="text-center">${usu.getDireccion()}</td>
+                                        <td class="text-center">${usu.getTelefono()}</td>
+                                        <td class="text-center">${usu.getCorreo()}</td>
+                                        <td class="text-center">${usu.getUsuario()}</td>
+                                        <td class="text-center">${usu.getTipo()}</td>
                                         <td class="text-center">
-                                            <a class="btn btn-warning" href="#" data-bs-toggle="modal" data-bs-target="#editProductModal"><i class="bi bi-pencil-fill"></i></a>
-                                            <a class="btn btn-danger" href="#"><i class="bi bi-trash-fill"></i></a>
+                                            <!-- Bot贸n Editar -->
+                                            <a class="btn btn-warning" href="#" data-bs-toggle="modal" data-bs-target="#editarUsuarioModal${usu.getId()}">
+                                                <i class="bi bi-pencil-fill"></i>
+                                            </a>
+
+                                            <!-- Bot贸n Eliminar -->
+                                            <a class="btn btn-danger" href="/Estanco_web/CtrUsuario?accion=eliminar&id=${usu.getId()}">
+                                                <i class="bi bi-trash-fill"></i>
+                                            </a>
                                         </td>
                                     </tr>
+                                </c:forEach>
+                                <c:forEach var="usu" items="${usuarios}">
+                                    <!-- Modal para editar usuario -->
+                                    <div class="modal fade" id="editarUsuarioModal${usu.getId()}" tabindex="-1" aria-labelledby="editarUsuarioModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="editarUsuarioModalLabel">Editar Usuario</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="/Estanco_web/CtrUsuario?accion=actualizar" method="post">
+                                                        <input type="hidden" name="accion" value="actualizar">
+                                                        <input type="hidden" name="id" value="${usu.getId()}">
+
+                                                        <div class="mb-3">
+                                                            <label for="nombre${usu.getId()}" class="form-label">Nombre</label>
+                                                            <input type="text" class="form-control" name="nombre" id="nombre${usu.getId()}" value="${usu.getNombre()}" required>
+                                                        </div>
+
+                                                        <div class="mb-3">
+                                                            <label for="apellido${usu.getId()}" class="form-label">Apellido</label>
+                                                            <input type="text" class="form-control" name="apellido" id="apellido${usu.getId()}" value="${usu.getApellido()}" required>
+                                                        </div>
+
+                                                        <div class="mb-3">
+                                                            <label for="fecha_nacimiento${usu.getId()}" class="form-label">Fecha de Nacimiento</label>
+                                                            <input type="date" class="form-control" name="fecha_nacimiento" id="fecha_nacimiento${usu.getId()}" value="${usu.getFecha_nacimiento()}" required>
+                                                        </div>
+
+                                                        <div class="mb-3">
+                                                            <label for="direccion${usu.getId()}" class="form-label">Direcci贸n</label>
+                                                            <input type="text" class="form-control" name="direccion" id="direccion${usu.getId()}" value="${usu.getDireccion()}" required>
+                                                        </div>
+
+                                                        <div class="mb-3">
+                                                            <label for="telefono${usu.getId()}" class="form-label">Tel茅fono</label>
+                                                            <input type="text" class="form-control" name="telefono" id="telefono${usu.getId()}" value="${usu.getTelefono()}" required>
+                                                        </div>
+
+                                                        <div class="mb-3">
+                                                            <label for="correo${usu.getId()}" class="form-label">Correo</label>
+                                                            <input type="email" class="form-control" name="correo" id="correo${usu.getId()}" value="${usu.getCorreo()}" required>
+                                                        </div>
+
+                                                        <div class="mb-3">
+                                                            <label for="usuario${usu.getId()}" class="form-label">Usuario</label>
+                                                            <input type="text" class="form-control" name="usuario" id="usuario${usu.getId()}" value="${usu.getUsuario()}" required>
+                                                        </div>
+
+                                                        <div class="mb-3">
+                                                            <label for="tipo${usu.getId()}" class="form-label">Tipo</label>
+                                                            <select class="form-control" name="tipo" id="tipo${usu.getId()}" required>
+                                                                <option value="Administrador" ${usu.getTipo() == 'Administrador' ? 'selected' : ''}>Administrador</option>
+                                                                <option value="Cliente" ${usu.getTipo() == 'Cliente' ? 'selected' : ''}>Cliente</option>
+                                                            </select>
+                                                        </div>
+
+                                                        <div class="modal-footer">
+                                                            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </c:forEach>
+
                                 </tbody>
                             </table>
                         </div>
@@ -148,117 +231,64 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form>
-                                    <div class="mb-3">
-                                        <label for="userId" class="form-label">Id</label>
-                                        <input type="text" class="form-control" id="id" name="id" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="userName" class="form-label">Nombre</label>
-                                        <input type="text" class="form-control" id="nombre" name="nombre" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="userLastName" class="form-label">Apellido</label>
-                                        <input type="text" class="form-control" id="apellido" name="apellido" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="userAddress" class="form-label">Direcci髇</label>
-                                        <input type="text" class="form-control" id="direccion" name="direccion" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="userPhone" class="form-label">Tel閒ono</label>
-                                        <input type="text" class="form-control" id="telefono" name="telefono" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="userBirthDate" class="form-label">Fecha Nacimiento</label>
-                                        <input type="date" class="form-control" id="fechanaci" name="fechanaci" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="userEmail" class="form-label">Correo</label>
-                                        <input type="email" class="form-control" id="correo" name="correo" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="userUsername" class="form-label">Usuario</label>
-                                        <input type="text" class="form-control" id="usuario" name="usuario" required>
-                                    </div>
-                                    <div class="mb-3" id="grupo_tipo">
-                                        <label for="id" class="formulario_label">Tipo</label> 
-                                        <div class="formulario_grupo-input">
-                                            <select class="form control formulario_input" name="tipo">
-                                                <option value="Administrador">Administrador</option> 
-                                                <option value="Usuario">Usuario</option> 
-                                                <option value="Invitado">Invitado</option> 
-                                                <option value="Cliente">Cliente</option> 
-                                            </select><br>
-                                        </div><br>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn btn-primary">Guardar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                                <form action="/Estanco_web/CtrUsuario?accion=nuevo" method="post">
+                                    <input type="hidden" name="accion" value="agregar">
 
-                <!-- Modal para editar usuario -->
-                <div class="modal fade" id="editarUsuarioModal" tabindex="-1" aria-labelledby="editarUsuarioModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="editarUsuarioModalLabel">Editar Usuario</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <form>
                                     <div class="mb-3">
-                                        <label for="editUserId" class="form-label">Id</label>
-                                        <input type="text" class="form-control" id="editUserId" value="1" required>
+                                        <label for="nombre" class="form-label">Nombre</label>
+                                        <input type="text" class="form-control" name="nombre" id="nombre" required>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="editUserName" class="form-label">Nombre</label>
-                                        <input type="text" class="form-control" id="editUserName" value="Juan" required>
+                                        <label for="apellido" class="form-label">Apellido</label>
+                                        <input type="text" class="form-control" name="apellido" id="apellido" required>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="editUserLastName" class="form-label">Apellido</label>
-                                        <input type="text" class="form-control" id="editUserLastName" value="P閞ez" required>
+                                        <label for="direccion" class="form-label">Direcci贸n</label>
+                                        <input type="text" class="form-control" name="direccion" id="direccion" required>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="editUserAddress" class="form-label">Direcci髇</label>
-                                        <input type="text" class="form-control" id="editUserAddress" value="Calle Falsa 123" required>
+                                        <label for="telefono" class="form-label">Tel茅fono</label>
+                                        <input type="text" class="form-control" name="telefono" id="telefono" required>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="correo" class="form-label">Fecha_nacimiento</label>
+                                        <i class="fas fa-calendar icon"></i>
+                                        <input type="date" class="formulario_input" name="fechanaci" id="fechanaci" required>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="editUserPhone" class="form-label">Tel閒ono</label>
-                                        <input type="text" class="form-control" id="editUserPhone" value="555-1234" required>
+                                        <label for="correo" class="form-label">Correo</label>
+                                        <input type="email" class="form-control" name="correo" id="correo" required>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="editUserBirthDate" class="form-label">Fecha Nacimiento</label>
-                                        <input type="date" class="form-control" id="editUserBirthDate" value="1990-01-01" required>
+                                        <label for="usuario" class="form-label">Usuario</label>
+                                        <input type="text" class="form-control" name="usuario" id="usuario" required>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="editUserEmail" class="form-label">Correo</label>
-                                        <input type="email" class="form-control" id="editUserEmail" value="juan@gmail.com" required>
+                                        <label for="contrasena" class="form-label">contrase帽a</label>
+                                        <input type="text" class="form-control" name="contrasena" id="contrasena" required>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="editUserUsername" class="form-label">Usuario</label>
-                                        <input type="text" class="form-control" id="editUserUsername" value="juanp" required>
+                                        <label for="tipo" class="form-label">Tipo</label>
+                                        <select class="form-control" name="tipo" id="tipo" required>
+                                            <option value="Administrador">Administrador</option>
+                                            <option value="Cliente">Cliente</option>
+                                        </select>
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="editUserType" class="form-label">Tipo</label>
-                                        <input type="text" class="form-control" id="editUserType" value="Admin" required>
+                                    <div class="modal-footer">
+                                        <button type="button" hrf="/Estanco_web/vista/ListarUsuario.jsp" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                        <button type="submit" hrf="/Estanco_web/vista/ListarUsuario.jsp" class="btn btn-primary">Agregar Usuario</button>
                                     </div>
                                 </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </main>
+
         </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>                        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>  
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-rbsA0bDhUn/TxU+0bD6I4BO15AVY8l+t9f/4coiTrTWGFj1PSJrAKFENIG+9j2N" crossorigin="anonymous"></script>
     </body>
 </html>
