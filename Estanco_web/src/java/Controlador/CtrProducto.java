@@ -7,6 +7,7 @@ package Controlador;
 
 import Modelo.Carrito;
 import Modelo.Categoria;
+
 import Modelo.CategoriaDAO;
 import Modelo.Producto;
 import Modelo.ProductoDAO;
@@ -47,6 +48,8 @@ public class CtrProducto extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String accion = request.getParameter("accion");

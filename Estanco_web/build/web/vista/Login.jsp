@@ -26,7 +26,9 @@
                     <!-- Formulario de inicio de sesión -->
                     <form id="login-form" class="form active" action="/Estanco_web/CtrValidar" method="post">
                         <h1> ¡Bienvenido! </h1>
+                        
                         <div class="input-group">
+                            
                             <i class="fas fa-user icon"></i>
                             <input type="text" name="txtuser" id="usuario" placeholder="Usuario">
                         </div>
@@ -40,6 +42,7 @@
 
                     <!-- Formulario de registro -->
                     <form id="signup-form" class="form" action="/Estanco_web/CtrUsuario?accion=nuevo" method="post">
+                        
                         <h1>Crear tu cuenta:</h1>
                         <div class="input-group-row">
                             <div class="input-group">
@@ -61,6 +64,7 @@
                                 <input type="text" class="formulario_input" name="telefono" id="telefono" placeholder="Teléfono" required>
                             </div>
                         </div>
+                        
                         <div class="input-group-row">
                             <div class="input-group">
                                 <i class="fas fa-envelope icon"></i>
@@ -93,12 +97,16 @@
                                 Acepto los términos y condiciones
                             </label> 
                         </div>
+                        
                         <div class="formulario_mensaje" id="formulario_mensaje"></div>
                         <button type="submit" class="login-btn-form" name="accion" value="nuevo">Crear Cuenta<i class="bi bi-floppy"></i></button>
                     </form>
                 </div>
             </div>
+            
         </div>
+        
         <script src="/Estanco_web/JS/login.js" type="text/javascript"></script>
     </body>
+    
 </html>
