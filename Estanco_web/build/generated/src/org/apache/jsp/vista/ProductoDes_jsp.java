@@ -229,27 +229,21 @@ public final class ProductoDes_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <div class=\"row\">\r\n");
       out.write("            <!-- Product Image -->\r\n");
       out.write("            <div class=\"col-md-6\">\r\n");
-      out.write("                    <img src=\"");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${p.getFoto()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("\" alt=\"");
+      out.write("             \r\n");
+      out.write("                    <img src=\"imagenes/aguila_original.jpeg\" alt=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${p.getNombre()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("\">\r\n");
       out.write("            </div>\r\n");
       out.write("\r\n");
       out.write("            <div class=\"col-md-6\">\r\n");
-      out.write("                <h1>");
-      if (_jspx_meth_c_out_0(_jspx_page_context))
-        return;
-      out.write("</h1>\r\n");
+      out.write("                <h1>Aguila Original</h1>\r\n");
       out.write("                 <div class=\"price\">$");
-      if (_jspx_meth_c_out_1(_jspx_page_context))
+      if (_jspx_meth_c_out_0(_jspx_page_context))
         return;
       out.write("</div>\r\n");
       out.write("\r\n");
       out.write("                <ul class=\"product-features list-unstyled\">\r\n");
-      out.write("                    <li><i class=\"bi bi-check-circle-fill text-success\"></i> Característica 1</li>\r\n");
-      out.write("                    <li><i class=\"bi bi-check-circle-fill text-success\"></i> Característica 2</li>\r\n");
-      out.write("                    <li><i class=\"bi bi-check-circle-fill text-success\"></i> Característica 3</li>\r\n");
+      out.write("                    <li><i class=\"bi bi-check-circle-fill text-success\"></i> Nota: Te llegara fría!</li>\r\n");
       out.write("                </ul>\r\n");
       out.write("\r\n");
       out.write("                <!-- Botones organizados en columna -->\r\n");
@@ -265,12 +259,10 @@ public final class ProductoDes_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <div class=\"row mt-5\">\r\n");
       out.write("                <div class=\"col-12\">\r\n");
       out.write("                    <h4>Descripción del Producto</h4>\r\n");
-      out.write("                    <p>");
-      if (_jspx_meth_c_out_2(_jspx_page_context))
-        return;
-      out.write("</p>\r\n");
+      out.write("                    <p>Águila Original es más que una cerveza; es un símbolo de la tradición cervecera de Colombia y un ícono de la frescura y calidad. Con más de 100 años de historia, esta lager dorada es el reflejo perfecto del arte cervecero colombiano y una elección confiable para quienes buscan una experiencia auténtica y refrescante.</p>\r\n");
       out.write("                </div>\r\n");
       out.write("            </div>\r\n");
+      out.write("               \r\n");
       out.write("        </div>\r\n");
       out.write("        <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz\" crossorigin=\"anonymous\"></script>\r\n");
       out.write("    </body>\r\n");
@@ -342,49 +334,13 @@ public final class ProductoDes_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.OutTag _jspx_th_c_out_0 = (org.apache.taglibs.standard.tag.rt.core.OutTag) _jspx_tagPool_c_out_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.OutTag.class);
     _jspx_th_c_out_0.setPageContext(_jspx_page_context);
     _jspx_th_c_out_0.setParent(null);
-    _jspx_th_c_out_0.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${p.getNombre()}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    _jspx_th_c_out_0.setValue(new String("4.000"));
     int _jspx_eval_c_out_0 = _jspx_th_c_out_0.doStartTag();
     if (_jspx_th_c_out_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_0);
       return true;
     }
     _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_0);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_out_1(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:out
-    org.apache.taglibs.standard.tag.rt.core.OutTag _jspx_th_c_out_1 = (org.apache.taglibs.standard.tag.rt.core.OutTag) _jspx_tagPool_c_out_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.OutTag.class);
-    _jspx_th_c_out_1.setPageContext(_jspx_page_context);
-    _jspx_th_c_out_1.setParent(null);
-    _jspx_th_c_out_1.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${p.getPrecio()}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
-    int _jspx_eval_c_out_1 = _jspx_th_c_out_1.doStartTag();
-    if (_jspx_th_c_out_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_1);
-      return true;
-    }
-    _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_1);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_out_2(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:out
-    org.apache.taglibs.standard.tag.rt.core.OutTag _jspx_th_c_out_2 = (org.apache.taglibs.standard.tag.rt.core.OutTag) _jspx_tagPool_c_out_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.OutTag.class);
-    _jspx_th_c_out_2.setPageContext(_jspx_page_context);
-    _jspx_th_c_out_2.setParent(null);
-    _jspx_th_c_out_2.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${p.Descripcion()}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
-    int _jspx_eval_c_out_2 = _jspx_th_c_out_2.doStartTag();
-    if (_jspx_th_c_out_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_2);
-      return true;
-    }
-    _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_2);
     return false;
   }
 }

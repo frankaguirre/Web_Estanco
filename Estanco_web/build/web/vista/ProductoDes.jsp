@@ -176,17 +176,15 @@
             <!-- Product Image -->
             <div class="col-md-6">
              
-                    <img src="${p.getFoto()}" alt="${p.getNombre()}">
+                    <img src="imagenes/aguila_original.jpeg" alt="${p.getNombre()}">
             </div>
 
             <div class="col-md-6">
-                <h1><c:out value="${p.getNombre()}"/></h1>
-                 <div class="price">$<c:out value="${p.getPrecio()}"/></div>
+                <h1>Aguila Original</h1>
+                 <div class="price">$<c:out value="4.000"/></div>
 
                 <ul class="product-features list-unstyled">
-                    <li><i class="bi bi-check-circle-fill text-success"></i> Característica 1</li>
-                    <li><i class="bi bi-check-circle-fill text-success"></i> Característica 2</li>
-                    <li><i class="bi bi-check-circle-fill text-success"></i> Característica 3</li>
+                    <li><i class="bi bi-check-circle-fill text-success"></i> Nota: Te llegara fría!</li>
                 </ul>
 
                 <!-- Botones organizados en columna -->
@@ -202,7 +200,7 @@
             <div class="row mt-5">
                 <div class="col-12">
                     <h4>Descripción del Producto</h4>
-                    <p><c:out value="${p.Descripcion()}"/></p>
+                    <p>Águila Original es más que una cerveza; es un símbolo de la tradición cervecera de Colombia y un ícono de la frescura y calidad. Con más de 100 años de historia, esta lager dorada es el reflejo perfecto del arte cervecero colombiano y una elección confiable para quienes buscan una experiencia auténtica y refrescante.</p>
                 </div>
             </div>
                
