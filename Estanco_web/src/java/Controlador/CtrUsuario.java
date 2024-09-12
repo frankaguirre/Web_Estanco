@@ -16,21 +16,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.mindrot.jbcrypt.BCrypt;
 
-/**
- *
- * @author HPLAPTOP01
- */
 public class CtrUsuario extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     UsuarioDAO dao = new UsuarioDAO();
     Usuario us = new Usuario();
 
@@ -38,7 +25,6 @@ public class CtrUsuario extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -51,126 +37,97 @@ public class CtrUsuario extends HttpServlet {
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param password
-     * @return
-     */
-   public static String encriptarcontrasena(String password){
-    String passwordencriptado = BCrypt.hashpw(password, BCrypt.gensalt());
-    return passwordencriptado;
-}
-
-@Override
-protected void doGet(HttpServletRequest request, HttpServletResponse response)
-        
-        throws ServletException, IOException {
-    List<Usuario> list = dao.listar();
-    String id, nomb, ape, dir, tel, cor, usu, pas, tip, fechaNac;
-    String accion = request.getParameter("accion");
-    System.out.println("accion: " + accion);
-    switch (accion){
-        case "Listar":
-            list = dao.listar();
-            request.setAttribute("usuarios", list);
-            request.getRequestDispatcher("/vista/ListarUsuario.jsp").forward(request, response);
-            break;
-        case "buscar":
-            String nom = request.getParameter("txtbuscar");
-            list = dao.listar(nom);
-            request.setAttribute("usuarios", list);
-            request.getRequestDispatcher("/vista/ListarUsuario.jsp").forward(request, response);
-            break;
-        case "nuevo":
-            id = request.getParameter("id");
-            nomb = request.getParameter("nombre");
-            ape = request.getParameter("apellido");
-            dir = request.getParameter("direccion");
-            tel = request.getParameter("telefono");
-            cor = request.getParameter("correo");
-            usu = request.getParameter("usuario");
-            pas = request.getParameter("contrasena");
-            tip = request.getParameter("tipo");
-            fechaNac = request.getParameter("fecha_nacimiento");
-            
-            us.setId(id);
-            us.setNombre(nomb);
-            us.setApellido(ape);
-            us.setDireccion(dir);
-            us.setTelefono(tel);
-            us.setCorreo(cor);
-            us.setUsuario(usu);
-            String contrasenaencriptada = encriptarcontrasena(pas);
-            us.setContrasena(contrasenaencriptada);
-            us.setTipo(tip);
-            us.setFecha_nacimiento(fechaNac);
-            
-            dao.crear(us);
-            list = dao.listar();
-            request.setAttribute("usuarios", list);
-            request.getRequestDispatcher("/vista/ListarUsuario.jsp").forward(request, response);
-            break;
-        case "editar":
-            String idusu = request.getParameter("id");
-            us = dao.list(idusu);
-            request.setAttribute("usuarios", us);
-            System.out.println("contrasena: " + us.getContrasena());
-            request.getRequestDispatcher("/vista/ListarUsuario.jsp").forward(request, response);
-            break;
-        case "actualizar":
-            id = request.getParameter("id");
-            nomb = request.getParameter("nombre");
-            ape = request.getParameter("apellido");
-            dir = request.getParameter("direccion");
-            tel = request.getParameter("telefono");
-            cor = request.getParameter("correo");
-            usu = request.getParameter("usuario");
-            pas = request.getParameter("contrasena");
-            tip = request.getParameter("tipo");
-            fechaNac = request.getParameter("fecha_nacimiento");
-            
-            us.setId(id);
-            us.setNombre(nomb);
-            us.setApellido(ape);
-            us.setDireccion(dir);
-            us.setTelefono(tel);
-            us.setCorreo(cor);
-            us.setUsuario(usu);
-            if (pas != null && !pas.isEmpty()) {
-                us.setContrasena(encriptarcontrasena(pas));
-            }
-            us.setTipo(tip);
-            us.setFecha_nacimiento(fechaNac);
-            
-            dao.editar(us);
-            list = dao.listar();
-            request.setAttribute("usuarios", list);
-            request.getRequestDispatcher("/vista/ListarUsuario.jsp").forward(request, response);
-            break;
-        case "eliminar":
-            id = request.getParameter("id");
-            System.out.println("identificacion: " + id);
-            dao.eliminar(id);
-            list = dao.listar();
-            request.setAttribute("usuarios", list);
-            request.getRequestDispatcher("/vista/ListarUsuario.jsp").forward(request, response);
-            break;
+    public static String encriptarcontrasena(String password) {
+        return BCrypt.hashpw(password, BCrypt.gensalt());
     }
-        
-}
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        List<Usuario> list = dao.listar();
+        String id, nomb, ape, dir, tel, cor, usu, pas, tip, fechaNac;
+        String accion = request.getParameter("accion");
+        System.out.println("accion: " + accion);
+        switch (accion) {
+            case "Listar":
+                list = dao.listar();
+                request.setAttribute("usuarios", list);
+                request.getRequestDispatcher("/vista/ListarUsuario.jsp").forward(request, response);
+                break;
+            case "buscar":
+                String nom = request.getParameter("txtbuscar");
+                list = dao.listar(nom);
+                request.setAttribute("usuarios", list);
+                request.getRequestDispatcher("/vista/ListarUsuario.jsp").forward(request, response);
+                break;
+            case "nuevo":
+                request.getRequestDispatcher("/vista/NuevoUsuario.jsp").forward(request, response);
+                break;
+            case "editar":
+                id = request.getParameter("id");
+                us = dao.list(id);
+                request.setAttribute("usuario", us);
+                request.getRequestDispatcher("/vista/EditarUsuario.jsp").forward(request, response);
+                break;
+            case "actualizar":
+                id = request.getParameter("id");
 
-    private static final long serialVersionUID = 1L;
+                // Obtener los datos del formulario
+                String nombre = request.getParameter("nombre");
+                String apellido = request.getParameter("apellido");
+                String fechaNacimiento = request.getParameter("fecha_nacimiento");
+                String direccion = request.getParameter("direccion");
+                String telefono = request.getParameter("telefono");
+                String correo = request.getParameter("correo");
+                String usuario = request.getParameter("usuario");
+                String contrasena = request.getParameter("contrasena");
+                String tipo = request.getParameter("tipo");
+
+                // Obtener el usuario actual de la base de datos
+                Usuario usuarioExistente = dao.list(id);
+
+                if (usuarioExistente != null) {
+                    // Actualizar los campos del usuario
+                    usuarioExistente.setNombre(nombre);
+                    usuarioExistente.setApellido(apellido);
+                    usuarioExistente.setFecha_nacimiento(fechaNacimiento);
+                    usuarioExistente.setDireccion(direccion);
+                    usuarioExistente.setTelefono(telefono);
+                    usuarioExistente.setCorreo(correo);
+                    usuarioExistente.setUsuario(usuario);
+
+                    // Si se proporciona una nueva contraseña, encriptarla
+                    if (contrasena != null && !contrasena.isEmpty()) {
+                        usuarioExistente.setContrasena(encriptarcontrasena(contrasena));
+                    } else {
+                        usuarioExistente.setContrasena(usuarioExistente.getContrasena()); // Mantener la contraseña existente
+                    }
+                    
+                    usuarioExistente.setTipo(tipo);
+
+                    // Llamar al método para actualizar el usuario
+                    dao.editar(usuarioExistente);
+
+                    // Listar de nuevo los usuarios actualizados
+                    list = dao.listar();
+                    request.setAttribute("usuarios", list);
+                    request.getRequestDispatcher("/vista/ListarUsuario.jsp").forward(request, response);
+                } else {
+                    // Manejar error si el usuario no existe
+                    request.setAttribute("error", "Usuario no encontrado.");
+                    request.getRequestDispatcher("/vista/Error.jsp").forward(request, response);
+                }
+                break;
+            case "eliminar":
+                id = request.getParameter("id");
+                System.out.println("identificacion: " + id);
+                dao.eliminar(id);
+                list = dao.listar();
+                request.setAttribute("usuarios", list);
+                request.getRequestDispatcher("/vista/ListarUsuario.jsp").forward(request, response);
+                break;
+        }
+    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -182,42 +139,19 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
             String direccion = request.getParameter("direccion");
             String telefono = request.getParameter("telefono");
             String correo = request.getParameter("correo");
-            String fechanaci = request.getParameter("fechanaci");
+            String fechaNac = request.getParameter("fecha_nacimiento");
             String usuario = request.getParameter("usuario");
             String contrasena = request.getParameter("contrasena");
 
             UsuarioDAO usuarioDAO = new UsuarioDAO();
-            usuarioDAO.crearUsuario(nombre, apellido, direccion, telefono, correo, fechanaci, usuario, contrasena);
+            usuarioDAO.crearUsuario(nombre, apellido, direccion, telefono, correo, fechaNac, usuario, contrasena);
 
             response.sendRedirect("/Estanco_web/vista/Login.jsp");
         }
-      
-  
-    
-    
-    /**
-     *
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException
-     */
- 
+    }
 
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    
-}@Override
+    @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
-
+    }
 }
-
-
-
-

@@ -62,7 +62,7 @@ public final class ListarUsuario_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("        <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css\">\r\n");
       out.write("        <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH\" crossorigin=\"anonymous\">\r\n");
       out.write("        <title>Usuarios</title>\r\n");
-      out.write("        <link href=\"../css/admin.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n");
+      out.write("        <link href=\"/Estanco_web/css/admin.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n");
       out.write("    </head>\r\n");
       out.write("    ");
 
@@ -175,13 +175,16 @@ public final class ListarUsuario_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("                                </thead>\r\n");
       out.write("                                <tbody>\r\n");
       out.write("                                    <!-- Iteración sobre la lista de usuarios -->\r\n");
-      out.write("                                ");
+      out.write("                                    ");
       if (_jspx_meth_c_forEach_0(_jspx_page_context))
         return;
       out.write("\r\n");
-      out.write("                                ");
+      out.write("                                    ");
       if (_jspx_meth_c_forEach_1(_jspx_page_context))
         return;
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("                                </tbody>\r\n");
@@ -290,51 +293,51 @@ public final class ListarUsuario_jsp extends org.apache.jasper.runtime.HttpJspBa
       if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
           out.write("\r\n");
-          out.write("                                    <tr>\r\n");
-          out.write("                                        <td class=\"text-center\">");
+          out.write("                                        <tr>\r\n");
+          out.write("                                            <td class=\"text-center\">");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\r\n");
-          out.write("                                        <td class=\"text-center\">");
+          out.write("                                            <td class=\"text-center\">");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getNombre()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\r\n");
-          out.write("                                        <td class=\"text-center\">");
+          out.write("                                            <td class=\"text-center\">");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getApellido()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\r\n");
-          out.write("                                        <td class=\"text-center\">");
+          out.write("                                            <td class=\"text-center\">");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getFecha_nacimiento()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\r\n");
-          out.write("                                        <td class=\"text-center\">");
+          out.write("                                            <td class=\"text-center\">");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getDireccion()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\r\n");
-          out.write("                                        <td class=\"text-center\">");
+          out.write("                                            <td class=\"text-center\">");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getTelefono()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\r\n");
-          out.write("                                        <td class=\"text-center\">");
+          out.write("                                            <td class=\"text-center\">");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getCorreo()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\r\n");
-          out.write("                                        <td class=\"text-center\">");
+          out.write("                                            <td class=\"text-center\">");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getUsuario()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\r\n");
-          out.write("                                        <td class=\"text-center\">");
+          out.write("                                            <td class=\"text-center\">");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getTipo()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\r\n");
-          out.write("                                        <td class=\"text-center\">\r\n");
-          out.write("                                            <!-- Botón Editar -->\r\n");
-          out.write("                                            <a class=\"btn btn-warning\" href=\"#\" data-bs-toggle=\"modal\" data-bs-target=\"#editarUsuarioModal");
+          out.write("                                            <td class=\"text-center\">\r\n");
+          out.write("                                                <!-- Botón Editar -->\r\n");
+          out.write("                                                <a class=\"btn btn-warning\" href=\"#\" data-bs-toggle=\"modal\" data-bs-target=\"#editarUsuarioModal");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("\">\r\n");
-          out.write("                                                <i class=\"bi bi-pencil-fill\"></i>\r\n");
-          out.write("                                            </a>\r\n");
+          out.write("                                                    <i class=\"bi bi-pencil-fill\"></i>\r\n");
+          out.write("                                                </a>\r\n");
           out.write("\r\n");
-          out.write("                                            <!-- Botón Eliminar -->\r\n");
-          out.write("                                            <a class=\"btn btn-danger\" href=\"/Estanco_web/CtrUsuario?accion=eliminar&id=");
+          out.write("                                                <!-- Botón Eliminar -->\r\n");
+          out.write("                                                <a class=\"btn btn-danger\" href=\"/Estanco_web/CtrUsuario?accion=eliminar&id=");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("\">\r\n");
-          out.write("                                                <i class=\"bi bi-trash-fill\"></i>\r\n");
-          out.write("                                            </a>\r\n");
-          out.write("                                        </td>\r\n");
-          out.write("                                    </tr>\r\n");
-          out.write("                                ");
+          out.write("                                                    <i class=\"bi bi-trash-fill\"></i>\r\n");
+          out.write("                                                </a>\r\n");
+          out.write("                                            </td>\r\n");
+          out.write("                                        </tr>\r\n");
+          out.write("                                    ");
           int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
             break;
@@ -370,7 +373,7 @@ public final class ListarUsuario_jsp extends org.apache.jasper.runtime.HttpJspBa
       if (_jspx_eval_c_forEach_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
           out.write("\r\n");
-          out.write("                                    <!-- Modal para editar usuario -->\r\n");
+          out.write("                                        <!-- Modal para editar todos los campos del usuario -->\r\n");
           out.write("                                    <div class=\"modal fade\" id=\"editarUsuarioModal");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("\" tabindex=\"-1\" aria-labelledby=\"editarUsuarioModalLabel\" aria-hidden=\"true\">\r\n");
@@ -381,12 +384,13 @@ public final class ListarUsuario_jsp extends org.apache.jasper.runtime.HttpJspBa
           out.write("                                                    <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>\r\n");
           out.write("                                                </div>\r\n");
           out.write("                                                <div class=\"modal-body\">\r\n");
-          out.write("                                                    <form action=\"/Estanco_web/CtrUsuario?accion=actualizar\" method=\"post\">\r\n");
+          out.write("                                                    <form action=\"/Estanco_web/CtrUsuario?accion=editar\" method=\"post\">\r\n");
           out.write("                                                        <input type=\"hidden\" name=\"accion\" value=\"actualizar\">\r\n");
           out.write("                                                        <input type=\"hidden\" name=\"id\" value=\"");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("\">\r\n");
           out.write("\r\n");
+          out.write("                                                        <!-- Campo Nombre -->\r\n");
           out.write("                                                        <div class=\"mb-3\">\r\n");
           out.write("                                                            <label for=\"nombre");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
@@ -398,6 +402,7 @@ public final class ListarUsuario_jsp extends org.apache.jasper.runtime.HttpJspBa
           out.write("\" required>\r\n");
           out.write("                                                        </div>\r\n");
           out.write("\r\n");
+          out.write("                                                        <!-- Campo Apellido -->\r\n");
           out.write("                                                        <div class=\"mb-3\">\r\n");
           out.write("                                                            <label for=\"apellido");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
@@ -409,6 +414,7 @@ public final class ListarUsuario_jsp extends org.apache.jasper.runtime.HttpJspBa
           out.write("\" required>\r\n");
           out.write("                                                        </div>\r\n");
           out.write("\r\n");
+          out.write("                                                        <!-- Campo Fecha de Nacimiento -->\r\n");
           out.write("                                                        <div class=\"mb-3\">\r\n");
           out.write("                                                            <label for=\"fecha_nacimiento");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
@@ -420,6 +426,7 @@ public final class ListarUsuario_jsp extends org.apache.jasper.runtime.HttpJspBa
           out.write("\" required>\r\n");
           out.write("                                                        </div>\r\n");
           out.write("\r\n");
+          out.write("                                                        <!-- Campo Dirección -->\r\n");
           out.write("                                                        <div class=\"mb-3\">\r\n");
           out.write("                                                            <label for=\"direccion");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
@@ -431,6 +438,7 @@ public final class ListarUsuario_jsp extends org.apache.jasper.runtime.HttpJspBa
           out.write("\" required>\r\n");
           out.write("                                                        </div>\r\n");
           out.write("\r\n");
+          out.write("                                                        <!-- Campo Teléfono -->\r\n");
           out.write("                                                        <div class=\"mb-3\">\r\n");
           out.write("                                                            <label for=\"telefono");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
@@ -442,6 +450,7 @@ public final class ListarUsuario_jsp extends org.apache.jasper.runtime.HttpJspBa
           out.write("\" required>\r\n");
           out.write("                                                        </div>\r\n");
           out.write("\r\n");
+          out.write("                                                        <!-- Campo Correo -->\r\n");
           out.write("                                                        <div class=\"mb-3\">\r\n");
           out.write("                                                            <label for=\"correo");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
@@ -453,6 +462,7 @@ public final class ListarUsuario_jsp extends org.apache.jasper.runtime.HttpJspBa
           out.write("\" required>\r\n");
           out.write("                                                        </div>\r\n");
           out.write("\r\n");
+          out.write("                                                        <!-- Campo Usuario -->\r\n");
           out.write("                                                        <div class=\"mb-3\">\r\n");
           out.write("                                                            <label for=\"usuario");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
@@ -464,6 +474,7 @@ public final class ListarUsuario_jsp extends org.apache.jasper.runtime.HttpJspBa
           out.write("\" required>\r\n");
           out.write("                                                        </div>\r\n");
           out.write("\r\n");
+          out.write("                                                        <!-- Campo Tipo -->\r\n");
           out.write("                                                        <div class=\"mb-3\">\r\n");
           out.write("                                                            <label for=\"tipo");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
@@ -472,10 +483,10 @@ public final class ListarUsuario_jsp extends org.apache.jasper.runtime.HttpJspBa
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("\" required>\r\n");
           out.write("                                                                <option value=\"Administrador\" ");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getTipo() == 'Administrador' ? 'selected' : ''}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getTipo() eq 'Administrador' ? 'selected' : ''}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write(">Administrador</option>\r\n");
           out.write("                                                                <option value=\"Cliente\" ");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getTipo() == 'Cliente' ? 'selected' : ''}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${usu.getTipo() eq 'Cliente' ? 'selected' : ''}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write(">Cliente</option>\r\n");
           out.write("                                                            </select>\r\n");
           out.write("                                                        </div>\r\n");

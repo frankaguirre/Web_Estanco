@@ -79,8 +79,8 @@
                     <div class="user-profile">
                         <img src="images/profile-img.jpg" alt="Profile Image" />
                         <div class="user-detail">
-                            <h3>Alejandra</h3>
-                            <span>Administrador</span>
+                            <h3>${usuario.getUsuario()}</h3>
+                            <span>${usuario.getTipo()}</span>
                         </div>
                     </div>
                 </div>
@@ -124,32 +124,32 @@
                                 </thead>
                                 <tbody>
                                     <!-- Iteración sobre la lista de usuarios -->
-                                <c:forEach var="usu" items="${usuarios}">
-                                    <tr>
-                                        <td class="text-center">${usu.getId()}</td>
-                                        <td class="text-center">${usu.getNombre()}</td>
-                                        <td class="text-center">${usu.getApellido()}</td>
-                                        <td class="text-center">${usu.getFecha_nacimiento()}</td>
-                                        <td class="text-center">${usu.getDireccion()}</td>
-                                        <td class="text-center">${usu.getTelefono()}</td>
-                                        <td class="text-center">${usu.getCorreo()}</td>
-                                        <td class="text-center">${usu.getUsuario()}</td>
-                                        <td class="text-center">${usu.getTipo()}</td>
-                                        <td class="text-center">
-                                            <!-- Botón Editar -->
-                                            <a class="btn btn-warning" href="#" data-bs-toggle="modal" data-bs-target="#editarUsuarioModal${usu.getId()}">
-                                                <i class="bi bi-pencil-fill"></i>
-                                            </a>
+                                    <c:forEach var="usu" items="${usuarios}">
+                                        <tr>
+                                            <td class="text-center">${usu.getId()}</td>
+                                            <td class="text-center">${usu.getNombre()}</td>
+                                            <td class="text-center">${usu.getApellido()}</td>
+                                            <td class="text-center">${usu.getFecha_nacimiento()}</td>
+                                            <td class="text-center">${usu.getDireccion()}</td>
+                                            <td class="text-center">${usu.getTelefono()}</td>
+                                            <td class="text-center">${usu.getCorreo()}</td>
+                                            <td class="text-center">${usu.getUsuario()}</td>
+                                            <td class="text-center">${usu.getTipo()}</td>
+                                            <td class="text-center">
+                                                <!-- Botón Editar -->
+                                                <a class="btn btn-warning" href="#" data-bs-toggle="modal" data-bs-target="#editarUsuarioModal${usu.getId()}">
+                                                    <i class="bi bi-pencil-fill"></i>
+                                                </a>
 
-                                            <!-- Botón Eliminar -->
-                                            <a class="btn btn-danger" href="/Estanco_web/CtrUsuario?accion=eliminar&id=${usu.getId()}">
-                                                <i class="bi bi-trash-fill"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                </c:forEach>
-                                <c:forEach var="usu" items="${usuarios}">
-                                    <!-- Modal para editar usuario -->
+                                                <!-- Botón Eliminar -->
+                                                <a class="btn btn-danger" href="/Estanco_web/CtrUsuario?accion=eliminar&id=${usu.getId()}">
+                                                    <i class="bi bi-trash-fill"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                    <c:forEach var="usu" items="${usuarios}">
+                                        <!-- Modal para editar todos los campos del usuario -->
                                     <div class="modal fade" id="editarUsuarioModal${usu.getId()}" tabindex="-1" aria-labelledby="editarUsuarioModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
@@ -158,50 +158,58 @@
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form action="/Estanco_web/CtrUsuario?accion=actualizar" method="post">
+                                                    <form action="/Estanco_web/CtrUsuario?accion=editar" method="post">
                                                         <input type="hidden" name="accion" value="actualizar">
                                                         <input type="hidden" name="id" value="${usu.getId()}">
 
+                                                        <!-- Campo Nombre -->
                                                         <div class="mb-3">
                                                             <label for="nombre${usu.getId()}" class="form-label">Nombre</label>
                                                             <input type="text" class="form-control" name="nombre" id="nombre${usu.getId()}" value="${usu.getNombre()}" required>
                                                         </div>
 
+                                                        <!-- Campo Apellido -->
                                                         <div class="mb-3">
                                                             <label for="apellido${usu.getId()}" class="form-label">Apellido</label>
                                                             <input type="text" class="form-control" name="apellido" id="apellido${usu.getId()}" value="${usu.getApellido()}" required>
                                                         </div>
 
+                                                        <!-- Campo Fecha de Nacimiento -->
                                                         <div class="mb-3">
                                                             <label for="fecha_nacimiento${usu.getId()}" class="form-label">Fecha de Nacimiento</label>
                                                             <input type="date" class="form-control" name="fecha_nacimiento" id="fecha_nacimiento${usu.getId()}" value="${usu.getFecha_nacimiento()}" required>
                                                         </div>
 
+                                                        <!-- Campo Dirección -->
                                                         <div class="mb-3">
                                                             <label for="direccion${usu.getId()}" class="form-label">Dirección</label>
                                                             <input type="text" class="form-control" name="direccion" id="direccion${usu.getId()}" value="${usu.getDireccion()}" required>
                                                         </div>
 
+                                                        <!-- Campo Teléfono -->
                                                         <div class="mb-3">
                                                             <label for="telefono${usu.getId()}" class="form-label">Teléfono</label>
                                                             <input type="text" class="form-control" name="telefono" id="telefono${usu.getId()}" value="${usu.getTelefono()}" required>
                                                         </div>
 
+                                                        <!-- Campo Correo -->
                                                         <div class="mb-3">
                                                             <label for="correo${usu.getId()}" class="form-label">Correo</label>
                                                             <input type="email" class="form-control" name="correo" id="correo${usu.getId()}" value="${usu.getCorreo()}" required>
                                                         </div>
 
+                                                        <!-- Campo Usuario -->
                                                         <div class="mb-3">
                                                             <label for="usuario${usu.getId()}" class="form-label">Usuario</label>
                                                             <input type="text" class="form-control" name="usuario" id="usuario${usu.getId()}" value="${usu.getUsuario()}" required>
                                                         </div>
 
+                                                        <!-- Campo Tipo -->
                                                         <div class="mb-3">
                                                             <label for="tipo${usu.getId()}" class="form-label">Tipo</label>
                                                             <select class="form-control" name="tipo" id="tipo${usu.getId()}" required>
-                                                                <option value="Administrador" ${usu.getTipo() == 'Administrador' ? 'selected' : ''}>Administrador</option>
-                                                                <option value="Cliente" ${usu.getTipo() == 'Cliente' ? 'selected' : ''}>Cliente</option>
+                                                                <option value="Administrador" ${usu.getTipo() eq 'Administrador' ? 'selected' : ''}>Administrador</option>
+                                                                <option value="Cliente" ${usu.getTipo() eq 'Cliente' ? 'selected' : ''}>Cliente</option>
                                                             </select>
                                                         </div>
 
@@ -215,6 +223,9 @@
                                         </div>
                                     </div>
                                 </c:forEach>
+
+
+
 
                                 </tbody>
                             </table>
@@ -252,7 +263,10 @@
                                     </div>
                                     <div class="input-group">
                                         <label for="correo" class="form-label">Fecha_nacimiento</label>
-                                        <i class="fas fa-calendar icon"></i>
+                                        <div class="input-group">
+                                            <i class="fas fa-calendar icon"></i>
+                                            <input type="date" class="formulario_input" name="fechanaci" id="fechanaci" required>
+                                        </div>
                                         <input type="date" class="formulario_input" name="fechanaci" id="fechanaci" required>
                                     </div>
                                     <div class="mb-3">

@@ -17,6 +17,8 @@ import org.mindrot.jbcrypt.BCrypt;
  */
 public class CtrValidar extends HttpServlet {
 
+    private static final long serialVersionUID = 1L;
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -65,10 +67,9 @@ public class CtrValidar extends HttpServlet {
     /**
      * Handles the HTTP <code>POST</code> method.
      *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * @param password
+     * @param contrasenaencriptada
+     * @return
      */
     public static boolean verificarcontrasena (String password, String contrasenaencriptada){
         return BCrypt.checkpw(password, contrasenaencriptada);
