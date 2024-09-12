@@ -22,41 +22,50 @@ public class UsuarioDAO {
     Usuario us = new Usuario();
     Usuario usua;
 
-    public Usuario validar(String usu, String pass) {
-        usua = new Usuario();
+      public Usuario validar(String usu, String pass) {
+        Usuario usua = null; // Inicializa como null
         try {
             Conexcion = new Conectar();
             con = Conexcion.crearconexion();
             if (con != null) {
-                System.out.println("Se ha establecido una conexión con la base de datos");
                 pstm = con.prepareStatement("SELECT * FROM usuario WHERE usuario = ?");
                 pstm.setString(1, usu);
                 rs = pstm.executeQuery();
                 if (rs.next()) {
-                    if (!rs.getString("usuario").equals("")) {
-                        usua.setId(rs.getString("Id"));
-                        usua.setNombre(rs.getString("nombre"));
-                        usua.setApellido(rs.getString("apellido"));
-                        usua.setDireccion(rs.getString("direccion"));
-                        usua.setTelefono(rs.getString("telefono"));
-                        usua.setUsuario(rs.getString("usuario"));
-                        usua.setCorreo(rs.getString("correo"));
-                        usua.setContrasena(rs.getString("contrasena"));
-                        usua.setTipo(rs.getString("tipo"));
+                    // Recuperar datos del usuario
+                    usua = new Usuario();
+                    usua.setId(rs.getString("Id"));
+                    usua.setNombre(rs.getString("nombre"));
+                    usua.setApellido(rs.getString("apellido"));
+                    usua.setTelefono(rs.getString("telefono"));
+                    usua.setCorreo(rs.getString("correo"));
+                    usua.setUsuario(rs.getString("usuario"));
+                    usua.setFecha_nacimiento(rs.getString("fecha_nacimiento"));
+                    usua.setContrasena(rs.getString("contrasena")); // Contraseña encriptada
+                    usua.setTipo(rs.getString("tipo"));
 
-                        // Verificar la contraseña
-                        boolean verificarpassword = BCrypt.checkpw(pass, rs.getString("contrasena"));
-                        if (!verificarpassword) {
-                            return null; // Contraseña incorrecta, retornar null
-                        }
+                    // Verificar la contraseña
+                    boolean verificarpassword = BCrypt.checkpw(pass, rs.getString("contrasena"));
+                    if (!verificarpassword) {
+                        usua = null; // Contraseña incorrecta, retornar null
                     }
                 }
             }
         } catch (Exception e) {
             System.out.println("Error al conectarse con la base de datos: " + e);
+        } finally {
+            // Cerrar conexiones, resultsets, etc.
+            try {
+                if (rs != null) rs.close();
+                if (pstm != null) pstm.close();
+                if (con != null) con.close();
+            } catch (SQLException e) {
+                System.out.println("Error al cerrar la conexión: " + e);
+            }
         }
         return usua;
     }
+
 
     public List<Usuario> listar() {
         ArrayList<Usuario> list = new ArrayList<>();
@@ -73,7 +82,6 @@ public class UsuarioDAO {
                 usu.setId(rs.getString("Id"));
                 usu.setNombre(rs.getString("nombre"));
                 usu.setApellido(rs.getString("apellido"));
-                usu.setDireccion(rs.getString("direccion"));
                 usu.setTelefono(rs.getString("telefono"));
                 usu.setCorreo(rs.getString("correo"));
                 usu.setUsuario(rs.getString("usuario"));
@@ -104,7 +112,6 @@ public class UsuarioDAO {
                 usu.setId(rs.getString("Id"));
                 usu.setNombre(rs.getString("nombre"));
                 usu.setApellido(rs.getString("apellido"));
-                usu.setDireccion(rs.getString("direccion"));
                 usu.setTelefono(rs.getString("telefono"));
                 usu.setCorreo(rs.getString("correo"));
                 usu.setUsuario(rs.getString("usuario"));
@@ -125,21 +132,20 @@ public class UsuarioDAO {
             if (con != null) {
                 System.out.println("Se ha establecido una conexión con la base de datos");
             }
-            pstm = con.prepareStatement("INSERT INTO usuario (Id, nombre, apellido, direccion, telefono, correo, fecha_nacimiento, usuario, contrasena, tipo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            pstm = con.prepareStatement("INSERT INTO usuario (Id, nombre, apellido, telefono, correo, fecha_nacimiento, usuario, contrasena, tipo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
             pstm.setString(1, us.getId());
             pstm.setString(2, us.getNombre());
             pstm.setString(3, us.getApellido());
-            pstm.setString(4, us.getDireccion());
-            pstm.setString(5, us.getTelefono());
-            pstm.setString(6, us.getCorreo());
-            pstm.setString(7, us.getFecha_nacimiento());
+            pstm.setString(4, us.getTelefono());
+            pstm.setString(5, us.getCorreo());
+            pstm.setString(6, us.getFecha_nacimiento());
 
             // Encriptar la contraseña antes de guardarla
             String hashedPassword = BCrypt.hashpw(us.getContrasena(), BCrypt.gensalt());
-            pstm.setString(8, us.getUsuario());
-            pstm.setString(9, hashedPassword); // Contraseña encriptada
-            pstm.setString(10, us.getTipo());
+            pstm.setString(7, us.getUsuario());
+            pstm.setString(8, hashedPassword); // Contraseña encriptada
+            pstm.setString(9, us.getTipo());
             pstm.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error al insertar el usuario: " + e);
@@ -162,7 +168,6 @@ public class UsuarioDAO {
                 usu.setId(rs.getString("Id"));
                 usu.setNombre(rs.getString("nombre"));
                 usu.setApellido(rs.getString("apellido"));
-                usu.setDireccion(rs.getString("direccion"));
                 usu.setTelefono(rs.getString("telefono"));
                 usu.setCorreo(rs.getString("correo"));
                 usu.setUsuario(rs.getString("usuario"));
@@ -176,7 +181,7 @@ public class UsuarioDAO {
         return usu;
     }
 
-       public boolean editar(Usuario us) {
+    public boolean editar(Usuario us) {
         boolean actualizado = false;
         try {
             Conexcion = new Conectar();
@@ -192,7 +197,7 @@ public class UsuarioDAO {
                 if (rs.next()) {
                     // Si el usuario existe, procedemos a actualizar
                     StringBuilder sql = new StringBuilder("UPDATE usuario SET ");
-                    sql.append("nombre = ?, apellido = ?, fecha_nacimiento = ?, direccion = ?, ");
+                    sql.append("nombre = ?, apellido = ?, fecha_nacimiento = ?, ");
                     sql.append("telefono = ?, correo = ?, usuario = ?, tipo = ?");
 
                     // Si se proporciona una nueva contraseña, la incluimos en la actualización
@@ -206,14 +211,13 @@ public class UsuarioDAO {
                     pstm.setString(1, us.getNombre());
                     pstm.setString(2, us.getApellido());
                     pstm.setString(3, us.getFecha_nacimiento());
-                    pstm.setString(4, us.getDireccion());
-                    pstm.setString(5, us.getTelefono());
-                    pstm.setString(6, us.getCorreo());
-                    pstm.setString(7, us.getUsuario());
-                    pstm.setString(8, us.getTipo());
+                    pstm.setString(4, us.getTelefono());
+                    pstm.setString(5, us.getCorreo());
+                    pstm.setString(6, us.getUsuario());
+                    pstm.setString(7, us.getTipo());
 
                     // Si se proporciona una nueva contraseña, la establecemos en el PreparedStatement
-                    int index = 9;
+                    int index = 8;
                     if (us.getContrasena() != null && !us.getContrasena().isEmpty()) {
                         String hashedPassword = BCrypt.hashpw(us.getContrasena(), BCrypt.gensalt());
                         pstm.setString(index++, hashedPassword);
@@ -278,23 +282,22 @@ public class UsuarioDAO {
         return eliminado;
     }
 
-    public void crearUsuario(String nombre, String apellido, String direccion, String telefono, String correo, String fechanaci, String usuario, String contrasena) {
+    public void crearUsuario(String nombre, String apellido, String telefono, String correo, String fechanaci, String usuario, String contrasena) {
         Conectar conectar = new Conectar();
         Connection con = conectar.crearconexion();
-        String sql = "INSERT INTO usuario (nombre, apellido, direccion, telefono, correo, fecha_nacimiento, usuario, contrasena, tipo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO usuario (nombre, apellido, telefono, correo, fecha_nacimiento, usuario, contrasena, tipo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setString(1, nombre);
             ps.setString(2, apellido);
-            ps.setString(3, direccion);
-            ps.setString(4, telefono);
-            ps.setString(5, correo);
-            ps.setString(6, fechanaci);
-            ps.setString(7, usuario);
+            ps.setString(3, telefono);
+            ps.setString(4, correo);
+            ps.setString(5, fechanaci);
+            ps.setString(6, usuario);
             // Encriptar la contraseña antes de guardarla
             String contrasenaEncriptada = BCrypt.hashpw(contrasena, BCrypt.gensalt());
-            ps.setString(8, contrasenaEncriptada);
-            ps.setString(9, ""); // Establecer el tipo de usuario como 'Cliente'
+            ps.setString(7, contrasenaEncriptada);
+            ps.setString(8, ""); // Establecer el tipo de usuario como 'Cliente'
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -309,3 +312,4 @@ public class UsuarioDAO {
         }
     }
 }
+

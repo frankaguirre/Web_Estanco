@@ -95,10 +95,7 @@ public final class Login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            </div>\r\n");
       out.write("                        </div>\r\n");
       out.write("                        <div class=\"input-group-row\">\r\n");
-      out.write("                            <div class=\"input-group\">\r\n");
-      out.write("                                <i class=\"fas fa-home icon\"></i>\r\n");
-      out.write("                                <input type=\"text\" class=\"formulario_input\" name=\"direccion\" id=\"direccion\" placeholder=\"Dirección\" required>\r\n");
-      out.write("                            </div>\r\n");
+      out.write("                          \r\n");
       out.write("                            <div class=\"input-group\">\r\n");
       out.write("                                <i class=\"fas fa-phone icon\"></i>\r\n");
       out.write("                                <input type=\"text\" class=\"formulario_input\" name=\"telefono\" id=\"telefono\" placeholder=\"Teléfono\" required>\r\n");

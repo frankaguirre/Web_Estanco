@@ -130,7 +130,7 @@
                                             <td class="text-center">${usu.getNombre()}</td>
                                             <td class="text-center">${usu.getApellido()}</td>
                                             <td class="text-center">${usu.getFecha_nacimiento()}</td>
-                                            <td class="text-center">${usu.getDireccion()}</td>
+                                       
                                             <td class="text-center">${usu.getTelefono()}</td>
                                             <td class="text-center">${usu.getCorreo()}</td>
                                             <td class="text-center">${usu.getUsuario()}</td>
@@ -180,11 +180,8 @@
                                                             <input type="date" class="form-control" name="fecha_nacimiento" id="fecha_nacimiento${usu.getId()}" value="${usu.getFecha_nacimiento()}" required>
                                                         </div>
 
-                                                        <!-- Campo Dirección -->
-                                                        <div class="mb-3">
-                                                            <label for="direccion${usu.getId()}" class="form-label">Dirección</label>
-                                                            <input type="text" class="form-control" name="direccion" id="direccion${usu.getId()}" value="${usu.getDireccion()}" required>
-                                                        </div>
+                                                    
+                                                      
 
                                                         <!-- Campo Teléfono -->
                                                         <div class="mb-3">
@@ -253,10 +250,7 @@
                                         <label for="apellido" class="form-label">Apellido</label>
                                         <input type="text" class="form-control" name="apellido" id="apellido" required>
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="direccion" class="form-label">Dirección</label>
-                                        <input type="text" class="form-control" name="direccion" id="direccion" required>
-                                    </div>
+                                    
                                     <div class="mb-3">
                                         <label for="telefono" class="form-label">Teléfono</label>
                                         <input type="text" class="form-control" name="telefono" id="telefono" required>

@@ -55,10 +55,7 @@
                             </div>
                         </div>
                         <div class="input-group-row">
-                            <div class="input-group">
-                                <i class="fas fa-home icon"></i>
-                                <input type="text" class="formulario_input" name="direccion" id="direccion" placeholder="Dirección" required>
-                            </div>
+                          
                             <div class="input-group">
                                 <i class="fas fa-phone icon"></i>
                                 <input type="text" class="formulario_input" name="telefono" id="telefono" placeholder="Teléfono" required>

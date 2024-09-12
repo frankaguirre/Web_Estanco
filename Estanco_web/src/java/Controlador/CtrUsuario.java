@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import static Controlador.CtrValidar.verificarcontrasena;
 import Modelo.Usuario;
 import Modelo.UsuarioDAO;
 import java.io.IOException;
@@ -14,12 +15,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.mindrot.jbcrypt.BCrypt;
 
 public class CtrUsuario extends HttpServlet {
 
     UsuarioDAO dao = new UsuarioDAO();
     Usuario us = new Usuario();
+    UsuarioDAO usudao = new UsuarioDAO();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -45,7 +48,7 @@ public class CtrUsuario extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         List<Usuario> list = dao.listar();
-        String id, nomb, ape, dir, tel, cor, usu, pas, tip, fechaNac;
+        String id, nomb, ape, tel, cor, usu, pas, tip, fechaNac;
         String accion = request.getParameter("accion");
         System.out.println("accion: " + accion);
         switch (accion) {
@@ -76,7 +79,6 @@ public class CtrUsuario extends HttpServlet {
                 String nombre = request.getParameter("nombre");
                 String apellido = request.getParameter("apellido");
                 String fechaNacimiento = request.getParameter("fecha_nacimiento");
-                String direccion = request.getParameter("direccion");
                 String telefono = request.getParameter("telefono");
                 String correo = request.getParameter("correo");
                 String usuario = request.getParameter("usuario");
@@ -91,7 +93,6 @@ public class CtrUsuario extends HttpServlet {
                     usuarioExistente.setNombre(nombre);
                     usuarioExistente.setApellido(apellido);
                     usuarioExistente.setFecha_nacimiento(fechaNacimiento);
-                    usuarioExistente.setDireccion(direccion);
                     usuarioExistente.setTelefono(telefono);
                     usuarioExistente.setCorreo(correo);
                     usuarioExistente.setUsuario(usuario);
@@ -102,7 +103,7 @@ public class CtrUsuario extends HttpServlet {
                     } else {
                         usuarioExistente.setContrasena(usuarioExistente.getContrasena()); // Mantener la contraseña existente
                     }
-                    
+
                     usuarioExistente.setTipo(tipo);
 
                     // Llamar al método para actualizar el usuario
@@ -130,28 +131,54 @@ public class CtrUsuario extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         String accion = request.getParameter("accion");
 
-        if ("nuevo".equals(accion)) {
-            String nombre = request.getParameter("nombre");
-            String apellido = request.getParameter("apellido");
-            String direccion = request.getParameter("direccion");
-            String telefono = request.getParameter("telefono");
-            String correo = request.getParameter("correo");
-            String fechaNac = request.getParameter("fecha_nacimiento");
-            String usuario = request.getParameter("usuario");
-            String contrasena = request.getParameter("contrasena");
+        if ("Ingresar".equalsIgnoreCase(accion)) {
+            HttpSession sesion = request.getSession();
+            String usu = request.getParameter("txtuser");
+            String pas = request.getParameter("txtpass");
 
-            UsuarioDAO usuarioDAO = new UsuarioDAO();
-            usuarioDAO.crearUsuario(nombre, apellido, direccion, telefono, correo, fechaNac, usuario, contrasena);
+            us = usudao.validar(usu, pas);
 
-            response.sendRedirect("/Estanco_web/vista/Login.jsp");
+            if (us != null && us.getUsuario() != null) {
+                boolean verificarPassword = verificarcontrasena(pas, us.getContrasena());
+
+                if (verificarPassword) {
+                    // Verifica si la contraseña está comprometida
+                    try {
+                        boolean isPwned = PasswordChecker.isPasswordPwned(pas);
+                        if (isPwned) {
+                            response.sendRedirect("/Estanco_web/vista/Login.jsp?ingreso=0&error=pwned");
+                            return;
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        response.sendRedirect("/Estanco_web/vista/Login.jsp?ingreso=0&error=error");
+                        return;
+                    }
+
+                    sesion.setAttribute("log", '1');
+                    sesion.setAttribute("User", us.getUsuario());
+                    sesion.setAttribute("tipo", us.getTipo());
+                    sesion.setAttribute("id", us.getId());
+                    sesion.setAttribute("correo", us.getCorreo());
+                    sesion.setAttribute("usuario", us);
+
+                    if ("Administrador".equals(us.getTipo())) {
+                        response.sendRedirect("/Estanco_web/vista/VentasAdmin.jsp");
+                    } else if ("Cliente".equals(us.getTipo())) {
+                        response.sendRedirect("/Estanco_web/vista/VentasCliente.jsp");
+                    }
+                } else {
+                    response.sendRedirect("/Estanco_web/vista/Login.jsp?ingreso=0");
+                }
+            } else {
+                response.sendRedirect("/Estanco_web/vista/Login.jsp?ingreso=0");
+            }
         }
     }
 
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }
 }

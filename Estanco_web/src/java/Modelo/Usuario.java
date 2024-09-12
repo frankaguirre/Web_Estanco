@@ -13,7 +13,6 @@ public class Usuario {
     String Nombre;
     String Apellido;
     String Fecha_nacimiento;
-    String Direccion;
     String Telefono;
     String Correo;
     String Usuario;
@@ -23,21 +22,17 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(String Id, String Nombre, String Apellido, String Fecha_nacimiento, String Direccion, String Telefono, String Correo, String Usuario, String Contrasena, String Tipo) {
+    public Usuario(String Id, String Nombre, String Apellido, String Fecha_nacimiento, String Telefono, String Correo, String Usuario, String Contrasena, String Tipo) {
         this.Id = Id;
         this.Nombre = Nombre;
         this.Apellido = Apellido;
         this.Fecha_nacimiento = Fecha_nacimiento;
-        this.Direccion = Direccion;
+      
         this.Telefono = Telefono;
         this.Correo = Correo;
         this.Usuario = Usuario;
         this.Contrasena = Contrasena;
         this.Tipo = Tipo;
-    }
-
-    public Usuario(int id, String nombre, String apellido, String fecha_Nacimiento, String direccion, String telefono, String correo, String usuario, String tipo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public String getId() {
@@ -71,14 +66,6 @@ public class Usuario {
 
     public void setFecha_nacimiento(String Fecha_nacimiento) {
         this.Fecha_nacimiento = Fecha_nacimiento;
-    }
-
-    public String getDireccion() {
-        return Direccion;
-    }
-
-    public void setDireccion(String Direccion) {
-        this.Direccion = Direccion;
     }
 
     public String getTelefono() {
